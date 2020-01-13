@@ -1,0 +1,19 @@
+{
+  "name": "cobaltcounsel.com",
+  "version": "1.0.0",
+  "description": "Cobalt Counsel, high-tech, high-performance, highly-reliable lawyers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clausehound/cobaltcounsel.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clausehound/cobaltcounsel.com/issues"
+  },
+  "homepage": "https://github.com/clausehound/cobaltcounsel.com#readme"
+}
