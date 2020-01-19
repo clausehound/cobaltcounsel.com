@@ -12,7 +12,7 @@
           <div class="site-branding-wrap">
             <div class="site-branding">
               <a href="/" title="">
-                <img src="./images/unnamed.png" alt="" />
+                <img src="/images/unnamed.png" alt="" />
               </a>
             </div>
           </div>
@@ -37,19 +37,19 @@
                   id="menu-item-89"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89"
                 >
-                  <a href="./team.html">Team</a>
+                  <a href="/team.html">Team</a>
                 </li>
                 <li
                   id="menu-item-1071"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1071"
                 >
-                  <a href="./transactions.html">Recent Work</a>
+                  <a href="/transactions.html">Recent Work</a>
                 </li>
                 <li
                   id="menu-item-90"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90"
                 >
-                  <a href="./contact.html">Contact Us</a>
+                  <a href="/contact.html">Contact Us</a>
                 </li>
               </ul>
             </div>

@@ -59,7 +59,6 @@
 <script async="" src="./js/analytics.js"></script>
 <script src="./js/jquery.js"></script>
 <script src="./js/communityLoading.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxZYCdZvAJeUeHVVwW2ZoWbOwx9bXI8nU"></script>
 <script src="./js/common.js"></script>
 <script src="./js/util.js"></script>
     `;
