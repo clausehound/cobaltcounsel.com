@@ -1800,16 +1800,25 @@ h3.about-title {
   margin-top: 0.67em;
 }
 
+@media (min-width: 720px) {
+  .contactInfoBox {
+    display: flex;
+  }
+}
+
+.contactInfoBox {
+  position: relative;
+}
 .contact-half-width {
-  float: left;
   width: 30%;
   text-align: left;
   margin-bottom: 0.67em;
+  flex: 1;
 }
 .contactMap {
-  float: left;
   width: 70%;
   max-height: 350px;
+  flex: 2;
 }
 
 .contact-header {
@@ -1818,9 +1827,7 @@ h3.about-title {
 .contact-title {
   margin-top: 60px;
 }
-.contactInfoBox {
-  position: relative;
-}
+
 .break-line {
   margin-top: 20px;
 }
