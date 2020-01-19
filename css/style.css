@@ -3623,3 +3623,190 @@ div.wpcf7-mail-sent-ok {
   color: #fff !important;
   font-size: 13px;
 }
+
+/* Custom rules */
+/* TOP BAR / FOOTER */
+.top-bar,
+.site-footer {
+  background-color: #05003a;
+}
+
+/*Text Color*/
+.top-bar,
+.top-bar .top-bar-contact a,
+.site-footer {
+  color: #878787;
+}
+
+/*Links*/
+.top-bar .top-bar-social a,
+.site-footer a {
+  color: #878787;
+}
+
+/*Links Hovers*/
+.top-bar .top-bar-social a:hover,
+.site-footer a:hover,
+.top-bar .top-bar-social a:focus,
+.site-footer a:focus,
+.top-bar .top-bar-social a:active,
+.site-footer a:active {
+  color: #fff;
+}
+
+/*NAVBAR*/
+
+.sticky-navigation {
+  background-color: #fff;
+}
+
+/*Links*/
+.main-navigation a,
+button.menu-toggle {
+  color: #242461;
+}
+
+/*Link Hovers*/
+.main-navigation a:hover,
+.main-navigation a:active,
+.main-navigation a:focus,
+.main-navigation li:hover > a,
+.current_page_item > a,
+.main-navigation.toggled button.menu-toggle,
+button.menu-toggle:hover,
+button.menu-toggle:focus {
+  color: #242461;
+}
+
+/*ACCENT COLORS (buttons, blocks, solids)*/
+
+a.slider-button,
+.features-title-icon,
+a.view-profile,
+.news-date,
+.widget_search input[type="submit"],
+#siteModal button,
+#siteModal button.modal-close-button,
+#siteModal input[type="submit"] {
+  background-color: #242461;
+}
+
+h4.practice-box-title,
+a.read-more,
+h4.practice-box-title:hover,
+a.read-more:hover {
+  color: #242461;
+}
+
+/*Accents Content*/
+a.slider-button,
+.features-title-icon,
+a.view-profile,
+.news-date span,
+.widget_search input[type="submit"],
+#siteModal button.modal-close-button {
+  color: #fff;
+}
+
+/*SLIDER*/
+
+/*Primary Heading*/
+#main-slider .carousel-title {
+  color: #fff;
+}
+/*Secondary Heading*/
+#main-slider .carousel-content {
+  color: #fff;
+}
+
+/*Indicators*/
+.carousel-indicators .active {
+  background-color: #242461;
+}
+
+/*Buttons*/
+#main-slider .carousel-control.left,
+#main-slider .carousel-control.right {
+  color: #242461;
+}
+
+/*TEXT*/
+
+/*Section Headings*/
+.home-section-title,
+.team-plugin-section-title h2 {
+  color: #242461;
+}
+
+/*Tagline*/
+.ribbon-big-title {
+  color: #ffffff;
+}
+
+/*Body Text*/
+body,
+.testimonial-subname {
+  color: #242461;
+}
+
+/*Link*/
+.lawyer-title a,
+.news-post-title a,
+.news-posted-on a,
+.entry-meta a,
+.entry-meta span,
+.entry-meta .posted-on a,
+.entry-meta .author a,
+.entry-footer a,
+a.team-social-icon-link {
+  color: #242461;
+}
+
+/*Links Hover*/
+.lawyer-title a:hover,
+.news-post-title a:hover,
+.news-posted-on a:hover,
+.entry-meta a:hover,
+.entry-meta span:hover,
+.entry-meta .posted-on a:hover,
+.entry-meta .author a:hover,
+.entry-footer a:hover,
+a.team-social-icon-link:hover {
+  color: #295499;
+}
+
+/*Small Headings*/
+.testimonial-name,
+h3 {
+  color: #242461;
+}
+
+/*Practice Area Icons*/
+.practie-title-icon {
+  color: #05003a;
+}
+
+@media screen and (min-width: 768px) {
+  /*Dropdown Background*/
+  .main-navigation ul ul {
+    background-color: #242461;
+  }
+
+  /*Dropdown Background Hover*/
+  .main-navigation ul ul li:hover {
+    background-color: #05003a;
+  }
+
+  /*Dropdown Links*/
+  .main-navigation ul ul a {
+    color: #fff;
+  }
+}
+
+/* lawyeriax */
+.lawyeriax-lite-big-title {
+  background-image: url(http://remove-header);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
