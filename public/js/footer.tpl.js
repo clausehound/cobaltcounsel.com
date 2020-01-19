@@ -26,7 +26,7 @@
       <div class="col-sm-10 col-sm-offset-1 section-line section-line-footer"></div>
       <div class="site-info-inner">
         Main (Mailing Address): <a target="_blank" href="https://www.google.com/maps/place/${address}">${address}</a>
-        Telephone: 1-647-749-0047 Fax: 1-866-678-7731 E-mail: <a href="${email}">${email}</a> |
+        Telephone: 1-647-749-0047 Fax: 1-866-678-7731 E-mail: <a href="mailto:${email}">${email}</a> |
         Copyright © ${new Date().getFullYear()} Cobalt Lawyers. All Rights Reserved.
       </div>
     </div>
