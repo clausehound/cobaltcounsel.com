@@ -985,7 +985,7 @@ button.menu-toggle:hover {
 --------------------------------------------------------------*/
 
 #page {
-  padding-top: 110px;
+  padding-top: 100px;
 }
 .sticky {
   display: block;
@@ -3816,4 +3816,48 @@ h3 {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+#page {
+  perspective: 300px;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  scroll-behavior: smooth;
+}
+
+.navbar-main {
+  margin: 0;
+}
+
+.parallax-banner {
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: -100;
+}
+
+.parallax-banner:before {
+  display: block;
+  background-color: rgba(70, 70, 70, 0.4);
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index: 150;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.parallax-banner .background {
+  transform: translateZ(60px) scale(0.8);
+  transform-origin: 50% 0;
+  position: absolute;
+  z-index: 100;
+}
+
+.parallax-banner .carousel-caption {
+  padding: 12rem;
+  z-index: 200;
 }
