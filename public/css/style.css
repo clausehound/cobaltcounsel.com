@@ -3864,3 +3864,7 @@ h3 {
   padding: 12rem 0;
   z-index: 200;
 }
+
+#primary-menu.open {
+  display: inherit;
+}
