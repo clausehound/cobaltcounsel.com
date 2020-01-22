@@ -11,7 +11,7 @@
         <div class="header-inner-site-branding">
           <div class="site-branding-wrap">
             <div class="site-branding">
-              <a href="/" title="">
+              <a href="/" title="Cobalt Counsel">
                 <img src="/images/unnamed.png" alt="" />
               </a>
             </div>

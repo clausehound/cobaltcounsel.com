@@ -1348,6 +1348,9 @@ object {
   width: 250px;
   padding-right: 20px;
 }
+.site-branding img {
+  margin-left: -45px;
+}
 .top-bar-social a {
   display: inline-block;
   color: #878787;
@@ -2118,7 +2121,7 @@ li.feed-item > a {
   border-color: #242461;
   border-width: 2px;
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 50%;
 }
 .lawyer-box-content {
   float: right;

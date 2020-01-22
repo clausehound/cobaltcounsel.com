@@ -55,12 +55,10 @@
     }
   }
 </script>
-<script async="" src="./js/fbevents.js"></script>
-<script async="" src="./js/analytics.js"></script>
-<script src="./js/jquery.js"></script>
-<script src="./js/communityLoading.js"></script>
-<script src="./js/common.js"></script>
-<script src="./js/util.js"></script>
+<script async src="./js/fbevents.js"></script>
+<script async src="./js/analytics.js"></script>
+<script async src="./js/common.js"></script>
+<script async src="./js/util.js"></script>
     `;
 
 })();
