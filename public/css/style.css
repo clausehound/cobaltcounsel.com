@@ -2122,6 +2122,8 @@ li.feed-item > a {
   border-width: 2px;
   border-style: solid;
   border-radius: 50%;
+  height: 150px;
+  width: 150px;
 }
 .lawyer-box-content {
   float: right;
