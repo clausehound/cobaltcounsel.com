@@ -2069,7 +2069,13 @@ div > img.community-image-IE {
   line-height: 25px;
 }
 .news-box {
-  padding-bottom: 50px;
+  padding-bottom: 2em;
+}
+.news {
+  margin-bottom: 2em;
+}
+.news > footer {
+  font-size: 18px;
 }
 .latest-news {
   padding-bottom: 0;
