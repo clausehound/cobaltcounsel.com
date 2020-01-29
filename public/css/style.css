@@ -1592,6 +1592,8 @@ h2.home-section-title,
 .ribbon {
   text-align: center;
   background-color: #242461;
+  z-index: 200;
+  position: relative;
 }
 .ribbon-big-title {
   margin-bottom: 0;
@@ -3698,7 +3700,7 @@ h3 {
 
 .parallax-banner {
   position: relative;
-  z-index: -100;
+  z-index: 100;
 }
 
 .parallax-banner:before {
