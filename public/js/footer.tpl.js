@@ -6,15 +6,14 @@
   el.className = 'site-footer';
   el.setAttribute('role', 'contentinifo');
   el.innerHTML = `
-  <hr />
-  <section class="site-info">
-    <address>
-      Main (Mailing Address): <a target="_blank" href="https://www.google.com/maps/place/${address}">${address}</a>
-      Telephone: 1-647-749-0047 Fax: 1-866-678-7731 E-mail: <a href="mailto:${email}">${email}</a> |
-      Copyright © ${new Date().getFullYear()} Cobalt Lawyers. All Rights Reserved.
-    </address>
-  </div>
-    `;
+  <address class="container">
+    <a target="_blank" href="https://www.google.com/maps/place/${address}">${address}</a>
+    <br />
+    Telephone: 1-647-749-0047 Fax: 1-866-678-7731 E-mail: <a href="mailto:${email}">${email}</a>
+    <br />
+    Copyright © ${new Date().getFullYear()} Cobalt Lawyers. All Rights Reserved.
+  </address>
+  `;
 
   document.currentScript.parentNode.insertBefore(el, document.currentScript);
 })();
