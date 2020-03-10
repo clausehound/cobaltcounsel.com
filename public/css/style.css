@@ -355,7 +355,7 @@ textarea {
   color: #775f5e;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  line-height: 25px;
+  line-height: 1.7em;
   -ms-word-wrap: break-word;
   word-wrap: break-word;
 }
@@ -2125,8 +2125,6 @@ li.feed-item > a {
   overflow: hidden;
 }
 .attachment-lawyeriax-team-member-custom-thumbnail {
-  border-color: #242461;
-  border-width: 2px;
   border-style: solid;
   border-radius: 50%;
   height: 150px;
@@ -2143,7 +2141,6 @@ li.feed-item > a {
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 20px;
-  line-height: 26px;
 }
 .lawyer-title a {
   color: #330505;
@@ -2156,7 +2153,6 @@ li.feed-item > a {
   font-size: 14px;
   font-style: normal;
   font-family: "Verdana", sans-serif;
-  line-height: 22px;
 }
 
 ul.lawyer-media-icons {
@@ -2168,43 +2164,14 @@ ul.lawyer-media-icons li {
   margin-right: 5px;
   list-style: none;
 }
-a.view-profile {
-  float: left;
-  padding: 5px 10px;
-  border-radius: 2px;
-  color: #fff;
-  background: #db3936;
-  -webkit-box-shadow: inset 4px 0 0 0 rgba(50, 50, 50, 0.25);
-  box-shadow: inset 4px 0 0 0 rgba(50, 50, 50, 0.25);
-  font-family: "Verdana", sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 20px;
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
-}
-a.view-profile:hover {
-  -webkit-box-shadow: inset 120px 0 0 0 rgba(50, 50, 50, 0.25);
-  box-shadow: inset 120px 0 0 0 rgba(50, 50, 50, 0.25);
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
-}
-.lawyer-box-content-inner {
-  overflow: hidden;
-}
-.lawyer-box-inside {
-  //min-height: 60px;
-}
 .lawyer-box {
   display: inline-block;
   float: none;
   margin-bottom: 50px;
   margin-left: -4px;
 }
-.lawyer-box-wrap {
-  padding-bottom: 8px !important;
-  padding-top: 8px !important;
-  text-align: center;
+.view-profile::before {
+  content: "»";
 }
 
 /*-----------------------
@@ -3466,9 +3433,6 @@ div.wpcf7-mail-sent-ok {
     padding-right: 0;
     text-align: center;
   }
-  .view-profile {
-    float: none !important;
-  }
   .border-left {
     padding-left: 0px;
     box-shadow: none;
@@ -3555,7 +3519,6 @@ button.menu-toggle:focus {
 
 a.slider-button,
 .features-title-icon,
-a.view-profile,
 .news-date,
 .widget_search input[type="submit"],
 #siteModal button,
@@ -3574,7 +3537,6 @@ a.read-more:hover {
 /*Accents Content*/
 a.slider-button,
 .features-title-icon,
-a.view-profile,
 .news-date span,
 .widget_search input[type="submit"],
 #siteModal button.modal-close-button {

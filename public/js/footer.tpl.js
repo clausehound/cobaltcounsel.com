@@ -9,7 +9,7 @@
   <address class="container">
     <a target="_blank" href="https://www.google.com/maps/place/${address}">${address}</a>
     <br />
-    Telephone: 1-647-749-0047 Fax: 1-866-678-7731 E-mail: <a href="mailto:${email}">${email}</a>
+    📞 1-647-749-0047 📠 1-866-678-7731 ✉️  <a href="mailto:${email}">${email}</a>
     <br />
     Copyright © ${new Date().getFullYear()} Cobalt Lawyers. All Rights Reserved.
   </address>
