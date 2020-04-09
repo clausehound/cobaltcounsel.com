@@ -2360,6 +2360,10 @@ figure {
   margin-bottom: 5rem;
 }
 
+.all-testimonials blockquote {
+  margin: 0 1.5em 1em 1.5em;
+}
+
 @media only screen and (max-width: 525px) {
   .carousel-centered {
     height: 250px;
