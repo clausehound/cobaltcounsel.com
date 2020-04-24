@@ -125,7 +125,10 @@
   const section = document.createElement("section");
   section.className = "all-testimonials";
 
-  testimonials.forEach(testimonial => {
+  const start = +(cur.hasAttribute('start') ? cur.getAttribute('start') : 0);
+  const end = +(cur.hasAttribute('end') ? cur.getAttribute('end') : testimonials.length);
+
+  testimonials.slice(start, end).forEach(testimonial => {
     const blockquote = document.createElement("blockquote");
     blockquote.innerHTML = `
     ${testimonial.language}
@@ -135,11 +138,13 @@
     section.appendChild(blockquote);
   });
 
-  distinctions.forEach(distinction => {
-    const blockquote = document.createElement("blockquote");
-    blockquote.className = 'distinction';
-    blockquote.innerHTML = distinction;
-    section.appendChild(blockquote);
-  });
+  if (!cur.hasAttribute('end')) {
+    distinctions.forEach(distinction => {
+      const blockquote = document.createElement("blockquote");
+      blockquote.className = 'distinction';
+      blockquote.innerHTML = distinction;
+      section.appendChild(blockquote);
+    });
+  }
   cur.parentNode.insertBefore(section, cur);
 })();
