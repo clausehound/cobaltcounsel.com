@@ -2175,6 +2175,29 @@ ul.lawyer-media-icons li {
 }
 
 /*-----------------------
+### Pricing schedule [Pricing]
+-------------------------*/
+.pricing-schedule {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.pricing-schedule article {
+  flex: 1 auto;
+  max-width: 35rem;
+  min-width: 20rem;
+  margin-bottom: 5rem;
+  border-radius: 10px;
+  padding: 2rem;
+  background-color: rgba(80, 80, 80, 0.1);
+}
+
+.pricing-schedule article > h4 {
+  margin-top: 0;
+}
+
+/*-----------------------
 ### Practice aria [frontpage]
 -------------------------*/
 .practice-areas {
