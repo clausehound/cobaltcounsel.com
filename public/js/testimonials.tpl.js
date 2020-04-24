@@ -125,8 +125,10 @@
   const section = document.createElement("section");
   section.className = "all-testimonials";
 
-  const start = +(cur.hasAttribute('start') ? cur.getAttribute('start') : 0);
-  const end = +(cur.hasAttribute('end') ? cur.getAttribute('end') : testimonials.length);
+  const start = +(cur.hasAttribute("start") ? cur.getAttribute("start") : 0);
+  const end = +(cur.hasAttribute("end")
+    ? cur.getAttribute("end")
+    : testimonials.length);
 
   testimonials.slice(start, end).forEach(testimonial => {
     const blockquote = document.createElement("blockquote");
@@ -138,10 +140,10 @@
     section.appendChild(blockquote);
   });
 
-  if (!cur.hasAttribute('end')) {
+  if (!cur.hasAttribute("end")) {
     distinctions.forEach(distinction => {
       const blockquote = document.createElement("blockquote");
-      blockquote.className = 'distinction';
+      blockquote.className = "distinction";
       blockquote.innerHTML = distinction;
       section.appendChild(blockquote);
     });
