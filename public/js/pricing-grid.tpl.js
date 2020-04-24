@@ -6,21 +6,21 @@
   section.className = "pricing-grid";
 
   section.innerHTML = `
-<h1>How We Work With Lawyers</h1>
+<h3>How We Work With Lawyers</h3>
 <p>We're often asked to recommend lawyers to support our members with their custom requests.<p>
 <p>We're pleased to recommend Cobalt Lawyers, who've provided to us an affordability pledge.</p>
 <p>Cobalt has a complete pricing menu available upon request. Selected pricing options are below:</p>`;
 
   const rows = [
-    ["Scoping call 1", "No charge"],
-    ["<b>Strategic review</b> of your deal documents 2", "$45 + Tax"],
+    ["Scoping call", "No charge"],
+    ["<b>Strategic review</b> of your deal documents", "$45 + Tax"],
     [
-      "<b>Deep and detailed document review/editing</b> session 3",
+      "<b>Deep and detailed document review/editing</b> session",
       "$175 + Tax (+/- on request)"
     ],
-    ["<b>Same-Day Incorporation</b>4", "$350 + Tax + Government Fees"],
+    ["<b>Same-Day Incorporation</b>", "$350 + Tax + Government Fees"],
     [
-      "<b>Drafting of your Shareholders' Agreement, Vesting Agreement, Hiring Agreements, Many Others</b> 4",
+      "<b>Drafting of your Shareholders' Agreement, Vesting Agreement, Hiring Agreements, Many Others</b>",
       "Fast, 100% Fixed Fee"
     ]
   ];
