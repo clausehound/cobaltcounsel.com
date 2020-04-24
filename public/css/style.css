@@ -2364,6 +2364,10 @@ figure {
   margin: 0 1.5em 1em 1.5em;
 }
 
+.all-testimonials blockquote.distinction {
+  border-left-color: #242461;
+}
+
 @media only screen and (max-width: 525px) {
   .carousel-centered {
     height: 250px;
