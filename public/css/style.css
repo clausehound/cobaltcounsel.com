@@ -1585,6 +1585,15 @@ h2.home-section-title,
   line-height: 46px;
 }
 
+.home-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.home-readMore {
+  margin-top: 1.2rem;
+}
+
 /*-----------------------
 ### Ribbon section [frontpage]
 -------------------------*/
@@ -1752,6 +1761,10 @@ h3.about-title {
 -----------------------*/
 .commercial-font {
   font-weight: 400;
+}
+
+.commercial-fontsize {
+  font-size: 14px;
 }
 
 .commercial-table {
@@ -2184,6 +2197,9 @@ ul.lawyer-media-icons li {
 }
 
 .pricing-schedule article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   flex: 1 auto;
   max-width: 35rem;
   min-width: 20rem;
@@ -2195,6 +2211,10 @@ ul.lawyer-media-icons li {
 
 .pricing-schedule article > h4 {
   margin-top: 0;
+}
+
+.pricing-schedule article > h5 {
+  font-weight: 600;
 }
 
 /*-----------------------
@@ -2381,6 +2401,28 @@ figure {
   flex: 1 auto;
   max-width: 30rem;
   margin-bottom: 5rem;
+  color: #242461;
+  font-size: 14px;
+}
+
+.testimonials-pricing {
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.news-testimonials {
+  display: flex;
+  flex-direction: column;
+}
+
+.news-testimonials button.middle {
+  background-color: #242461;
+  width: fit-content;
+  align-self: center;
+}
+
+.news-testimonials button.middle a {
+  color: #fff;
 }
 
 .all-testimonials blockquote {
@@ -2389,6 +2431,7 @@ figure {
 
 .all-testimonials blockquote.distinction {
   border-left-color: #242461;
+  margin-top: 2em;
 }
 
 @media only screen and (max-width: 525px) {

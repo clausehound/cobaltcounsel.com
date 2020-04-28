@@ -6,10 +6,9 @@
   section.className = "pricing-grid";
 
   section.innerHTML = `
-<h3>How We Work With Lawyers</h3>
-<p>We're often asked to recommend lawyers to support our members with their custom requests.<p>
-<p>We're pleased to recommend Cobalt Lawyers, who've provided to us an affordability pledge.</p>
-<p>Cobalt has a complete pricing menu available upon request. Selected pricing options are below:</p>`;
+  <p>At Cobalt, we operate on the values of trust and transparency. Our lawyers are committed to providing affordable and transparent business law services, which, for us, is as important as the rule of law itself. As such, we agree on all fees with you in advance.</p>
+  <p>We leverage our innovative technologies to make sure your scoped work gets done fast, properly and done at a cost-effective rate. No more worrying about legal costs spiraling out of control - through our fixed-fee pricing options and other custom pricing arrangements, we strive to accommodate you or your company's needs.</p>
+  <p>Cobalt has a complete pricing menu available upon request. Selected pricing options are below:</p>`;
 
   const rows = [
     ["Scoping call", "No charge"],
