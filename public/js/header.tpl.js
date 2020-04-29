@@ -51,6 +51,16 @@
                   <a href="/testimonials.html">Testimonials</a>
                 </li>
                 <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page"
+                >
+                  <a href="/pricing.html">Pricing</a>
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-page"
+                >
+                  <a href="/events.html">Events</a>
+                </li>
+                <li
                   id="menu-item-90"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90"
                 >
