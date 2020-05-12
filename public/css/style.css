@@ -1,24 +1,7 @@
-/*
-Theme Name: LawyeriaX
-Theme URI: http://themeisle.com/themes/lawyeriax
-Author: Themeisle
-Author URI: http://themeisle.com
-Description: LawyeriaX is the upgraded version of LawyeriaX Lite, a neat and minimalist theme for lawyers, law-related websites, or any other business and agency. It has a professional and simple look, with full-width beautiful slider, simple content structure, easy-to-use interface, blog section, custom widgets, widgetized footer, live customizer, social links, customizable ribbon, custom logo, front page displays, and SEO friendly code. The theme comes with a range of great customization options, so you can change them the way you want. The pro version adds a lot of customization capabilities.
-Version: 1.1.2
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: lawyeriax
-Tags: one-column, two-columns, right-sidebar, custom-menu, featured-images, front-page-post-form, full-width-template, rtl-language-support, threaded-comments, translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-LawyeriaX is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
-*/
+:root {
+  --color-nicegrey: #506080;
+  --color-bigblue: #31355e;
+}
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -122,7 +105,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #242461;
+  color: var(--color-bigblue);
   font-family: "Verdana", sans-serif;
   font-weight: 400;
 }
@@ -352,9 +335,9 @@ button,
 input,
 select,
 textarea {
-  color: #775f5e;
+  color: var(--color-nicegrey);
   font-family: "Open Sans", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.7em;
   -ms-word-wrap: break-word;
   word-wrap: break-word;
@@ -633,12 +616,12 @@ textarea {
 --------------------------------------------------------------*/
 
 a {
-  color: #242461;
+  color: var(--color-bigblue);
   font-style: normal;
 }
 
 a:visited {
-  color: #242461;
+  color: var(--color-bigblue);
 }
 
 a:hover,
@@ -817,7 +800,7 @@ button.menu-toggle:hover {
   width: 40px;
   height: 40px;
   margin-bottom: 0;
-  color: #242461;
+  color: var(--color-bigblue);
   font-size: 21px;
   line-height: 40px;
   text-align: center;
@@ -828,7 +811,7 @@ button.menu-toggle:hover {
 
 .dropdownmenu:hover i,
 .main-navigation.toggled ul li.this-open > .dropdownmenu i {
-  color: #242461;
+  color: var(--color-bigblue);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-transform: rotate(180deg); /* Safari */
@@ -838,7 +821,7 @@ button.menu-toggle:hover {
 
 .dropdownmenu i,
 .main-navigation.toggled ul li.this-open > .dropdownmenu:hover i {
-  color: #242461;
+  color: var(--color-bigblue);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-transform: rotate(0deg); /* Safari */
@@ -924,49 +907,6 @@ button.menu-toggle:hover {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-}
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-
-.clear:before,
-.clear:after,
-.entry-content:before,
-.entry-content:after,
-.comment-content:before,
-.comment-content:after,
-.site-header:before,
-.site-header:after,
-.site-content:before,
-.site-content:after,
-.site-footer:before,
-.site-footer:after {
-  display: table;
-  table-layout: fixed;
-  content: "";
-}
-
-.clear:after,
-.entry-content:after,
-.comment-content:after,
-.site-header:after,
-.site-content:after,
-.site-footer:after {
-  clear: both;
-}
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-
-.widget {
-  margin: 0 0 1.5em;
-}
-
-/* Make sure select elements fit in widgets. */
-.widget select {
-  max-width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -1388,11 +1328,6 @@ object {
 .top-bar-contact {
   padding-bottom: 2px;
 }
-.top-bar,
-.top-bar .top-bar-contact a,
-.site-footer {
-  color: #878787;
-}
 .site-branding {
   text-align: center;
 }
@@ -1558,7 +1493,7 @@ a.slider-button:hover {
 ## Frontpage
 -------------------------*/
 #ribbon .section-line {
-  background-color: #242461;
+  background-color: var(--color-bigblue);
 }
 .section-line {
   height: 1px;
@@ -1591,7 +1526,7 @@ h2.home-section-title,
 
 .ribbon {
   text-align: center;
-  background-color: #242461;
+  background-color: var(--color-bigblue);
   z-index: 200;
   position: relative;
 }
@@ -1695,7 +1630,7 @@ h3.about-title {
   height: 600px;
   width: 100%;
   border-style: solid;
-  border-color: #242461;
+  border-color: var(--color-bigblue);
   overflow-y: scroll;
   margin-bottom: 50px;
 }
@@ -1799,7 +1734,7 @@ h3.about-title {
 ### Contact Us
 -----------------------*/
 .contact-address {
-  color: #242461;
+  color: var(--color-bigblue);
   margin: 0;
   margin-top: 0.67em;
 }
@@ -1840,7 +1775,7 @@ h3.about-title {
   height: 800px;
   width: 100%;
   border-style: solid;
-  border-color: #242461;
+  border-color: var(--color-bigblue);
   overflow-y: scroll;
   margin-bottom: 50px;
   position: relative;
@@ -2179,25 +2114,28 @@ ul.lawyer-media-icons li {
 -------------------------*/
 .practice-areas {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
+  font-size: 1.75rem;
+}
+
+.practice-areas h4 {
+  text-transform: uppercase;
+  font-size: inherit;
+  letter-spacing: 0.025em;
+  font-weight: 500;
 }
 
 .practice-areas article {
   flex: 1 auto;
-  max-width: 45rem;
-  min-width: 30rem;
-  margin-bottom: 5rem;
-  border-radius: 10px;
-  padding: 2rem;
-  background-color: rgba(80, 80, 80, 0.1);
+  flex: 50%;
+  padding-right: 3rem;
+  min-width: 40rem;
+  line-height: 1.5em;
 }
 
-.practice-areas article > h4 {
-  margin-top: 0;
-}
 .practice-areas article > footer {
-  text-align: right;
+  text-align: left;
 }
 
 .col-xs-15,
@@ -2234,8 +2172,7 @@ ul.lawyer-media-icons li {
 .practiceButton {
   padding: 5px 10px;
   border-radius: 2px;
-  color: #fff !important;
-  background: #242461;
+  background: var(--color-bigblue);
   -webkit-box-shadow: inset 4px 0 0 0 rgba(50, 50, 50, 0.25);
   box-shadow: inset 4px 0 0 0 rgba(50, 50, 50, 0.25);
   font-family: "Verdana", sans-serif;
@@ -2567,13 +2504,7 @@ h2.widget-title {
   background-color: rgba(255, 255, 255, 0.5);
   line-height: 36px;
 }
-.site-footer .widget_calendar tbody td {
-  background-color: rgba(255, 255, 255, 0.05);
-}
 .widget_calendar tbody .pad,
-.site-footer .widget_calendar tbody .pad {
-  background-color: transparent;
-}
 .widget_calendar thead tr {
   color: #200303;
   background: #ebebeb;
@@ -2589,52 +2520,15 @@ h2.widget-title {
 .site-footer {
   padding-top: 25px;
   padding-bottom: 25px;
-  color: rgba(255, 255, 255, 0.7);
-  background: #200303;
-}
-.site-footer h2.widget-title {
-  color: #fff;
+  background: var(--color-bigblue);
+  color: var(--color-nicegrey);
+  font-size: 1.25rem;
 }
 .site-footer a {
-  color: rgba(255, 255, 255, 0.9);
+  color: inherit;
 }
 .site-footer a:hover {
-  color: rgba(255, 255, 255, 1);
-}
-.site-footer .widget > ul,
-.site-footer .widget_nav_menu > div > ul {
-  margin: 0;
-  padding-left: 0;
-  padding-left: 24px;
-  -webkit-box-shadow: inset 4px 0 0 0 rgba(255, 255, 255, 0.1);
-  box-shadow: inset 4px 0 0 0 rgba(255, 255, 255, 0.1);
-}
-.site-footer .widget {
-  padding-bottom: 0px;
-}
-.site-footer .widget select,
-.site-footer .widget input:not([type="submit"]) {
-  border: none;
-  background: rgba(255, 255, 255, 0.9);
-}
-.site-footer .widget_calendar thead tr {
-  background: rgba(235, 235, 235, 0.7);
-}
-.site-footer .widget_calendar tbody td {
-  border-bottom: 1px solid rgba(235, 235, 235, 0.4);
-}
-.site-footer .widget_calendar a:hover {
-  border-bottom: 1px solid #fff;
-  color: #fff;
-}
-.site-footer .widget_calendar a {
-  color: #fff;
-}
-.site-footer .widget_calendar tfoot a:hover {
-  border-bottom: none;
-}
-.sote-footer .widget_calendar caption {
-  color: rgba(255, 255, 255, 0.7);
+  color: inherit;
 }
 .site-info-inner {
   float: left;
@@ -2929,7 +2823,7 @@ h2.widget-title {
   padding-top: 15px;
   padding-left: 7px;
   border-width: 2px;
-  border-color: #242461;
+  border-color: var(--color-bigblue);
   text-align: left;
   font-style: italic;
 }
@@ -3500,7 +3394,7 @@ div.wpcf7-mail-sent-ok {
 /*Links*/
 .main-navigation a,
 button.menu-toggle {
-  color: #242461;
+  color: var(--color-bigblue);
 }
 
 /*Link Hovers*/
@@ -3512,7 +3406,7 @@ button.menu-toggle {
 .main-navigation.toggled button.menu-toggle,
 button.menu-toggle:hover,
 button.menu-toggle:focus {
-  color: #242461;
+  color: var(--color-bigblue);
 }
 
 /*ACCENT COLORS (buttons, blocks, solids)*/
@@ -3524,14 +3418,14 @@ a.slider-button,
 #siteModal button,
 #siteModal button.modal-close-button,
 #siteModal input[type="submit"] {
-  background-color: #242461;
+  background-color: var(--color-bigblue);
 }
 
 h4.practice-box-title,
 a.read-more,
 h4.practice-box-title:hover,
 a.read-more:hover {
-  color: #242461;
+  color: var(--color-bigblue);
 }
 
 /*Accents Content*/
@@ -3556,13 +3450,13 @@ a.slider-button,
 
 /*Indicators*/
 .carousel-indicators .active {
-  background-color: #242461;
+  background-color: var(--color-bigblue);
 }
 
 /*Buttons*/
 #main-slider .carousel-control.left,
 #main-slider .carousel-control.right {
-  color: #242461;
+  color: var(--color-bigblue);
 }
 
 /*TEXT*/
@@ -3570,7 +3464,7 @@ a.slider-button,
 /*Section Headings*/
 .home-section-title,
 .team-plugin-section-title h2 {
-  color: #242461;
+  color: var(--color-bigblue);
 }
 
 /*Tagline*/
@@ -3581,7 +3475,7 @@ a.slider-button,
 /*Body Text*/
 body,
 .testimonial-subname {
-  color: #242461;
+  color: var(--color-bigblue);
 }
 
 /*Link*/
@@ -3594,7 +3488,7 @@ body,
 .entry-meta .author a,
 .entry-footer a,
 a.team-social-icon-link {
-  color: #242461;
+  color: var(--color-bigblue);
 }
 
 /*Links Hover*/
@@ -3613,7 +3507,7 @@ a.team-social-icon-link:hover {
 /*Small Headings*/
 .testimonial-name,
 h3 {
-  color: #242461;
+  color: var(--color-bigblue);
 }
 
 /*Practice Area Icons*/
@@ -3624,7 +3518,7 @@ h3 {
 @media screen and (min-width: 768px) {
   /*Dropdown Background*/
   .main-navigation ul ul {
-    background-color: #242461;
+    background-color: var(--color-bigblue);
   }
 
   /*Dropdown Background Hover*/
