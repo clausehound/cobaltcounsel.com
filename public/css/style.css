@@ -1,6 +1,8 @@
 :root {
   --color-nicegrey: #506080;
   --color-bigblue: #31355e;
+  --color-sweetblue: #7070f0;
+  --color-lightamber: #fad965;
 }
 
 /*--------------------------------------------------------------
@@ -177,10 +179,6 @@ img {
 
 svg:not(:root) {
   overflow: hidden;
-}
-
-figure {
-  margin: 0;
 }
 
 hr {
@@ -499,25 +497,23 @@ input[type="submit"] {
   border: none;
   border-radius: 2px;
   color: #fff;
-  background: #db3936;
-  -webkit-box-shadow: inset 4px 0 0 0 rgba(50, 50, 50, 0.25);
-  box-shadow: inset 4px 0 0 0 rgba(50, 50, 50, 0.25);
+  background: var(--color-bigblue);
   font-family: "Verdana", sans-serif;
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
+  transition: all 0.2s;
+  margin-top: 1px;
+  margin-bottom: 0;
+  box-shadow: 0 5px 7px rgba(50,50,80,0.10), 0 1px 3px rgba(0,0,0,0.08)
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-  -webkit-box-shadow: inset 200px 0 0 0 rgba(50, 50, 50, 0.25);
-  box-shadow: inset 200px 0 0 0 rgba(50, 50, 50, 0.25);
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
+  margin-top: 0;
+  margin-bottom: 1px;
 }
 
 button:focus,
@@ -616,7 +612,7 @@ textarea {
 --------------------------------------------------------------*/
 
 a {
-  color: var(--color-bigblue);
+  color: var(--color-sweetblue);
   font-style: normal;
 }
 
@@ -1284,12 +1280,16 @@ object {
   font-size: 18px;
 }
 .site-branding {
-  float: left;
-  width: 250px;
   padding-right: 20px;
+  opacity: 0.7;
+  width:200px;
+}
+.site-branding:hover {
+  opacity: 1;
 }
 .site-branding img {
-  margin-left: -45px;
+  margin-left: -63px;
+  width: 195px;
 }
 .top-bar-social a {
   display: inline-block;
@@ -1357,10 +1357,6 @@ p.site-description {
   display: table;
   overflow: hidden;
   width: 100%;
-}
-.site-branding-wrap {
-  display: table-cell;
-  vertical-align: middle;
 }
 .menu-toggle-button-wrap {
   display: table-cell;
@@ -1430,20 +1426,19 @@ a.slider-button {
   border-radius: 2px;
   color: #fff;
   background: #db3936;
-  -webkit-box-shadow: inset 4px 0 0 0 rgba(50, 50, 50, 0.25);
-  box-shadow: inset 4px 0 0 0 rgba(50, 50, 50, 0.25);
+  box-shadow: 0 5px 7px rgba(50,50,80,0.10), 0 1px 3px rgba(0,0,0,0.08);
+  border-radius: 4px;
   font-family: "Verdana", sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
+  transition: all 0.1s;
+  margin-bottom: 0px;
+  margin-top: 1px;
 }
 a.slider-button:hover {
-  -webkit-box-shadow: inset 320px 0 0 0 rgba(50, 50, 50, 0.25);
-  box-shadow: inset 320px 0 0 0 rgba(50, 50, 50, 0.25);
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
+  margin-bottom: 1px;
+  margin-top: 0px;
 }
 .carousel-button {
   margin-bottom: 0;
@@ -2117,6 +2112,7 @@ ul.lawyer-media-icons li {
   float: none;
   margin-bottom: 50px;
   margin-left: -4px;
+  line-height: 1.1;
 }
 .view-profile::before {
   content: "»";
@@ -2175,10 +2171,12 @@ ul.lawyer-media-icons li {
   padding-right: 3rem;
   min-width: 40rem;
   line-height: 1.5em;
+  margin-bottom: 3rem;
 }
 
 .practice-areas article > footer {
   text-align: left;
+  margin-top: 2rem;
 }
 
 .col-xs-15,
@@ -2238,6 +2236,11 @@ figure {
   max-width: 400px;
   padding: 1rem 2rem;
   margin: 0 auto;
+}
+
+figcaption {
+  font-size: 1.25rem;
+  line-height: 1;
 }
 
 /*-----------------------
@@ -2353,7 +2356,7 @@ figure {
 }
 
 .news-testimonials button.middle {
-  background-color: #242461;
+  background-color: var(--color-bigblue);
   width: fit-content;
   align-self: center;
 }
@@ -2596,7 +2599,7 @@ h2.widget-title {
   padding-bottom: 25px;
   background: var(--color-bigblue);
   color: var(--color-nicegrey);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 .site-footer a {
   color: inherit;
@@ -3157,7 +3160,6 @@ div.wpcf7-mail-sent-ok {
     display: table;
     width: 100%;
   }
-  .site-branding-wrap,
   .main-navigation-wrap {
     display: table-cell;
     vertical-align: middle;
@@ -3544,12 +3546,6 @@ a.slider-button,
 /*Tagline*/
 .ribbon-big-title {
   color: #ffffff;
-}
-
-/*Body Text*/
-body,
-.testimonial-subname {
-  color: var(--color-bigblue);
 }
 
 /*Link*/
