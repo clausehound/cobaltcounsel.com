@@ -9,12 +9,10 @@
     <div class="container container-header">
       <div class="header-inner">
         <div class="header-inner-site-branding">
-          <div class="site-branding-wrap">
-            <div class="site-branding">
-              <a href="/" title="Cobalt Counsel">
-                <img src="/images/unnamed.png" alt="" />
-              </a>
-            </div>
+          <div class="site-branding">
+            <a href="/" title="Cobalt Counsel">
+              <img src="/images/unnamed.png" alt="" />
+            </a>
           </div>
           <div class="menu-toggle-button-wrap">
             <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
@@ -28,19 +26,11 @@
             <div class="menu-top-main-container">
               <ul id="primary-menu" class="menu">
                 <li
-                  id="menu-item-88"
-                  class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-88"
-                >
-                  <a href="/" aria-current="page">Home</a>
-                </li>
-                <li
-                  id="menu-item-89"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-89"
                 >
                   <a href="/team.html">Team</a>
                 </li>
                 <li
-                  id="menu-item-1071"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1071"
                 >
                   <a href="/transactions.html">Recent Work</a>
@@ -61,7 +51,6 @@
                   <a href="/events.html">Events</a>
                 </li>
                 <li
-                  id="menu-item-90"
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90"
                 >
                   <a href="/contact.html">Contact Us</a>
