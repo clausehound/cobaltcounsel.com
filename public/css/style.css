@@ -3,7 +3,6 @@
   --color-bigblue: #31355e;
   --color-sweetblue: #7070f0;
   --color-lightamber: #fad965;
-  --color-lightgrey: #ebebeb;
 }
 
 /*--------------------------------------------------------------
@@ -2341,7 +2340,7 @@ figcaption {
 }
 
 .testimonials-pricing {
-  border: 2px solid var(--color-lightgrey);
+  border: 2px solid var(--color-bigblue);
   padding: 1rem 1rem 0 1rem;
   margin: 1rem 6% 1.5rem 6%;
 }
