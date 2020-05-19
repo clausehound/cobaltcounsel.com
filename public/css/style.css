@@ -1840,12 +1840,6 @@ h3.about-title {
   -webkit-transition: transform 0.3s;
   transition: transform 0.3s;
 }
-.pics:hover {
-  z-index: 1;
-  -moz-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
 
 div > img.community-image {
   background: url(http://cobaltcounsel.com/wp-content/uploads/2017/03/loading.gif)
