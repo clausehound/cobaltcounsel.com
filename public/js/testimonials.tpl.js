@@ -5,6 +5,13 @@
   const testimonials = [
     {
       language:
+        'I’ve had a thoroughly enjoyable experience with Cobalt Lawyers who supported my seed round of financing with a California-based VC. My experience with Cobalt has been very different from my frustrating experience with law firms in the past, where I was billed for things that I had already paid years earlier. I would describe my experience with Cobalt as transparent, as they have what I call a “countdown timer”, so that I can know what they’re working on. It’s great that Cobalt tells me basically everything that I need to know and I can see exactly what’s going on. I specifically enjoy their approach to limited scoping and I thought the initial discovery call was a great way to kick off our relationship. With Cobalt, I know that I’m going to get the value out of it since I’m able to see essentially what is happening in real time.',
+      author: 'Carl M.',
+      credentials:
+        'Founder of an Ed Tech startup that is helping more than 5 million students.'
+    },
+    {
+      language:
         'I have been impressed by the approach to teaching, level of diligence and startup-friendly pricing I have been able to receive. When getting started, Cobalt immediately provided me with access to the Clausehound blog and learning library, which was launched and written by the lawyers at Cobalt. The materials provided a wealth of knowledge in the form of thousands of answers to questions on deal points that other startups, entrepreneurs and business professionals had struggled over, that I was able to use as a learning resource during our engagement. This made it possible for me to climb a steep learning curve briskly, gracefully, and affordably. Cobalt encouraged an unlimited number of questions from the moment we first connected and onwards, and the learning materials supported that question and answer process delightfully.',
       author: 'Vania S.',
       credentials:
