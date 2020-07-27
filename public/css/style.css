@@ -2032,14 +2032,8 @@ ul.rss-aggregator {
   flex-flow: row wrap;
   margin-left: -40px;
 }
-li.feed-item > a {
-  font-size: 14px;
-}
 .latest-news {
   padding: 20px 0 0 0;
-}
-.feed-item {
-  padding-bottom: 15px;
 }
 .nav-links {
   padding: 0 0 0 0 !important;
@@ -2889,18 +2883,9 @@ h2.widget-title {
   background: #a03634;
 }
 
-/*--------------------------------------------------------------
-## Plugins
---------------------------------------------------------------*/
-
 .feed-item {
-  border-style: solid;
-  border-radius: 5px;
-  margin-bottom: 15px;
   padding-top: 15px;
   padding-left: 7px;
-  border-width: 2px;
-  border-color: var(--color-bigblue);
   text-align: left;
   font-style: italic;
 }

@@ -18,14 +18,12 @@
         const li = document.createElement("li");
         li.className = "feed-item";
         li.innerHTML = `
-<div class="centerVert">
-  <a
-    class="latestPubTitle"
-    target="_blank"
-    rel="nofollow"
-    href="${article.link}"
-  >${article.title}</a>
-</div>`;
+<a
+  class="latestPubTitle"
+  target="_blank"
+  rel="nofollow"
+  href="${article.link}"
+>${article.title}</a>`;
         ul.appendChild(li);
       });
 
