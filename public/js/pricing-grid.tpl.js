@@ -12,12 +12,12 @@
 
   const rows = [
     ["Scoping call", "No charge"],
-    ["<b>Strategic review</b> of your deal documents", "$45 + Tax"],
+    ["<b>Strategic review</b> of your deal documents", "$45"],
     [
       "<b>Deep and detailed document review/editing</b> session",
-      "$175 + Tax (+/- on request)"
+      "$175 (+/- on request)"
     ],
-    ["<b>Same-Day Incorporation</b>", "$350 + Tax + Government Fees"],
+    ["<b>Same-Day Incorporation</b>", "$350"],
     [
       "<b>Drafting of your Shareholders' Agreement, Vesting Agreement, Hiring Agreements, Many Others</b>",
       "Fast, 100% Fixed Fee"
@@ -36,6 +36,10 @@
   });
 
   section.appendChild(table);
+
+  const footer = document.createElement("footer");
+  footer.innerHTML = `<p>Taxes, government filing fees in addition.</p>`;
+  section.appendChild(footer);
 
   cur.parentNode.insertBefore(section, cur);
 })();
