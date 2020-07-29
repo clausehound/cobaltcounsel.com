@@ -5,6 +5,19 @@
   const testimonials = [
     {
       language:
+        'Because I was able to interact with the document on the DealPrep site, when I needed to escalate my work to the legal support team, they were able to effortlessly see my edits and notes, and to provide immediate feedback.  Together we finalized two documents (both on a partially-DIY basis), at a cost and turnaround time that suited my budget.  Without DealPrep and their escalation-to-legal-review option, I would have either taken a chance with a downloaded template, or potentially would have paid thousands of dollars to hire lawyers to create legal documents, in either case with very little understanding of the contents of the documents.  Instead, I was able to fully and affordably work on the documents using the DealPrep escalate to a lawyer option, and I have confidence that my documents are robust.',
+      author: 'Marcelo B',
+      credentials: 'CEO of a Data Analytics & AI Company'
+    },
+    {
+      language:
+        'The lawyers at Cobalt [...] assisted us with a variety of general corporate legal matters and, specifically with the finalization of our shareholders’ agreement. As these agreements can become quite complex, I was impressed with the attention to detail and true legal expertise that was provided. Above all else, they were keen to ensure that all my concerns were addressed and went above and beyond to consider all aspects of the formation of my business.',
+      author: 'Rahim L.',
+      credentials:
+        'CTO and Co-Founder of an online platform that makes finding quality homecare service providers accessible through vetted agencies, reviews and seamless payment processing.'
+    },
+    {
+      language:
         'I’ve had a thoroughly enjoyable experience with Cobalt Lawyers who supported my seed round of financing with a California-based VC. My experience with Cobalt has been very different from my frustrating experience with law firms in the past, where I was billed for things that I had already paid years earlier. I would describe my experience with Cobalt as transparent, as they have what I call a “countdown timer”, so that I can know what they’re working on. It’s great that Cobalt tells me basically everything that I need to know and I can see exactly what’s going on. I specifically enjoy their approach to limited scoping and I thought the initial discovery call was a great way to kick off our relationship. With Cobalt, I know that I’m going to get the value out of it since I’m able to see essentially what is happening in real time.',
       author: 'Carl M.',
       credentials:
@@ -44,13 +57,6 @@
       author: 'Alex L.',
       credentials:
         'CEO of Mortgauge. an online Real Estate Services company that assists Canadian homeowners navigate the homebuying journey and get the best mortgage offers for their current and future properties.'
-    },
-    {
-      language:
-        'Through their use of Clausehound [...], the Cobalt approach means that our team has been able to self-educate and ask the “right” questions, which has saved us a lot of money in leapfrogging over the most basic of questions. The lawyers at Cobalt have at each turn provided us with exceptionally thoughtful, thorough responses to our questions, and have supported us with their business-savvy [...] key takeaways and learning points, and attention to our internal considerations in their documentation, drafting, and provision of legal services.',
-      author: 'Keren M.',
-      credentials:
-        'Co-Founder and CEO of an award-winning, fast growing data analytics company that uses AI to improve collaboration between borrowers and lenders to streamline the commercial lending journey (as featured on notable sites such as Forbes, Bank Innovation and Financial Revolutionist).'
     },
     {
       language:
