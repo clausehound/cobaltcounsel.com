@@ -227,7 +227,7 @@
   testimonials.slice(start, end).forEach((testimonial) => {
     const blockquote = document.createElement('blockquote');
     blockquote.innerHTML = `
-    ${testimonial.language.split('\n')}
+    ${testimonial.language}
     <footer>
       <cite>${testimonial.author}<span> ${testimonial.credentials}</span></cite>
     </footer>`;
