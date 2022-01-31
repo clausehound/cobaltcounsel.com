@@ -1686,6 +1686,11 @@ h3.about-title {
   text-align: left;
 }
 
+.teammates-members-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 /*-----------------------
 ###Commercial
 -----------------------*/
@@ -2085,6 +2090,9 @@ ul.rss-aggregator {
   font-style: normal;
   font-family: 'Verdana', sans-serif;
 }
+.lawyer-box-inside {
+  margin-bottom: 8px;
+}
 
 ul.lawyer-media-icons {
   margin: 0 0 10px 0;
@@ -2377,6 +2385,9 @@ figcaption {
   display: inline-block;
   float: left;
   padding-right: 20px;
+}
+.entry-content-lawyer {
+  margin-bottom: 20px;
 }
 .entry-content-lawyer h1.entry-title {
   clear: none;
