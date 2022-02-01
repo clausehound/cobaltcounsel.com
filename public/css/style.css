@@ -924,12 +924,12 @@ button.menu-toggle:hover {
   padding-top: 100px;
 }
 
-.flex-page {
+.full-page {
   display: flex;
   flex-direction: column;
 }
 
-.flex-page main {
+.full-page main {
   flex-grow: 1;
 }
 
