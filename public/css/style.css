@@ -923,6 +923,16 @@ button.menu-toggle:hover {
 #page {
   padding-top: 100px;
 }
+
+.flex-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-page main {
+  flex-grow: 1;
+}
+
 .sticky {
   display: block;
 }
@@ -1490,6 +1500,12 @@ a.slider-button:hover {
 #ribbon .section-line {
   background-color: var(--color-bigblue);
 }
+
+.news-banner {
+  background-color: var(--color-sweetblue);
+  padding: 20px 0;
+}
+
 .section-line {
   height: 1px;
   background-color: #f7eaea;
@@ -1741,6 +1757,40 @@ h3.about-title {
     display: inline;
     border: whitesmoke;
   }
+}
+
+/*-----------------------
+###Commercial Leasing
+-----------------------*/
+.commercial-leasing-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.commercial-leasing-section {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.commercial-leasing-section >* {
+  margin-bottom: 20px;
+}
+
+.commercial-leasing-title {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.commercial-leasing-subtitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.group-title {
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 /*-----------------------
@@ -2173,6 +2223,13 @@ ul.lawyer-media-icons li {
 .practice-areas article > footer {
   text-align: left;
   margin-top: 2rem;
+}
+
+/*TODO:  Why does this use such weird breakpoints*/
+@media (min-width: 992px) {
+  .practice-areas article {
+    max-width: 50%;
+  }
 }
 
 .col-xs-15,
