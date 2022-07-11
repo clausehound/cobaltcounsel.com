@@ -3683,6 +3683,8 @@ h3 {
 }
 
 .parallax-banner {
+  display: flex;
+  justify-content: center;
   position: relative;
   z-index: 100;
 }
@@ -3700,14 +3702,12 @@ h3 {
 }
 
 .parallax-banner .background {
-  transform: translateZ(60px) scale(0.8);
-  transform-origin: 50% 0;
   position: absolute;
   z-index: 100;
   display: block;
   object-fit: cover;
-  height: 140%;
-  width: 100%;
+  height: 100%;
+  width: 80%;
 }
 
 .parallax-banner .carousel-caption {
