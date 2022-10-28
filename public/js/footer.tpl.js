@@ -1,5 +1,5 @@
 (() => {
-  const email = 'inquiries@cobaltcounsel.com';
+  const email = 'rajah@cobaltcounsel.com';
   const address = '330 Bay Street, Suite 1400 Toronto, Ontario, Canada M5H2S8';
   const el = document.createElement('footer');
   el.id = 'colophon';
