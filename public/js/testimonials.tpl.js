@@ -5,10 +5,10 @@
   const testimonials = [
     {
       language:
-        'Cobalt lawyers team demonstrated an effective and systematic way of communication, providing relevant & valuable information. Cobalt discovery calls are more like experiential workshops, an effective tool to have a better understanding of the context around the requirements at hand. the required  task. I would definitely recommend and use the discovery call again. Cobalt redefined the boredom of the legal process in the era of digital transformation, I see them as a great mentor and strategic partner for many promising future startups.',
-      author: 'Joseph Ghanimeh Escapar',
+        'We have been impressed with the commitment by Cobalt to providing a thoughtful response within a six hour service level, with their deal knowledge capture through their software platform, and with the speed at which their software and lawyers are able to collect our thinking and map from prior deals into future deals. As our understanding of their legal and technological capabilities have advanced, we have increased our desire to create [...] automations around [...] legal documentation.',
+      author: 'Michael Younder',
       credentials:
-        'Successful Strategic Alliances Specialist managing cross-functional projects to increase presence in North America, by franchising and applying a digital transformation.',
+        'Head of CMS Partnerships for an award-winning digital Design Agency, trusted by numerous enterprise clients, worldwide, with specialties in mobile design, web design, and the ethos of creating "smart" interfaces has have helped their firm skyrocket in growth over its 10+ years in market.',
     },
     {
       language:
@@ -16,13 +16,6 @@
       author: 'Brett Hurlock',
       credentials:
         'The Camlachie Inspection Co., Successful president since 2013, providing contract services for inspections, consultations, coordination and evaluation, survey development, work selection, and manpower supply.',
-    },
-    {
-      language:
-        'Because I was able to interact with the document on the DealPrep site [Cobalt’s template library], when I needed to escalate my work to the legal support team, they were able to effortlessly see my edits and notes, and to provide immediate feedback.  Together we finalized two documents (both on a partially-DIY basis), at a cost and turnaround time that suited my budget.  Without DealPrep and their escalation-to-legal-review option, I would have either taken a chance with a downloaded template, or potentially would have paid thousands of dollars to hire lawyers to create legal documents, in either case with very little understanding of the contents of the documents.  Instead, I was able to fully and affordably work on the documents using the DealPrep escalate to a lawyer option, and I have confidence that my documents are robust.',
-      author: 'Marcelo Bursztein',
-      credentials:
-        'NovaceneAI, AI consulting to design and implement solutions that automate the process needed to go from data to actionable insight.',
     },
     {
       language:
@@ -39,31 +32,10 @@
     },
     {
       language:
-        'I have been impressed by the approach to teaching, level of diligence and startup-friendly pricing I have been able to receive. When getting started, Cobalt immediately provided me with access to the Clausehound blog and learning library [Cobalt’s tech provider], which was launched and written by the lawyers at Cobalt. The materials provided a wealth of knowledge in the form of thousands of answers to questions on deal points that other startups, entrepreneurs and business professionals had struggled over, that I was able to use as a learning resource during our engagement. This made it possible for me to climb a steep learning curve briskly, gracefully, and affordably. Cobalt encouraged an unlimited number of questions from the moment we first connected and onwards, and the learning materials supported that question and answer process delightfully.',
-      author: 'Vania Sakelaris',
-      credentials:
-        'Founder of a female-led business entrepreneur advisory group and a resident Business Coach at an on-campus incubator.',
-    },
-    {
-      language:
-        'I was impressed by the depth of learning materials made available to me by Cobalt, including access to the Clausehound software [Cobalt’s tech provider], which was used as a collaborative portal to support my discussions with the Cobalt lawyers. I was able to populate my questions and track previous questions (both mine and those shared by other entrepreneurs). Because their software is cloud-based, I was able to access my private collaborative portal at all hours of the night, useful for a growing and flexible company like ours.',
-      author: 'Morgan Rosenberg',
-      credentials:
-        'CEO of an innovative mobile app helping users strengthen their resilience and mental flourishing, collaborating with organizations such as the Ontario Brain Institute and the University Health Network and changing the way mental health support is delivered.',
-    },
-    {
-      language:
         'The [Cobalt Lawyers] have assisted us with a variety of commercial legal matters and, specifically, the development of an online terms of use and privacy policy. The protection and collection of personal information of the audience that use our services are of great importance to us, and with the depth of experience of the Cobalt team, they have helped us to ensure that we understand how we can ensure our compliance with privacy laws and provide our audience comfort that their information is secure. The Cobalt team shares the same values of transparency and trust as is evident in our experiences working with them.',
       author: 'Brian Prosserman',
       credentials:
         'Founder of a platform dedicated to bridging the gap between volunteers and organizations, that is helping organizations bring in the right volunteers, and helping volunteers find meaningful opportunities that will support them throughout their professional lives.',
-    },
-    {
-      language:
-        'As a new company founder with a limited budget, I was very concerned about the cost of legal services spiraling out of control, and the Cobalt team took those fears away by encouraging an unlimited number of questions even before we got started, by including that commitment [to unlimited questions] up front in writing, and by sharing learning materials and answers promptly and during the working period.',
-      author: 'Yashin Shah',
-      credentials:
-        'Former program manager of a scale-up program at a leading Canadian growth and sales accelerator, and currently the Managing Director of a startup consulting firm, helping high potential Toronto companies build processes and strategies to accelerate market growth in a variety of spaces, including real estate, media and entertainment, among others.',
     },
     {
       language:
@@ -78,13 +50,6 @@
       author: 'Lisa Huang',
       credentials:
         'Co-founder of an innovative, future-of-work mobile platform that connects businesses with qualified staff looking for more work. Businesses acquire new talent to help them succeed, and workers receive meaningful work experience through the use of a secure and intuitive platform.',
-    },
-    {
-      language:
-        'We have been impressed with the commitment by Cobalt to providing a thoughtful response within a six hour service level, with their deal knowledge capture through their software platform, and with the speed at which their software and lawyers are able to collect our thinking and map from prior deals into future deals. As our understanding of their legal and technological capabilities have advanced, we have increased our desire to create [...] automations around [...] legal documentation.',
-      author: 'Michael Younder',
-      credentials:
-        'Head of CMS Partnerships for an award-winning digital Design Agency, trusted by numerous enterprise clients, worldwide, with specialties in mobile design, web design, and the ethos of creating "smart" interfaces has have helped their firm skyrocket in growth over its 10+ years in market.',
     },
     {
       language:
@@ -122,6 +87,70 @@
         'CEO of a world-leading Expertise Marketing Platform and open expert network. Winner of the 2018 CODiE Award for "Best Content Marketing Solution," their platform helps organizations better manage and promote their expertise.',
     },
     {
+      language: 'Speedy corporate work - everything is automated well!',
+      author: 'Bernie Li',
+      credentials:
+        'Serial Entrepreneur and investor with over a decade of experience at venture capital and private equity funds in NYC, Montreal and Toronto.',
+    },
+    {
+      language:
+        "The Cobalt team made what would otherwise have felt like a grueling traverse through endless contracts, feel instead like a smooth & guided process. They walked our startup through the steps needed to facilitate a major fundraising round, and the team was always a pleasure to meet with, as the discourse was always patient and insightful. The rush vs non-rush option gave us the flexibility to spend more when we needed things rushed, or visa versa, to spend less and move at the firm's speed. This paired with their discovery calls & work over the weekend initiatives makes them the most startup-friendly firm out there!",
+      author: 'Alex Simonelli',
+      credentials: 'Daydream Drinks, A Canadian pioneer in hemp-based beverage products',
+    },
+    {
+      language:
+        'Working with the Cobalt team has been a breeze, especially for a startup like myself. Their business model in terms of budget and methodology sure supports small businesses. They’re a valuable resource for all things legal, and the team is phenomenal in making sure I’m happy with the outcome.',
+      author: 'Jenni Salonga',
+      credentials:
+        'Sparkked, A business advisory marketplace that connects individuals seeking advice to subject-matter experts, leading them to holistic success.',
+    },
+    {
+      language:
+        'Cobalt Lawyers has been our legal counsel for about eight years. They support us with all our corporate legal matters, including shareholder and partnership agreements, IP law, employment law, and other ad hoc requirements. The key aspects of their services that make them unique are their ability to promptly assign legal resources to our requirements, breakdown and simplify scenarios for our cross-functional executive teams to clearly and logically understand the event and make decisions, and identify efficient and cost-effective processes to help us achieve our goals, every time. Kudos to them for their commitment to innovation in the legal field that has certainly demystified the world of legalities!',
+      author: 'Anand Karat',
+      credentials:
+        'Vretta Inc., E-Assessment and Learning Solutions recognized by several renowned awarding bodies for the quality and implementation across all education levels, including the International e-Assessment Awards, the International Educational Games Competition, and Brandon Hall Excellence Awards.',
+    },
+  ];
+// Testimonials that are archived
+  const testimonialRemoved = [ 
+    {
+      language:
+        'Cobalt lawyers team demonstrated an effective and systematic way of communication, providing relevant & valuable information. Cobalt discovery calls are more like experiential workshops, an effective tool to have a better understanding of the context around the requirements at hand. the required  task. I would definitely recommend and use the discovery call again. Cobalt redefined the boredom of the legal process in the era of digital transformation, I see them as a great mentor and strategic partner for many promising future startups.',
+      author: 'Joseph Ghanimeh Escapar',
+      credentials:
+        'Successful Strategic Alliances Specialist managing cross-functional projects to increase presence in North America, by franchising and applying a digital transformation.',
+    },
+    {
+      language:
+        'Because I was able to interact with the document on the DealPrep site [Cobalt’s template library], when I needed to escalate my work to the legal support team, they were able to effortlessly see my edits and notes, and to provide immediate feedback.  Together we finalized two documents (both on a partially-DIY basis), at a cost and turnaround time that suited my budget.  Without DealPrep and their escalation-to-legal-review option, I would have either taken a chance with a downloaded template, or potentially would have paid thousands of dollars to hire lawyers to create legal documents, in either case with very little understanding of the contents of the documents.  Instead, I was able to fully and affordably work on the documents using the DealPrep escalate to a lawyer option, and I have confidence that my documents are robust.',
+      author: 'Marcelo Bursztein',
+      credentials:
+        'NovaceneAI, AI consulting to design and implement solutions that automate the process needed to go from data to actionable insight.',
+    },
+    {
+      language:
+        'I have been impressed by the approach to teaching, level of diligence and startup-friendly pricing I have been able to receive. When getting started, Cobalt immediately provided me with access to the Clausehound blog and learning library [Cobalt’s tech provider], which was launched and written by the lawyers at Cobalt. The materials provided a wealth of knowledge in the form of thousands of answers to questions on deal points that other startups, entrepreneurs and business professionals had struggled over, that I was able to use as a learning resource during our engagement. This made it possible for me to climb a steep learning curve briskly, gracefully, and affordably. Cobalt encouraged an unlimited number of questions from the moment we first connected and onwards, and the learning materials supported that question and answer process delightfully.',
+      author: 'Vania Sakelaris',
+      credentials:
+        'Founder of a female-led business entrepreneur advisory group and a resident Business Coach at an on-campus incubator.',
+    },
+    {
+      language:
+        'I was impressed by the depth of learning materials made available to me by Cobalt, including access to the Clausehound software [Cobalt’s tech provider], which was used as a collaborative portal to support my discussions with the Cobalt lawyers. I was able to populate my questions and track previous questions (both mine and those shared by other entrepreneurs). Because their software is cloud-based, I was able to access my private collaborative portal at all hours of the night, useful for a growing and flexible company like ours.',
+      author: 'Morgan Rosenberg',
+      credentials:
+        'CEO of an innovative mobile app helping users strengthen their resilience and mental flourishing, collaborating with organizations such as the Ontario Brain Institute and the University Health Network and changing the way mental health support is delivered.',
+    },
+    {
+      language:
+        'As a new company founder with a limited budget, I was very concerned about the cost of legal services spiraling out of control, and the Cobalt team took those fears away by encouraging an unlimited number of questions even before we got started, by including that commitment [to unlimited questions] up front in writing, and by sharing learning materials and answers promptly and during the working period.',
+      author: 'Yashin Shah',
+      credentials:
+        'Former program manager of a scale-up program at a leading Canadian growth and sales accelerator, and currently the Managing Director of a startup consulting firm, helping high potential Toronto companies build processes and strategies to accelerate market growth in a variety of spaces, including real estate, media and entertainment, among others.',
+    },
+    {
       language:
         'Starting a company is stressful, but having good lawyers helps! The Cobalt team took the time to ensure that the documents suited both us and our investors, while sticking to their fixed fee quote. They guided us through the process with flexibility and professionalism.',
       author: 'Gerard Maynard',
@@ -133,18 +162,6 @@
         "We have been a client of Cobalt's since 2012 and have always enjoyed the professional services offered to us by the firm. We have always received attention, advice and guidance on the issues that matter to us the most. We consider them a trusted partner.",
       author: 'Paul Crowe',
       credentials: 'CEO - Symbility Intersect',
-    },
-    {
-      language: 'Speedy corporate work - everything is automated well!',
-      author: 'Bernie Li',
-      credentials:
-        'Serial Entrepreneur and investor with over a decade of experience at venture capital and private equity funds in NYC, Montreal and Toronto.',
-    },
-    {
-      language:
-        "The Cobalt team made what would otherwise have felt like a grueling traverse through endless contracts, feel instead like a smooth & guided process. They walked our startup through the steps needed to facilitate a major fundraising round, and the team was always a pleasure to meet with, as the discourse was always patient and insightful. The rush vs non-rush option gave us the flexibility to spend more when we needed things rushed, or visa versa, to spend less and move at the firm's speed. This paired with their discovery calls & work over the weekend initiatives makes them the most startup-friendly firm out there!",
-      author: 'Alex Simonelli',
-      credentials: 'Daydream Drinks, A Canadian pioneer in hemp-based beverage products',
     },
     {
       language:
@@ -190,13 +207,6 @@
     },
     {
       language:
-        'Cobalt Lawyers has been our legal counsel for about eight years. They support us with all our corporate legal matters, including shareholder and partnership agreements, IP law, employment law, and other ad hoc requirements. The key aspects of their services that make them unique are their ability to promptly assign legal resources to our requirements, breakdown and simplify scenarios for our cross-functional executive teams to clearly and logically understand the event and make decisions, and identify efficient and cost-effective processes to help us achieve our goals, every time. Kudos to them for their commitment to innovation in the legal field that has certainly demystified the world of legalities!',
-      author: 'Anand Karat',
-      credentials:
-        'Vretta Inc., E-Assessment and Learning Solutions recognized by several renowned awarding bodies for the quality and implementation across all education levels, including the International e-Assessment Awards, the International Educational Games Competition, and Brandon Hall Excellence Awards.',
-    },
-    {
-      language:
         "Working with Cobalt did two things. I didn't have to worry about the legal side of my project because I knew I was in good hands. They took the time to do everything properly but not in an institutional feeling way. They're also incredibly responsive and knowledgeable.",
       author: 'Lucas Walker',
       credentials:
@@ -211,26 +221,23 @@
     },
     {
       language:
-        'Working with the Cobalt team has been a breeze, especially for a startup like myself. Their business model in terms of budget and methodology sure supports small businesses. They’re a valuable resource for all things legal, and the team is phenomenal in making sure I’m happy with the outcome.',
-      author: 'Jenni Salonga',
-      credentials:
-        'Sparkked, A business advisory marketplace that connects individuals seeking advice to subject-matter experts, leading them to holistic success.',
-    },
-    {
-      language:
         'The Discovery Call was an effective way to get a really good understanding of the process and the steps forward. Rajah and his team are always clear in their communication and thorough with their work. They have earned our trust over the years of working together.',
       author: 'Jerry Chang',
       credentials:
         'IPPINKA, providing carefully selected products that are functional, high quality, environmentally and socially conscious, with a minimalist aesthetic design that withstands time.',
     },
   ];
+
   const distinctions = [
     'Seven-time sponsor of Startup Weekend Toronto, recurring sponsor of Ivey Venture Forum, and recurring judge of the annual Ivey business plan competition. Hundreds of hours of judging and mentoring venture capital competitions and technology hackathons.',
     'City of Toronto Official Training Partner, training hundreds of startups on startup business law foundation over the course of a year.',
     'Legal Technology Pioneer recognized by the Law Society of Ontario as a speaker on fixed-fee legal services in the earliest days of fixed-fee billing.',
     'Official Legal Supplier to the City of Mississauga, as External Technology Law counsel (for the second of two consecutive 5-year terms).',
-    "Cobalt Lawyers launched <a href='https://about.clausehound.com/'>Clausehound</a> and <a href='https://www.dealprep.co/'>DealPrep</a> to improve business law accessibility and transparency, and Clausehound is now used by thousands of entrepreneurs in more than 60 incubators, accelerators, colleges, universities and municipalities, for entrepreneur and small business support, and for training on legal topics.",
   ];
+
+  const distinctionsRemoved = [
+        "Cobalt Lawyers launched <a href='https://about.clausehound.com/'>Clausehound</a> and <a href='https://www.dealprep.co/'>DealPrep</a> to improve business law accessibility and transparency, and Clausehound is now used by thousands of entrepreneurs in more than 60 incubators, accelerators, colleges, universities and municipalities, for entrepreneur and small business support, and for training on legal topics.",
+    ]
 
   const section = document.createElement('section');
   section.className = 'all-testimonials';
