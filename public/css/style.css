@@ -10,7 +10,7 @@
 ----------------------------------------------------------------
 # Normalize
 # Typography
-# Elements
+# Elements 
 # Forms
 # Navigation
 	## Links
@@ -1153,6 +1153,71 @@ embed,
 iframe,
 object {
   max-width: 100%;
+}
+
+.playerMargin {
+  margin-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.playerMargin div {
+  width: 50%;
+  padding: 1em;
+}
+
+.playerMargin div ul {
+  font-size: .8em;
+  line-height: 1.8;
+}
+
+.playerMargin div ul li {
+  padding-bottom: 1em;
+}
+
+.playerMargin figcaption {
+  text-align: center;
+}
+
+.playerTagline {
+  text-align: center;
+  font-weight: bold;
+  margin: 2em 0 2em 0;
+}
+
+.pointsSection {
+  margin: 5em 0 3em 0;
+}
+
+.pointsHeader {
+  text-align: center;
+}
+
+.pointsHeader h4 {
+  color: var(--color-nicegrey);
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2em;
+}
+
+.flexContainer div {
+  width: 25%;
+  text-align: center;
+  padding: 1em;
+}
+
+.flexContainer div p {
+  font-size: .8em;
+  line-height: 1.4;
+  color: var(--color-nicegrey);
+}
+
+.flexContainer h5 {
+  font-weight: bold;
 }
 
 /*--------------------------------------------------------------
@@ -3105,6 +3170,29 @@ div.wpcf7-mail-sent-ok {
   padding-left: 20px;
 }
 
+/*-----------------------
+### MAP [Hidden]
+-------------------------*/
+
+.mapContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mapContainer div {
+  margin: 1em auto;
+  width: 30%;
+}
+
+.mapList li {
+  list-style-type: none;
+  font-size: .8em;
+  line-height: 1.5;
+}
+
+.drafting {
+  text-transform: uppercase;
+}
 /*--------------------------------------------------------------
 ## Responsive
 --------------------------------------------------------------*/
