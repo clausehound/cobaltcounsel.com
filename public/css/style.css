@@ -1155,71 +1155,6 @@ object {
   max-width: 100%;
 }
 
-.playerMargin {
-  margin-top: 3em;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
-.playerMargin div {
-  width: 50%;
-  padding: 1em;
-}
-
-.playerMargin div ul {
-  font-size: .8em;
-  line-height: 1.8;
-}
-
-.playerMargin div ul li {
-  padding-bottom: 1em;
-}
-
-.playerMargin figcaption {
-  text-align: center;
-}
-
-.playerTagline {
-  text-align: center;
-  font-weight: bold;
-  margin: 2em 0 2em 0;
-}
-
-.pointsSection {
-  margin: 5em 0 3em 0;
-}
-
-.pointsHeader {
-  text-align: center;
-}
-
-.pointsHeader h4 {
-  color: var(--color-nicegrey);
-}
-
-.flexContainer {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 2em;
-}
-
-.flexContainer div {
-  width: 25%;
-  text-align: center;
-  padding: 1em;
-}
-
-.flexContainer div p {
-  font-size: .8em;
-  line-height: 1.4;
-  color: var(--color-nicegrey);
-}
-
-.flexContainer h5 {
-  font-weight: bold;
-}
-
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
@@ -1766,6 +1701,73 @@ h3.about-title {
 }
 .latest-pub-item-info {
   font-style: italic;
+}
+
+/*-----------------------
+### Technologies [frontpage]
+-----------------------*/
+
+.playerMargin {
+  margin-top: 3em;
+  display: flex;
+  align-items: flex-start;
+}
+
+.playerMargin div {
+  width: 50%;
+  padding: 1em;
+}
+
+.playerMargin div ul {
+  font-size: .8em;
+  line-height: 1.8;
+}
+
+.playerMargin div ul li {
+  padding-bottom: 1em;
+}
+
+.playerMargin figcaption {
+  text-align: center;
+}
+
+.playerTagline {
+  text-align: center;
+  font-weight: bold;
+  margin: 2em 0 2em 0;
+}
+
+.pointsSection {
+  margin: 5em 0 3em 0;
+}
+
+.pointsHeader {
+  text-align: center;
+}
+
+.pointsHeader h4 {
+  color: var(--color-nicegrey);
+}
+
+.flexContainer {
+  display: flex;
+  margin-top: 2em;
+}
+
+.flexContainer div {
+  width: 25%;
+  text-align: center;
+  padding: 1em;
+}
+
+.flexContainer div p {
+  font-size: .8em;
+  line-height: 1.4;
+  color: var(--color-nicegrey);
+}
+
+.flexContainer h5 {
+  font-weight: bold;
 }
 
 /*-----------------------
@@ -3176,7 +3178,6 @@ div.wpcf7-mail-sent-ok {
 
 .mapContainer {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .mapContainer div {
@@ -3538,6 +3539,14 @@ div.wpcf7-mail-sent-ok {
     font-size: 16px;
   }
 
+  .mapContainer {
+    flex-direction: column;
+  }
+
+  .mapContainer div {
+    width: 100%;
+  }
+
   /* our lawyers */
   .lawyer-box-image {
     width: 100%;
@@ -3569,6 +3578,24 @@ div.wpcf7-mail-sent-ok {
   }
   .latest-news {
     padding: 0 0 0 0 !important;
+  }
+
+  /* TECHNOLOGIES */
+
+  .playerMargin {
+    flex-direction: column;
+  }
+
+  .playerMargin div {
+    width: 100%; 
+  }
+
+  .flexContainer {
+    flex-direction: column;
+   }
+
+  .flexContainer div {
+    width: 100%;
   }
 }
 
