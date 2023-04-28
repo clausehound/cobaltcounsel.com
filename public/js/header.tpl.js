@@ -10,8 +10,8 @@
       <div class="header-inner">
         <div class="header-inner-site-branding">
           <div class="site-branding">
-            <a href="/" title="Cobalt Counsel">
-              <img src="/images/unnamed.png" alt="" />
+            <a href="/" title="Cobalt AI">
+              <img src="/images/cobaltAI.png" alt="" />
             </a>
           </div>
           <div class="menu-toggle-button-wrap">

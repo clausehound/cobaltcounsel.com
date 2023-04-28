@@ -1155,6 +1155,15 @@ object {
   max-width: 100%;
 }
 
+.video {
+  text-align: center;
+  margin: 3em 0;
+}
+
+.videoCap {
+  margin: 1em 0;
+}
+
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
@@ -1309,7 +1318,7 @@ object {
 }
 .site-branding img {
   margin-left: -63px;
-  width: 195px;
+  width: 120px;
 }
 .top-bar-social a {
   display: inline-block;
@@ -1364,8 +1373,8 @@ p.site-description {
   line-height: 15px;
 }
 .container-header {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -1704,73 +1713,6 @@ h3.about-title {
 }
 
 /*-----------------------
-### Technologies [frontpage]
------------------------*/
-
-.playerMargin {
-  margin-top: 3em;
-  display: flex;
-  align-items: flex-start;
-}
-
-.playerMargin div {
-  width: 50%;
-  padding: 1em;
-}
-
-.playerMargin div ul {
-  font-size: .8em;
-  line-height: 1.8;
-}
-
-.playerMargin div ul li {
-  padding-bottom: 1em;
-}
-
-.playerMargin figcaption {
-  text-align: center;
-}
-
-.playerTagline {
-  text-align: center;
-  font-weight: bold;
-  margin: 2em 0 2em 0;
-}
-
-.pointsSection {
-  margin: 5em 0 3em 0;
-}
-
-.pointsHeader {
-  text-align: center;
-}
-
-.pointsHeader h4 {
-  color: var(--color-nicegrey);
-}
-
-.flexContainer {
-  display: flex;
-  margin-top: 2em;
-}
-
-.flexContainer div {
-  width: 25%;
-  text-align: center;
-  padding: 1em;
-}
-
-.flexContainer div p {
-  font-size: .8em;
-  line-height: 1.4;
-  color: var(--color-nicegrey);
-}
-
-.flexContainer h5 {
-  font-weight: bold;
-}
-
-/*-----------------------
 ### Team Page
 -----------------------*/
 
@@ -1782,6 +1724,45 @@ h3.about-title {
 .teammates-members-wrapper {
   display: flex;
   flex-wrap: wrap;
+}
+
+.techTeam {
+  display: flex;
+  flex-direction: column;
+}
+
+.techMember {
+    margin: 0 0 1em 1em ;
+}
+
+/*-----------------------
+###Term
+-----------------------*/
+.termTitle {
+  font-size: .8em;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 3em;
+}
+
+.termPara {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.termPara p {
+  font-size: .9em;
+  line-height: 1;
+  font-family: "Calibri";
+  color: #000;
+}
+
+.termUnderline {
+  text-decoration: underline;
+}
+
+.termBold {
+  font-weight: bold;
 }
 
 /*-----------------------
@@ -2770,6 +2751,36 @@ h2.widget-title {
 .entry-header h2 {
   margin-top: 0;
   margin-bottom: 15px;
+}
+
+.pointsHeader {
+  text-align: center;
+  margin: 4em 0 2em 0;
+}
+
+.pointsSection {
+  width: 100%;
+  margin: auto 0;
+}
+
+/*--------------------------------------------------------------
+## Technologies [font page]
+--------------------------------------------------------------*/
+
+.flexContainer {
+  display: flex;
+}
+
+.flexContainer div {
+  width: 23%;
+  font-size: .8em;
+  text-align: center;
+  margin: 0 2em 0 2em;
+  line-height: 1.3em;
+}
+
+.flexContainer h5 {
+  font-weight: bold;
 }
 
 /*--------------------------------------------------------------
