@@ -10,8 +10,8 @@
       <div class="header-inner">
         <div class="header-inner-site-branding">
           <div class="site-branding">
-            <a href="/" title="Cobalt Counsel">
-              <img src="/images/unnamed.png" alt="" />
+            <a href="/" title="Cobalt AI">
+              <img src="/images/cobaltAI.png" alt="" />
             </a>
           </div>
           <div class="menu-toggle-button-wrap">
@@ -31,19 +31,9 @@
                   <a href="/team.html">Team</a>
                 </li>
                 <li
-                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1071"
-                >
-                  <a href="/transactions.html">Recent Work</a>
-                </li>
-                <li
                   class="menu-item menu-item-type-post_type menu-item-object-page"
                 >
                   <a href="/testimonials.html">Testimonials</a>
-                </li>
-                <li
-                  class="menu-item menu-item-type-post_type menu-item-object-page"
-                >
-                  <a href="/events.html">Events</a>
                 </li>
                 <li
                   class="menu-item menu-item-type-post_type menu-item-object-page menu-item-90"
