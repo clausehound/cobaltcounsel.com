@@ -8,14 +8,14 @@
         'We have been impressed with the commitment by Cobalt to providing a thoughtful response within a six hour service level, with their deal knowledge capture through their software platform, and with the speed at which their software and lawyers are able to collect our thinking and map from prior deals into future deals. As our understanding of their legal and technological capabilities have advanced, we have increased our desire to create [...] automations around [...] legal documentation.',
       author: 'Michael Younder',
       credentials:
-        'Head of Partnerships for an award-winning digital Design Agency, trusted by numerous enterprise clients, worldwide, with specialties in mobile design, web design, and the ethos of creating "smart" interfaces has have helped their firm skyrocket in growth over its 10+ years in market.',
+        'Head of CMS Partnerships for an award-winning digital Design Agency, trusted by numerous enterprise clients, worldwide, with specialties in mobile design, web design, and the ethos of creating "smart" interfaces has have helped their firm skyrocket in growth over its 10+ years in market.',
     },
     {
       language:
         'Cobalt has been an excellent partner for us. The client focus and support is outstanding. Their Drafting Sprints have been very effective for us, helping progress deals based on our timeline, while keeping our legal down, it’s a WIN-WIN. It’s easy to recommend Cobalt.',
       author: 'Brett Hurlock',
       credentials:
-        'Brett Hurlock The Camlachie Inspection Co., providing contract services for inspections, consultations, coordination and evaluation, survey development, work selection, and manpower supply since 2013.',
+        'The Camlachie Inspection Co., Successful president since 2013, providing contract services for inspections, consultations, coordination and evaluation, survey development, work selection, and manpower supply.',
     },
     {
       language:
@@ -26,7 +26,7 @@
     },
     {
       language:
-        'The [Cobalt] have assisted us with a variety of commercial legal matters and, specifically, the development of an online terms of use and privacy policy. The protection and collection of personal information of the audience that use our services are of great importance to us, and with the depth of experience of the Cobalt team, they have helped us to ensure that we understand how we can ensure our compliance with privacy laws and provide our audience comfort that their information is secure. The Cobalt team shares the same values of transparency and trust as is evident in our experiences working with them.',
+        'The [Cobalt Lawyers] have assisted us with a variety of commercial legal matters and, specifically, the development of an online terms of use and privacy policy. The protection and collection of personal information of the audience that use our services are of great importance to us, and with the depth of experience of the Cobalt team, they have helped us to ensure that we understand how we can ensure our compliance with privacy laws and provide our audience comfort that their information is secure. The Cobalt team shares the same values of transparency and trust as is evident in our experiences working with them.',
       author: 'Brian Prosserman',
       credentials:
         'Founder of a platform dedicated to bridging the gap between volunteers and organizations, that is helping organizations bring in the right volunteers, and helping volunteers find meaningful opportunities that will support them throughout their professional lives.',
@@ -40,10 +40,10 @@
     },
     {
       language:
-        'Cobalt is the best kept secret on Bay Street, and we are pleased to recommend them.',
+        'Cobalt Lawyers is the best kept secret on Bay Street, and we are pleased to recommend them.',
       author: 'Peter Evans',
       credentials:
-        'Peter Evans CEO of a world-leading Expertise Marketing Platform and open expert network. Winner of the 2018 CODiE Award for "Best Content Marketing Solution," their platform helps organizations better manage and promote their expertise.',
+        'CEO of a world-leading Expertise Marketing Platform and open expert network. Winner of the 2018 CODiE Award for "Best Content Marketing Solution," their platform helps organizations better manage and promote their expertise.',
     },
     {
       language: 'Speedy corporate work - everything is automated well!',
@@ -53,7 +53,7 @@
     },
     {
       language:
-        'The key aspects of [Cobalt’s] services that make them unique are their ability to promptly assign legal resources to our requirements, breakdown and simplify scenarios for our cross-functional executive teams to clearly and logically understand the event and make decisions, and identify efficient and cost-effective processes to help us achieve our goals, every time. Kudos to them for their commitment to innovation in the legal field that has certainly demystified the world of legalities!',
+        'Cobalt Lawyers has been our legal counsel for about eight years. They support us with all our corporate legal matters, including shareholder and partnership agreements, IP law, employment law, and other ad hoc requirements. The key aspects of their services that make them unique are their ability to promptly assign legal resources to our requirements, breakdown and simplify scenarios for our cross-functional executive teams to clearly and logically understand the event and make decisions, and identify efficient and cost-effective processes to help us achieve our goals, every time. Kudos to them for their commitment to innovation in the legal field that has certainly demystified the world of legalities!',
       author: 'Anand Karat',
       credentials:
         'Vretta Inc., E-Assessment and Learning Solutions recognized by several renowned awarding bodies for the quality and implementation across all education levels, including the International e-Assessment Awards, the International Educational Games Competition, and Brandon Hall Excellence Awards.',
@@ -62,8 +62,8 @@
 
   const distinctions = [
     'Seven-time sponsor of Startup Weekend Toronto, recurring sponsor of Ivey Venture Forum, and recurring judge of the annual Ivey business plan competition. Hundreds of hours of judging and mentoring venture capital competitions and technology hackathons.',
-    'Legal Technology Pioneer recognized by the Law Society of Ontario as a speaker on technology-based legal services.',
-    'Official Legal Supplier to the City of Mississauga, as External Technology Law counsel (for two consecutive 5-year terms).',
+    'Legal Technology Pioneer recognized by the Law Society of Ontario as a speaker on fixed-fee legal services in the earliest days of fixed-fee billing.',
+    'Official Legal Supplier to the City of Mississauga, as External Technology Law counsel (for the second of two consecutive 5-year terms).',
   ];
 
   const section = document.createElement('section');
