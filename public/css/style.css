@@ -484,9 +484,6 @@ table {
   margin: 0 0 1.5em;
 }
 
-.ceoImg {
-  width: 50%;
-}
 
 /*--------------------------------------------------------------
 # General Styles
@@ -1735,30 +1732,7 @@ h3.about-title {
 }
 
 .techMember {
-  margin: 0 0 1em 1em ;
-}
-
-.pointsSection {
-  margin: 4em 0 2em 0;
-}
-
-.demoHeader {
-  text-align: center;
-}
-
-.pointsHeader {
-  text-align: center;
-}
-
-.flexContainer {
-  margin-top: 2em;
-}
-
-.teamFlexContainer {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+    margin: 0 0 1em 1em ;
 }
 
 /*-----------------------
@@ -2476,7 +2450,7 @@ figcaption {
 
 .testimonials blockquote {
   flex: 1 auto;
-  max-width: 23rem;
+  max-width: 30rem;
   margin-bottom: 5rem;
   color: #242461;
   font-size: 14px;
@@ -2779,6 +2753,16 @@ h2.widget-title {
   margin-bottom: 15px;
 }
 
+.pointsHeader {
+  text-align: center;
+  margin: 4em 0 2em 0;
+}
+
+.pointsSection {
+  width: 100%;
+  margin: auto 0;
+}
+
 /*--------------------------------------------------------------
 ## Technologies [font page]
 --------------------------------------------------------------*/
@@ -2789,6 +2773,7 @@ h2.widget-title {
 
 .flexContainer div {
   width: 23%;
+  font-size: .8em;
   text-align: center;
   margin: 0 2em 0 2em;
   line-height: 1.3em;
@@ -3622,26 +3607,7 @@ div.wpcf7-mail-sent-ok {
 
   .flexContainer div {
     width: 100%;
-    margin: 0;
   }
-
-  .demoHeader {
-    text-align: center;
-  }
-
-  .pointsHeader {
-    text-align: center;
-    margin: 4em 0 2em 0;
-  }
-
-  .testimonials blockquote {
-    max-width: 100%;
-  }
-
-  .teamFlexContainer {
-    width: 100%;
-    justify-content: flex-start;
-
 }
 
 .top-bar .link-to-customizer {
@@ -3877,6 +3843,4 @@ h3 {
 
 #primary-menu.open {
   display: inherit;
-}
-
 }
