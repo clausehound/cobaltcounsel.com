@@ -2798,6 +2798,25 @@ h2.widget-title {
   width: 50%;
 }
 
+.ceoLawTeam {
+  width: 20%;
+}
+
+.ceoLawNames {
+  color: var(--color-bigblue);
+  font-family: 'Verdana', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.centerInfo {
+  display: flex;
+  align-items: baseline;
+}
+
+.centerInfo div {
+  margin-right: 2em;
+}
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
