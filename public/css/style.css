@@ -350,6 +350,14 @@ h6 {
   clear: both;
 }
 
+.landerHeader {
+  text-align: center;
+}
+
+.landerText {
+  text-align: justify;
+}
+
 p {
   margin-bottom: 1.5em;
 }
