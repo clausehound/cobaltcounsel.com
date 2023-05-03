@@ -6,7 +6,14 @@
   const testimonialCapabilites = [
     {
       language:
-        "The Cobalt team made what would otherwise have felt like a grueling traverse through endless contracts, feel instead like a smooth & guided process. They walked our startup through the steps needed to facilitate a major fundraising round, and the team was always a pleasure to meet with, as the discourse was always patient and insightful. The rush vs non-rush option gave us the flexibility to spend more when we needed things rushed, or visa versa, to spend less and move at the firm's speed. This paired with their discovery calls & work over the weekend initiatives makes them the most startup-friendly firm out there!",
+        'The lawyers at Cobalt [...] assisted us with a variety of general corporate legal matters and, specifically with the finalization of our shareholders’ agreement. As these agreements can become quite complex, I was impressed with the attention to detail and true legal expertise that was provided. Above all else, they were keen to ensure that all my concerns were addressed and went above and beyond to consider all aspects of the formation of my business.',
+      author: 'Rahim Lalani',
+      credentials:
+        'CTO and Co-Founder of an online platform that makes finding quality homecare service providers accessible through vetted agencies, reviews and seamless payment processing.',
+    },
+    {
+      language:
+        'The Cobalt team made what would otherwise have felt like a grueling traverse through endless contracts, feel instead like a smooth & guided process. They walked our startup through the steps needed to facilitate a major fundraising round, and the team was always a pleasure to meet with, as the discourse was always patient and insightful. The rush vs non-rush option gave us the flexibility to spend more when we needed things rushed, or visa versa, to spend less and move at the firm's speed. This paired with their discovery calls & work over the weekend initiatives makes them the most startup-friendly firm out there!",
       author: 'Alex Simonelli',
       credentials: 'Daydream Drinks, A Canadian pioneer in hemp-based beverage products',
     },

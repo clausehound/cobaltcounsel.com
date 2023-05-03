@@ -5,35 +5,28 @@
   const testimonials = [
     {
       language:
-        'We have been impressed with the commitment by Cobalt to providing a thoughtful response within a six hour service level, with their deal knowledge capture through their software platform, and with the speed at which their software and lawyers are able to collect our thinking and map from prior deals into future deals. As our understanding of their legal and technological capabilities have advanced, we have increased our desire to create [...] automations around [...] legal documentation.',
+        'We have been impressed with the commitment by Cobalt to providing a thoughtful response within a six hour service level, with their deal knowledge capture through their software platform, and with the speed at which their software and lawyers are able to collect our thinking and map from prior deals into future deals. As our understanding of their legal and technological capabilities have advanced, we have increased our desire to create [...] automations around legal documentation.',
       author: 'Michael Younder',
       credentials:
         'Head of CMS Partnerships for an award-winning digital Design Agency, trusted by numerous enterprise clients, worldwide, with specialties in mobile design, web design, and the ethos of creating "smart" interfaces has have helped their firm skyrocket in growth over its 10+ years in market.',
     },
     {
       language:
-        'Cobalt has been an excellent partner for us. The client focus and support is outstanding. Their Drafting Sprints have been very effective for us, helping progress deals based on our timeline, while keeping our legal down, it’s a WIN-WIN. It’s easy to recommend Cobalt.',
+        'Cobalt has been an excellent partner for us. The client focus and support is outstanding. Their Drafting Sprints have been very effective for us, helping progress deals based on our timeline. It’s easy to recommend Cobalt.',
       author: 'Brett Hurlock',
       credentials:
         'The Camlachie Inspection Co., Successful president since 2013, providing contract services for inspections, consultations, coordination and evaluation, survey development, work selection, and manpower supply.',
     },
     {
       language:
-        'The lawyers at Cobalt [...] assisted us with a variety of general corporate legal matters and, specifically with the finalization of our shareholders’ agreement. As these agreements can become quite complex, I was impressed with the attention to detail and true legal expertise that was provided. Above all else, they were keen to ensure that all my concerns were addressed and went above and beyond to consider all aspects of the formation of my business.',
-      author: 'Rahim Lalani',
-      credentials:
-        'CTO and Co-Founder of an online platform that makes finding quality homecare service providers accessible through vetted agencies, reviews and seamless payment processing.',
-    },
-    {
-      language:
-        'The [Cobalt Lawyers] have assisted us with a variety of commercial legal matters and, specifically, the development of an online terms of use and privacy policy. The protection and collection of personal information of the audience that use our services are of great importance to us, and with the depth of experience of the Cobalt team, they have helped us to ensure that we understand how we can ensure our compliance with privacy laws and provide our audience comfort that their information is secure. The Cobalt team shares the same values of transparency and trust as is evident in our experiences working with them.',
+        'The protection and collection of personal information of the audience that use our services are of great importance to us, and with the depth of experience of the Cobalt team, they have helped us to ensure that we understand how we can ensure our compliance with privacy laws and provide our audience comfort that their information is secure. The Cobalt team shares the same values of transparency and trust as is evident in our experiences working with them.',
       author: 'Brian Prosserman',
       credentials:
         'Founder of a platform dedicated to bridging the gap between volunteers and organizations, that is helping organizations bring in the right volunteers, and helping volunteers find meaningful opportunities that will support them throughout their professional lives.',
     },
     {
       language:
-        'The lawyers at Cobalt [...] have assisted us with a variety of general corporate/commercial legal matters and, specifically in the intellectual property and technology spheres, they have assisted us with reviews of various commercial contracts including master services agreements, software services agreements, and co-working agreements. These agreements have typically included significant IP and IT provisions that require attention to detail and true legal expertise.',
+        'The lawyers at Cobalt [...] have assisted us with reviews of various commercial contracts including master services agreements, software services agreements [...] These agreements have typically included significant IP and IT provisions that require attention to detail and true legal expertise.',
       author: 'Chris Eben',
       credentials:
         'CEO of a Software Development Firm helping companies build the software they need to innovate, grow, adapt and change. Their company values and development practices have helped them ship 200 products for enterprise and growth stage startups with a team of more than 150, in several offices across North America, over the course of two decades.',
@@ -53,7 +46,7 @@
     },
     {
       language:
-        'Cobalt Lawyers has been our legal counsel for about eight years. They support us with all our corporate legal matters, including shareholder and partnership agreements, IP law, employment law, and other ad hoc requirements. The key aspects of their services that make them unique are their ability to promptly assign legal resources to our requirements, breakdown and simplify scenarios for our cross-functional executive teams to clearly and logically understand the event and make decisions, and identify efficient and cost-effective processes to help us achieve our goals, every time. Kudos to them for their commitment to innovation in the legal field that has certainly demystified the world of legalities!',
+        "The key aspects of Cobalt's services that make them unique are their ability to promptly assign legal resources to our requirements, breakdown and simplify scenarios for our cross-functional executive teams to clearly and logically understand the event and make decisions, and identify efficient and cost-effective processes to help us achieve our goals, every time. Kudos to them for their commitment to innovation in the legal field that has certainly demystified the world of legalities!",
       author: 'Anand Karat',
       credentials:
         'Vretta Inc., E-Assessment and Learning Solutions recognized by several renowned awarding bodies for the quality and implementation across all education levels, including the International e-Assessment Awards, the International Educational Games Competition, and Brandon Hall Excellence Awards.',
