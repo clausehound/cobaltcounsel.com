@@ -350,6 +350,21 @@ h6 {
   clear: both;
 }
 
+.landerHeader {
+  text-align: center;
+}
+
+.landerText {
+  text-align: justify;
+}
+
+.panel {
+  display: none;
+  overflow: hidden;
+  margin-top: 1em;
+  text-align: left;
+}
+
 p {
   margin-bottom: 1.5em;
 }
@@ -1724,6 +1739,7 @@ h3.about-title {
 .teammates-members-wrapper {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 3em;
 }
 
 .techTeam {
@@ -1735,6 +1751,9 @@ h3.about-title {
     margin: 0 0 1em 1em ;
 }
 
+.bioPreview {
+  margin-right: .5em;
+}
 /*-----------------------
 ###Term
 -----------------------*/
@@ -2791,13 +2810,32 @@ h2.widget-title {
 }
 
 .teamFlexContainer section {
-  width: 33%;
-}
+    width: 33%;
+  }
 
 .ceoImg {
   width: 50%;
 }
 
+.ceoLawTeam {
+  width: 20%;
+}
+
+.ceoLawNames {
+  color: var(--color-bigblue);
+  font-family: 'Verdana', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.centerInfo {
+  display: flex;
+  align-items: baseline;
+}
+
+.centerInfo div {
+  margin-right: 2em;
+}
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
@@ -3559,7 +3597,23 @@ div.wpcf7-mail-sent-ok {
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .teamFlexContainer section {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .teamFlexContainer section {
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 250px) and (max-width: 1200px) {
+  .termPara {
+    width: 80%;
+  }
+
   /* header */
   .main-navigation a {
     font-size: 16px;
@@ -3576,13 +3630,11 @@ div.wpcf7-mail-sent-ok {
   /* our lawyers */
   .lawyer-box-image {
     width: 100%;
-    text-align: center;
   }
   .lawyer-box-content {
     margin-top: 10px;
     margin-right: 0;
     padding-right: 0;
-    text-align: center;
   }
   .border-left {
     padding-left: 0px;
@@ -3623,10 +3675,6 @@ div.wpcf7-mail-sent-ok {
   .flexContainer div {
     width: 100%;
     margin: 0;
-  }
-
-  .teamFlexContainer section {
-    width: 100%;
   }
 }
 
