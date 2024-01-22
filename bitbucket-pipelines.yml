@@ -1,0 +1,37 @@
+pipelines:
+  custom:
+    authkey:
+      - step:
+          name: Add AUTHORIZED_KEY to authorized keys
+          script:
+            - ssh root@$PUB_IP echo "$AUTHORIZED_KEY >> ~/.ssh/authorized_keys"
+  default:
+    - step:
+        name: Gatsby Build
+        image: node:16-buster-slim
+        caches:
+          - node
+        script:
+          - NODE_ENV="dev" npm i --unsafe-perm
+          - npm run build
+        artifacts:
+          - public/**
+  branches:
+    master:
+      - step:
+          name: Gatsby Build
+          image: node:16-buster-slim
+          caches:
+            - node
+          script:
+            - NODE_ENV="dev" npm i --unsafe-perm
+            - npm run build
+          artifacts:
+            - public/**
+      - step:
+          name: Deploy To Production
+          deployment: production
+          script:
+            - rsync -avze ssh --delete ./public/ gatsby@$PUB_IP:/home/gatsby/public/
+            - rsync -avze ssh --delete ./about/ gatsby@$PUB_IP:/home/gatsby/about/
+            - rsync -avze ssh --delete ./DealPrep/ gatsby@$PUB_IP:/home/gatsby/DealPrep/

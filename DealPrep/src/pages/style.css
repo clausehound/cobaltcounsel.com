@@ -1,0 +1,927 @@
+body,
+html {
+  overflow-x: hidden;
+}
+
+body {
+	font-size: 16px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+main {
+	margin: 0 auto;
+	margin-top: 2em;
+}
+
+#hameburgerIcon {
+	display: none;
+}
+
+/* ---- | HEADER | ---- */
+
+header {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+	margin: 0 auto;
+}
+
+nav a {
+	color: rgb(0, 0, 0);
+	font-family: "Roboto", sans-serif;
+	font-weight: 600;
+	font-size: 1.3em;
+	text-decoration: none;
+	padding-right: 1em;
+	transition: color 0.5s;
+	text-transform: uppercase;
+}
+
+nav {
+	margin-right: 2em;
+}
+
+nav a:hover {
+	color: rgb(4, 145, 183);
+}
+
+a {
+	text-transform: uppercase;
+	color: rgb(4, 145, 183);
+	font-weight: 600;
+}
+
+a:hover {
+	color: rgb(0, 0, 0);
+}
+
+#logoContainer {
+	display: flex;
+	align-items: center;
+}
+
+.logo {
+	width: 90%;
+}
+
+/* ---- | TEXT STYLING | ---- */
+
+h1 {
+	font-size: 3em;
+	font-family: "Merriweather", serif;
+	color: rgb(0, 0, 0);
+	padding-bottom: 0.5em;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 2em;
+	font-family: "Roboto", sans-serif;
+	color: rgb(4, 145, 183);
+	line-height: 1.2;
+	font-weight: 300;
+}
+
+h3 {
+	font-size: 2em;
+	font-family: "Roboto", sans-serif;
+	color: rgb(0, 0, 0);
+	font-weight: 600;
+}
+
+h4 {
+	font-size: 1.3em;
+	font-family: "Roboto", sans-serif;
+	color: rgb(0, 0, 0);
+}
+
+h5 {
+	font-size: 4em;
+	font-family: "Roboto", sans-serif;
+	color: rgb(0, 0, 0);
+	line-height: 2;
+	font-weight: 700;
+	text-align: center;
+}
+
+p {
+	font-size: 1em;
+	color: rgb(0, 0, 0);
+	font-family: "Roboto", sans-serif;
+	line-height: 1.7;
+}
+
+.brandEm {
+	color: rgb(4, 145, 183);
+	font-weight: bold;
+	font-family: "Roboto", sans-serif;
+}
+
+/* ---- | HERO IMAGE | ---- */
+
+.baselineContainer {
+	margin-right: 1em;
+}
+
+.baselineContainer > h1 {
+	padding-bottom: 0.5em;
+}
+
+.baselineContainer > div {
+	padding: 1em 0;
+}
+
+.baselineContainerP > p {
+	padding: 1em 1em 0 0.5em;
+}
+
+/* ---- | POINTS | ---- */
+
+.points {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	align-content: center;
+	justify-content: center;
+	margin: 3em 0 1em 0;
+}
+
+.points div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2em;
+}
+
+.pointImg {
+	height: 25%;
+}
+
+.points p {
+	color: rgb(0, 0, 0);
+	font-family: "Roboto", sans-serif;
+	font-weight: 600;
+	font-size: 1.1em;
+	text-align: center;
+	padding-top: 1.4em;
+	width: 95%;
+}
+
+/* Creates pencil circle effect */
+
+.highlight,
+.highlight-container {
+	position: relative;
+}
+
+.highlight {
+	display: inline-block;
+}
+
+.highlight:before {
+	content: "";
+	z-index: -1;
+	left: -0.5em;
+	top: -0.1em;
+	border-width: 3px;
+	border-style: solid;
+	border-color: rgb(4, 145, 183);
+	position: absolute;
+	border-right-color: transparent;
+	width: 100%;
+	height: 4em;
+	transform: rotate(3deg);
+	border-radius: 50%;
+	margin: 1em 0;
+	opacity: 0.8;
+}
+
+.highlight:after {
+	content: "";
+	z-index: -1;
+	left: -0.5em;
+	top: 0.1em;
+	border-width: 3px;
+	border-style: solid;
+	border-color: rgb(4, 145, 183);
+	border-left-color: transparent;
+	border-top-color: transparent;
+	position: absolute;
+	width: 100%;
+	height: 4em;
+	transform: rotate(1deg);
+	border-radius: 50%;
+	margin: 1.2em 0;
+	opacity: 0.8;
+}
+
+/* ---- | SPACING | ---- */
+
+.flexContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	margin: 0 auto;
+	width: 90%;
+}
+
+.sectionSpacing {
+	margin: 2em 0 3em 0;
+}
+
+/* ---- | VIDEO DEMO | ---- */
+
+#frameVideo {
+	margin: 4em 0 6em 0;
+}
+
+.subSectionBG {
+	padding: 5rem 0 5rem 0;
+	display: flex;
+	align-items: center;
+	background-image: linear-gradient(rgb(255, 255, 255), rgb(4, 145, 183));
+}
+
+/* ---- | THREE CS SECTION | ---- */
+
+.threeCSection {
+	width: 70vw;
+	margin: 0 auto;
+	flex-direction: row;
+}
+
+.threeCSection p {
+	margin: 3em 2em 2em 0;
+}
+
+.flexContainerp {
+	padding: 1em;
+}
+
+.imgMarg {
+	margin: 0 2em;
+}
+
+.valueSection {
+	width: 75vw;
+	margin: auto;
+	margin-top: 3em;
+}
+
+.valueSectionPara {
+	margin-bottom: 4em;
+}
+
+.valueSectionPara p {
+	margin: 1em 0;
+}
+
+.valueSection img {
+	width: 90%;
+}
+
+#aboutAnchor p {
+	padding-top: 1em;
+}
+
+/* ---- | CALENDLY | ---- */
+
+.subSection {
+	margin-top: 2em;
+}
+
+/* ---- | REDLINE | ---- */
+
+.sectionHeading {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 3rem;
+}
+
+.redlineSection {
+	width: 90vw;
+	margin: 2em auto;
+}
+
+.redlineContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	margin: 2em 0;
+}
+
+.redlineStepContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 2em 0;
+}
+
+.redlineSpacing {
+	display: flex;
+	flex-wrap: wrap;
+	width: 90%;
+	margin: 5em auto;
+	justify-content: space-between;
+}
+
+.benefitsPoints {
+	width: 40%;
+	padding: 1em 2em;
+}
+
+.benefitsPoints p {
+	padding: 1em 0;
+}
+
+.redlineUl {
+	font-size: 1.2em;
+	color: rgb(0, 0, 0);
+	font-family: "Roboto", sans-serif;
+	line-height: 1.7;
+	text-align: left;
+	padding: 2em;
+	width: 30vw;
+}
+
+.redlineUl li {
+	margin-top: 1em;
+	list-style: disc;
+	padding-left: 1em;
+}
+
+.redlinePara {
+	font-size: 1.5em;
+	color: rgb(0, 0, 0);
+	font-family: "Roboto", sans-serif;
+	line-height: 1.7;
+	text-align: center;
+}
+
+.startedText {
+	font-size: 1.2em;
+	color: rgb(0, 0, 0);
+	font-family: "Roboto", sans-serif;
+	line-height: 1.7;
+	text-align: left;
+}
+
+.redlineImg {
+	width: 80vw;
+}
+
+.textCenter {
+	width: 30vw;
+	margin: 0 auto;
+	padding: 3em 1em;
+}
+
+.startedContainer {
+	width: 50vw;
+	margin: 0 auto;
+}
+
+.startedContainer p {
+	margin: 1em 0;
+}
+
+.dealprepContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 60vw;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+
+.dealprepP {
+	text-align: center;
+	margin: 1em 0 4em 0;
+}
+
+.impact {
+	display: flex;
+	flex-direction: row;
+	padding: 2em;
+	margin: 2em 0 7em 0;
+}
+
+.impactPoints {
+	margin: 0 4em;
+	width: 30%;
+	text-align: center;
+}
+
+.impactPoints p {
+	text-align: center;
+}
+
+.impactSubHeader {
+	margin-top: 4em;
+	text-align: center;
+}
+
+/* ---- | SUPERHUMAN | ---- */
+.superSection {
+	width: 90vw;
+	margin: 2em auto;
+}
+
+.superhumanHero {
+	width: 80%;
+}
+
+.superhumanHero h1 {
+	line-height: 1.3;
+}
+
+.imgSpacing {
+	margin-top: 4em;
+}
+
+.imageSizing {
+	display: flex;
+	justify-content: center;
+	max-height: 37.5rem;
+}
+
+.superParaContainer {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.extraSpacing {
+	padding-bottom: 5em;
+}
+
+.superPara {
+	padding: 1em 0;
+}
+
+/* ---- | NDA | ---- */
+
+.ndaUL {
+	font-size: 1.2em;
+	color: rgb(0, 0, 0);
+	font-family: "Roboto", sans-serif;
+	line-height: 1.7;
+	padding: 2em;
+	width: 100vw;
+}
+
+.ndaUL li {
+	margin-top: 1em;
+}
+
+.boldNum {
+	padding-right: 1em;
+	font-weight: 600;
+}
+
+.ndaImg {
+	width: 90vw;
+}
+
+.ndaSpace {
+	margin-bottom: 6em;
+}
+
+/* ---- | FOOTER | ---- */
+
+footer {
+	height: 100%;
+	width: auto;
+	background-color: rgb(0, 0, 0);
+}
+
+footer p {
+	color: rgb(255, 255, 255);
+}
+
+.footerContainer {
+	padding-top: 1em;
+}
+
+.footercon {
+	display: flex;
+	justify-content: center;
+	padding: 3em 3em 0 3em;
+}
+
+.footercon div {
+	padding-right: 4em;
+}
+
+footer a {
+	color: rgb(4, 145, 183);
+	font-family: "Roboto", sans-serif;
+	font-size: 1em;
+	line-height: 2;
+	text-decoration: none;
+	transition: color 0.5s;
+}
+
+footer a:hover {
+	color: rgb(255, 255, 255);
+}
+
+.footerh1 {
+	color: rgb(255, 255, 255);
+	font-family: "Roboto", sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.footerLogo {
+	width: 80%;
+}
+
+.mapContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.privacyPara {
+	color: rgb(196, 196, 196);
+	font-size: 0.8em;
+}
+
+.copyrightPara {
+	text-align: center;
+	padding: 2em 0;
+}
+
+/*	---- | MOBILE | ---- */
+
+@media screen and (max-width: 1020px) {
+	/* ---- | HEADER | ---- */
+	nav a {
+		font-size: 1em;
+	}
+
+	.heroFlex {
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* ---- | REDLINE | ---- */
+	.redlineSection {
+		width: 90vw;
+		margin: 0 auto;
+	}
+
+	.redlineUl {
+		padding: 0 0 2em 2em;
+		width: 80vw;
+	}
+
+	.redlineContainer {
+		flex-direction: column;
+	}
+
+	.startedContainer {
+		width: 90vw;
+		margin: 0 auto;
+	}
+	.startedContainer p {
+		margin: 1em 0;
+	}
+
+	.dealprepContainer {
+		flex-direction: column;
+		width: 100vw;
+	}
+
+	.dealprepP {
+		text-align: center;
+		margin: 1em 0 2em 0;
+	}
+
+	.benefitsPoints {
+		width: 100%;
+		margin: 1em 2em;
+	}
+
+	.redlineSpacing {
+		width: 80%;
+		margin: 3em auto;
+	}
+
+	.redlineStepContainer {
+		flex-direction: column;
+		margin: 0 auto;
+	}
+
+	.imgWidth {
+		width: 80vw;
+	}
+
+	.impact {
+		display: flex;
+		flex-direction: column;
+		padding: 2em;
+	}
+
+	.impactPoints {
+		margin: 2em auto;
+		width: 70%;
+	}
+
+	.impactSubHeader {
+		margin-top: 0;
+		text-align: left;
+	}
+
+	/* ---- | SUPERHUMAN | ---- */
+	.superSection {
+		margin: 2em auto;
+	}
+
+	.superhumanHero {
+		width: 95%;
+	}
+
+	.superhumanHero h1 {
+		line-height: 1.3;
+	}
+
+	.superhumanHero h2 {
+		line-height: 1.3;
+	}
+
+	.imgSpacing {
+		margin-top: 4em;
+	}
+
+	.superParaContainer {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.extraSpacing {
+		padding-bottom: 2em;
+	}
+
+	.superPara {
+		padding: 1em;
+	}
+
+	/* NDA	*/
+
+	.ndaImg {
+		width: 80vw;
+	}
+
+	.ndaUL {
+		width: 70vw;
+	}
+
+	/* ---- | FOOTER | ---- */
+
+	.footercon {
+		text-align: center;
+		flex-direction: column;
+	}
+
+	.footercon div {
+		padding: 1em;
+	}
+
+	.footerLogo {
+		width: 30%;
+		margin-bottom: 2em;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	/*	---- | HEADER | ---- */
+
+	.break {
+		flex-basis: 100%;
+		height: 0;
+	}
+
+	#hameburgerIcon {
+		color: black;
+		display: block;
+		position: relative;
+		margin-right: 1em;
+	}
+
+	nav a {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin: 1em;
+		font-size: 1.5em;
+	}
+
+	#navLinks {
+		display: none;
+	}
+
+	#hameburgerIcon .material-symbols-outlined {
+		font-size: 40px;
+	}
+
+	#logoContainer {
+		width: 80%;
+	}
+
+	/*	---- | SPACING | ---- */
+
+	.flexContainer {
+		flex-direction: column;
+	}
+
+	/*	---- | POINTS | ---- */
+
+	.points {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	/*	---- | THREE Cs | ---- */
+
+	.valueSection {
+		width: 100%;
+	}
+
+	.valueSectionPara {
+		margin: 2em 0;
+	}
+
+	.valueSection img {
+		width: 90%;
+		margin: 2em auto;
+	}
+
+	.baselineContainer,
+	.threeCSection {
+		width: 100%;
+		margin: 1em;
+	}
+
+	.threeCSection p {
+		margin-bottom: 1em;
+	}
+
+	.subSectionBG {
+		padding: 2rem 0 2rem 0;
+	}
+
+	/* ---- | REDLINE | ---- */
+
+	.redlineSection {
+		width: 90vw;
+		margin: 0 auto;
+	}
+
+	.redlineContainer {
+		flex-direction: column;
+		margin: 0 0 4em 0;
+	}
+
+	.redlineRow {
+		flex-direction: column;
+	}
+
+	.benefitsPoints {
+		width: 100%;
+		margin: 0 0 2em 0;
+	}
+
+	.benefitsPoints p {
+		padding: 1em 0;
+	}
+
+	.redlineUl {
+		padding: 0 0 2em 2em;
+		width: 80vw;
+	}
+
+	.redlineImg {
+		width: 90vw;
+		margin: 0em auto;
+	}
+
+	.textCenter {
+		width: 90vw;
+		margin: 0 auto;
+		padding: 0 0 3em 0;
+	}
+
+	.redlineStepContainer {
+		flex-direction: column;
+		margin: 0 auto;
+	}
+
+	.startedContainer {
+		width: 90vw;
+		margin: 0 auto;
+	}
+	.startedContainer p {
+		margin: 1em 0;
+	}
+
+	.dealprepContainer {
+		flex-direction: column;
+		width: 100vw;
+	}
+
+	.dealprepP {
+		text-align: center;
+		margin: 2em 0;
+	}
+
+	.redlineSpacing {
+		margin: 3em auto;
+	}
+
+	.impact {
+		display: flex;
+		flex-direction: column;
+		padding: 2em;
+		margin-bottom: 2em;
+	}
+
+	.impactPoints {
+		margin: 1em auto;
+		width: 100%;
+	}
+
+	.impactSubHeader {
+		margin-top: 0;
+		text-align: left;
+	}
+
+	/* ---- | SUPERHUMAN | ---- */
+
+	.superSection {
+		width: 90vw;
+		margin: 2em auto;
+	}
+
+	.superhumanHero {
+		width: 100%;
+	}
+
+	.superhumanHero h1 {
+		line-height: 1.1;
+	}
+
+	.superhumanHero h2 {
+		line-height: 1.3;
+	}
+
+	.imgSpacing {
+		margin-top: 4em;
+		margin-bottom: 4em;
+	}
+
+	.superParaContainer {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.extraSpacing {
+		padding-bottom: 2em;
+	}
+
+	.superPara {
+		padding: 1em;
+	}
+	.imgWidth {
+		width: 80vw;
+	}
+	/* NDA	*/
+
+	.ndaUL {
+		width: 70vw;
+	}
+
+	.ndaImg {
+		width: 90vw;
+		margin: 0em auto;
+	}
+
+	/* ---- | FOOTER | ---- */
+
+	.footercon {
+		text-align: center;
+	}
+
+	.footercon div {
+		padding: 1em;
+	}
+
+	.footerLogo {
+		width: 50%;
+	}
+}
