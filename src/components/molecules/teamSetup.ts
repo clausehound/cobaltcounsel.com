@@ -1,7 +1,6 @@
 import { createElement as h } from "react";
 import styled from "styled-components";
 import Container from "@atoms/container";
-import Subheading from "@atoms/subheading";
 import { media } from "@utils/media";
 import Rajah from "@atoms/pretty/Rajah.jpg";
 import CEOLawLogo from "@atoms/pretty/CEOLaw.png";

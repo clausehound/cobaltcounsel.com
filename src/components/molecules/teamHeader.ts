@@ -1,10 +1,6 @@
 import { createElement as h, useContext, Fragment } from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import styled, { ThemeContext } from "styled-components";
 import { media } from "@utils/media";
-import Button from "@atoms/button";
-import Subheading from "@atoms/subheading";
-import analysis from "@atoms/pretty/Analysis.svg";
 import businessMeetingSvg from "@atoms/pretty/BusinessMeeting.svg";
 
 
