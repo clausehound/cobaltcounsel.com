@@ -86,20 +86,10 @@ const TeamSetup = () => {
             h("h4", null, "Thomas Southmayd"),
             h("p", null, "Head of Growth and Partnerships")
         ),
-        h("li", null, 
-          h("h4", null, "Owen Jackson"),
-          h("p", null, "Business Analyst")
-        ),
-        h("li", null, 
-          h("h4", null, "Steve Monk"),
-          h("img", { src: CEOLawLogo, alt: "CEO Law Logo" }),
-          h("p", null, "Business Development, Founder and CEO of our partner CEO Law")
-        ),
-        h("li", null, 
-          h("h4", null, "Matt Belbeck"),
-          h("img", { src: CEOLawLogo, alt: "CEO Law Logo" }),
-          h("p", null, "Business Development, CMO of our partner CEO Law")
-        ),
+          h("li", null, 
+            h("h4", null, "Owen Jackson"),
+            h("p", null, "Business Analyst")
+          )
         )
       )
     )
