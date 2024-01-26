@@ -26,7 +26,7 @@ const ProductsDropdown = () => {
       h(DropdownContainer, {ref: dropdownRef},
         h(Link, { onClick: toggleDropdown }, "Products"),
         h(DropdownContent, { isOpen: isOpen },
-          h("a", { href: "https://dealprep.co", target: "_blank" }, "Dealprep"),
+          h("a", { href: "/dealprep", target: "_blank" }, "Dealprep"),
           h("a", { href: "/policysaurus" }, "Policysaurus"),
         )
       )
