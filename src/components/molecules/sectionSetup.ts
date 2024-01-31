@@ -10,11 +10,7 @@ const SectionSetup = () => {
       content: true,
       contentTop: true,
     },
-    h(
-      Intro,
-      null,
-      h("h2", null, "Services")
-    ),
+    h(Intro, null, h("h2", null, "Services")),
     h(
       Setup,
       null,
@@ -62,7 +58,7 @@ const Intro = styled.div`
   @media ${media.md} {
     h2 {
       margin-bottom: 2rem;
-    } 
+    }
   }
 `;
 
@@ -119,12 +115,12 @@ const Work = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
   justify-content: center;
-  height: 32px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin-top: 3rem;
   position: relative;
 
   @media ${media.md} {
+    height: 32px;
     margin-bottom: 3rem;
   }
 
