@@ -23,7 +23,7 @@ const IndexPage = () => {
   return h(
     Layout,
     null,
-    h(SEO, { title: "Cobalt AI Legal Tech" }),
+    h(SEO, { title: "Cobalt AI" }),
     h(SectionHeader),
     h(SectionSetup),
     h(
@@ -38,7 +38,11 @@ const IndexPage = () => {
         ContentBlock,
         null,
         h(Subheading, null, "About"),
-        h("h2", null, "We are passionate about simplifying complex knowledge management."),
+        h(
+          "h2",
+          null,
+          "We are passionate about simplifying complex knowledge management."
+        ),
         h(
           "p",
           null,
@@ -75,11 +79,7 @@ const IndexPage = () => {
           null,
           "Extract, Transform and Load data for storage, analysis, and machine learning."
         ),
-        h(
-          "p",
-          null,
-          "High-volume knowledge ingestion and categorization."
-        ),
+        h("p", null, "High-volume knowledge ingestion and categorization."),
         h(
           "p",
           null,
