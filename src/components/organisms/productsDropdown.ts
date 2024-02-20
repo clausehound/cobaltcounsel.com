@@ -1,7 +1,7 @@
-import { createElement as h } from "react";
-import { useState, useRef, useEffect } from "react";
+import { createElement as h } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import Link from "@atoms/link";
+import Link from '@atoms/link';
 
 const ProductsDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,14 +22,16 @@ const ProductsDropdown = () => {
     };
   }, [dropdownRef]);
 
-  return (
-      h(DropdownContainer, {ref: dropdownRef},
-        h(Link, { onClick: toggleDropdown }, "Products"),
-        h(DropdownContent, { isOpen: isOpen },
-          h("a", { href: "/dealprep", target: "_blank" }, "Dealprep"),
-          h("a", { href: "/policysaurus" }, "Policysaurus"),
-        )
-      )
+  return h(
+    DropdownContainer,
+    { ref: dropdownRef },
+    h(Link, { onClick: toggleDropdown }, 'Products'),
+    h(
+      DropdownContent,
+      { isOpen: isOpen },
+      h('a', { href: '/dealprep', target: '_blank' }, 'Dealprep'),
+      h('a', { href: '/policysaurus' }, 'Policysaurus'),
+    ),
   );
 };
 
@@ -42,7 +44,7 @@ const DropdownContainer = styled.div`
 `;
 
 const DropdownButton = styled.button`
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px;
   font-size: 16px;
@@ -51,11 +53,11 @@ const DropdownButton = styled.button`
 `;
 
 const DropdownContent = styled.div<{ isOpen: boolean }>`
-  display: ${props => (props.isOpen ? 'block' : 'none')};
+  display: ${(props) => (props.isOpen ? 'block' : 'none')};
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 
   a {
