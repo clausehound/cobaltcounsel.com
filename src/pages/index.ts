@@ -1,29 +1,29 @@
-import { createElement as h } from "react";
-import { useStaticQuery } from "gatsby";
-import styled from "styled-components";
-import Layout from "@utils/layout";
-import SEO from "@utils/seo";
-import Button from "@atoms/button";
-import ContentBlock from "@atoms/contentBlock";
-import Container from "@atoms/container";
-import List from "@atoms/list";
-import Subheading from "@atoms/subheading";
-import SectionHeader from "@molecules/sectionHeader";
-import SectionSetup from "@molecules/sectionSetup";
-import SectionCheckout from "@molecules/sectionCheckout";
-import SectionTestimonial from "@molecules/sectionTestimonial";
-import toolingSvg from "@atoms/pretty/Tooling.svg";
-import workflowSvg from "@atoms/pretty/Workflow.svg";
-import rankedSvg from "@atoms/pretty/Ranked.svg";
-import knowledgeSvg from "@atoms/pretty/Knowledge.svg";
-import metaMachineSvg from "@atoms/pretty/MetaMachine.svg";
-import businessMeetingSvg from "@atoms/pretty/BusinessMeeting.svg";
+import { createElement as h } from 'react';
+import { useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
+import Layout from '@utils/layout';
+import SEO from '@utils/seo';
+import Button from '@atoms/button';
+import ContentBlock from '@atoms/contentBlock';
+import Container from '@atoms/container';
+import List from '@atoms/list';
+import Subheading from '@atoms/subheading';
+import SectionHeader from '@molecules/sectionHeader';
+import SectionSetup from '@molecules/sectionSetup';
+import SectionCheckout from '@molecules/sectionCheckout';
+import SectionTestimonial from '@molecules/sectionTestimonial';
+import toolingSvg from '@atoms/pretty/Tooling.svg';
+import workflowSvg from '@atoms/pretty/Workflow.svg';
+import rankedSvg from '@atoms/pretty/Ranked.svg';
+import knowledgeSvg from '@atoms/pretty/Knowledge.svg';
+import metaMachineSvg from '@atoms/pretty/MetaMachine.svg';
+import businessMeetingSvg from '@atoms/pretty/BusinessMeeting.svg';
 
 const IndexPage = () => {
   return h(
     Layout,
     null,
-    h(SEO, { title: "Cobalt AI" }),
+    h(SEO, { title: 'Cobalt AI' }),
     h(SectionHeader),
     h(SectionSetup),
     h(
@@ -33,34 +33,30 @@ const IndexPage = () => {
         grid: true,
         gridSplit: true,
       },
-      h(Image, null, h("img", { src: knowledgeSvg })),
+      h(Image, null, h('img', { src: knowledgeSvg, alt: 'Knowledge' })),
       h(
         ContentBlock,
         null,
-        h(Subheading, null, "About"),
+        h(Subheading, null, 'About'),
+        h('h2', null, 'We are passionate about simplifying complex knowledge management.'),
         h(
-          "h2",
+          'p',
           null,
-          "We are passionate about simplifying complex knowledge management."
+          'Central to our innovative approach is the implementation of ETL (Extract, Transform, Load) processes. This powerful technology is the backbone of our data-driven solutions.',
         ),
         h(
-          "p",
+          'p',
           null,
-          "Central to our innovative approach is the implementation of ETL (Extract, Transform, Load) processes. This powerful technology is the backbone of our data-driven solutions."
-        ),
-        h(
-          "p",
-          null,
-          "Our team comprises seasoned legal professionals and tech-savvy innovators. Together, we create a synergy that bridges the gap between traditional legal practices and modern technological advancements. Our commitment to excellence and innovation puts us at the forefront of knowledge management technology, offering our clients unparalleled service and expertise."
+          'Our team comprises seasoned legal professionals and tech-savvy innovators. Together, we create a synergy that bridges the gap between traditional legal practices and modern technological advancements. Our commitment to excellence and innovation puts us at the forefront of knowledge management technology, offering our clients unparalleled service and expertise.',
         ),
         h(
           Button,
           {
-            to: "#checkout",
+            to: '#checkout',
           },
-          "Get Started"
-        )
-      )
+          'Get Started',
+        ),
+      ),
     ),
     h(
       ContentContainer,
@@ -69,40 +65,28 @@ const IndexPage = () => {
         grid: true,
         gridSplit: true,
       },
-      h(Image, null, h("img", { src: metaMachineSvg })),
+      h(Image, null, h('img', { src: metaMachineSvg, alt: 'Machine Learning' })),
       h(
         ContentBlock,
         null,
-        h(Subheading, null, "ETL"),
+        h(Subheading, null, 'ETL'),
         h(
-          "h2",
+          'h2',
           null,
-          "Extract, Transform and Load data for storage, analysis, and machine learning."
+          'Extract, Transform and Load data for storage, analysis, and machine learning.',
         ),
-        h("p", null, "High-volume knowledge ingestion and categorization."),
-        h(
-          "p",
-          null,
-          "Scan through knowledge using our AI-driven research workbench."
-        ),
-        h(
-          "p",
-          null,
-          "Make thoughtful drafting suggestions by leveraging heightened analysis."
-        ),
-        h(
-          "p",
-          null,
-          "Finalize drafts at record speed while capturing your team's actions."
-        ),
+        h('p', null, 'High-volume knowledge ingestion and categorization.'),
+        h('p', null, 'Scan through knowledge using our AI-driven research workbench.'),
+        h('p', null, 'Make thoughtful drafting suggestions by leveraging heightened analysis.'),
+        h('p', null, "Finalize drafts at record speed while capturing your team's actions."),
         h(
           Button,
           {
-            to: "#checkout",
+            to: '#checkout',
           },
-          "Get Started"
-        )
-      )
+          'Get Started',
+        ),
+      ),
     ),
     h(
       ContentContainer,
@@ -111,44 +95,44 @@ const IndexPage = () => {
         grid: true,
         gridSplit: true,
       },
-      h(Image, null, h("img", { src: workflowSvg })),
+      h(Image, null, h('img', { src: workflowSvg, alt: 'Workflow' })),
       h(
         ContentBlock,
         null,
-        h(Subheading, null, "Gather"),
-        h("h2", null, "High-volume knowledge ingestion and categorization"),
+        h(Subheading, null, 'Gather'),
+        h('h2', null, 'High-volume knowledge ingestion and categorization'),
         h(
-          "p",
+          'p',
           null,
-          "Clausehound has created technology for structured document analysis comprising of:"
+          'Clausehound has created technology for structured document analysis comprising of:',
         ),
         h(
           List,
           null,
           h(
-            "li",
+            'li',
             null,
-            "Parsing a plurality of text segments from structured documents, each piece of text comprising of text, taxonomy and contextual metadata "
+            'Parsing a plurality of text segments from structured documents, each piece of text comprising of text, taxonomy and contextual metadata ',
           ),
           h(
-            "li",
+            'li',
             null,
-            "Mapping of taxonomies to provide a vector description of each piece of text, defining relationships between taxonomy and text; "
+            'Mapping of taxonomies to provide a vector description of each piece of text, defining relationships between taxonomy and text; ',
           ),
           h(
-            "li",
+            'li',
             null,
-            "Classifying the plurality of text segments by 'cluster', by comparing the vector description of the text segment to vector descriptions of other text and cluster segments"
-          )
+            "Classifying the plurality of text segments by 'cluster', by comparing the vector description of the text segment to vector descriptions of other text and cluster segments",
+          ),
         ),
         h(
           Button,
           {
-            to: "#checkout",
+            to: '#checkout',
           },
-          "Get Started"
-        )
-      )
+          'Get Started',
+        ),
+      ),
     ),
     h(
       ContentContainer,
@@ -157,44 +141,40 @@ const IndexPage = () => {
         grid: true,
         gridSplit: true,
       },
-      h(Image, null, h("img", { src: rankedSvg })),
+      h(Image, null, h('img', { src: rankedSvg, alt: 'Racks of machines' })),
       h(
         ContentBlock,
         null,
-        h(Subheading, null, "Recommend"),
+        h(Subheading, null, 'Recommend'),
+        h('h2', null, 'Make thoughtful drafting suggestions by leveraging heightened analysis'),
         h(
-          "h2",
+          'p',
           null,
-          "Make thoughtful drafting suggestions by leveraging heightened analysis"
+          "Equip your team with the ability to leverage your organization's institutional knowledge and make educated drafting or editing decisions.",
         ),
         h(
-          "p",
+          'p',
           null,
-          "Equip your team with the ability to leverage your organization's institutional knowledge and make educated drafting or editing decisions."
+          'Gain a deeper understanding of your drafting workflows, your document completion rates and the commonalities in concept between your text.',
         ),
         h(
-          "p",
+          'p',
           null,
-          "Gain a deeper understanding of your drafting workflows, your document completion rates and the commonalities in concept between your text."
+          'Identify otherwise hidden gaps in your documents, and suggest language based on your own precedent.',
         ),
         h(
-          "p",
+          'p',
           null,
-          "Identify otherwise hidden gaps in your documents, and suggest language based on your own precedent."
-        ),
-        h(
-          "p",
-          null,
-          "Export 'abstracts' of outstanding action items in a matter of clicks, to help speed along closure."
+          "Export 'abstracts' of outstanding action items in a matter of clicks, to help speed along closure.",
         ),
         h(
           Button,
           {
-            to: "#checkout",
+            to: '#checkout',
           },
-          "Get Started"
-        )
-      )
+          'Get Started',
+        ),
+      ),
     ),
     h(
       ContentContainer,
@@ -203,39 +183,35 @@ const IndexPage = () => {
         grid: true,
         gridSplit: true,
       },
-      h(Image, null, h("img", { src: toolingSvg })),
+      h(Image, null, h('img', { src: toolingSvg, alt: 'Person setting at computer' })),
       h(
         ContentBlock,
         null,
-        h(Subheading, null, "Research"),
+        h(Subheading, null, 'Research'),
+        h('h2', null, 'Scan through your knowledge using our AI-driven research workbench.'),
         h(
-          "h2",
+          'p',
           null,
-          "Scan through your knowledge using our AI-driven research workbench."
+          "'Flip' through knowledge materials and annotate disparate bits of knowledge and content that is mapped against a topic taxonomy and connected directly to your word processor.",
         ),
         h(
-          "p",
+          'p',
           null,
-          "'Flip' through knowledge materials and annotate disparate bits of knowledge and content that is mapped against a topic taxonomy and connected directly to your word processor."
+          'Review your focused text segments against 100s of other text segments with similar vector descriptions and in the same categories as the particular focused text segments.',
         ),
         h(
-          "p",
+          'p',
           null,
-          "Review your focused text segments against 100s of other text segments with similar vector descriptions and in the same categories as the particular focused text segments."
-        ),
-        h(
-          "p",
-          null,
-          "Curate and save your searched knowledge queries and build 'collections' of documents that can be recalled in a matter of clicks."
+          "Curate and save your searched knowledge queries and build 'collections' of documents that can be recalled in a matter of clicks.",
         ),
         h(
           Button,
           {
-            to: "#checkout",
+            to: '#checkout',
           },
-          "Get Started"
-        )
-      )
+          'Get Started',
+        ),
+      ),
     ),
     h(
       ContentContainer,
@@ -244,42 +220,38 @@ const IndexPage = () => {
         grid: true,
         gridSplit: true,
       },
-      h(Image, null, h("img", { src: businessMeetingSvg })),
+      h(Image, null, h('img', { src: businessMeetingSvg, alt: 'Business Meeting' })),
       h(
         ContentBlock,
         null,
-        h(Subheading, null, "Collaborate"),
+        h(Subheading, null, 'Collaborate'),
+        h('h2', null, "Finalize drafts at record speed while capturing your team's actions"),
         h(
-          "h2",
+          'p',
           null,
-          "Finalize drafts at record speed while capturing your team's actions"
+          "Export 'abstracts' of outstanding action items in a matter of clicks, to help speed along closure.",
         ),
         h(
-          "p",
+          'p',
           null,
-          "Export 'abstracts' of outstanding action items in a matter of clicks, to help speed along closure."
+          "Share document collections amongst team members and review your team's drafting thought process via metadata to gain clear understanding of a document's evolution.",
         ),
         h(
-          "p",
+          'p',
           null,
-          "Share document collections amongst team members and review your team's drafting thought process via metadata to gain clear understanding of a document's evolution."
-        ),
-        h(
-          "p",
-          null,
-          "Track all drafting activity to create 'playbooks' that can be used for drafting standardization and speedy onboarding."
+          "Track all drafting activity to create 'playbooks' that can be used for drafting standardization and speedy onboarding.",
         ),
         h(
           Button,
           {
-            to: "#checkout",
+            to: '#checkout',
           },
-          "Get Started"
-        )
-      )
+          'Get Started',
+        ),
+      ),
     ),
     h(SectionTestimonial),
-    h(SectionCheckout)
+    h(SectionCheckout),
   );
 };
 
@@ -292,7 +264,7 @@ const ContentContainer = styled(Container)`
   &:after,
   &:before {
     background: inherit;
-    content: "";
+    content: '';
     display: block;
     height: 50%;
     left: 0;

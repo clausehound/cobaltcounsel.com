@@ -25,7 +25,7 @@ const ProductsDropdown = () => {
   return h(
     DropdownContainer,
     { ref: dropdownRef },
-    h(Link, { onClick: toggleDropdown }, 'Products'),
+    h(DropdownButton, { onClick: toggleDropdown }, 'Products'),
     h(
       DropdownContent,
       { isOpen: isOpen },
@@ -44,12 +44,32 @@ const DropdownContainer = styled.div`
 `;
 
 const DropdownButton = styled.button`
-  background-color: #4caf50;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
   border: none;
-  cursor: pointer;
+  background-color: transparent;
+  color: ${(props) => props.theme.colors.gray};
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0 0 5px 0;
+
+  &::after {
+    content: '';
+    border-bottom: solid 2px ${(props) => props.theme.colors.primary};
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+  }
+
+  &:hover {
+    &::after {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+  }
 `;
 
 const DropdownContent = styled.div<{ isOpen: boolean }>`
