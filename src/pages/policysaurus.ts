@@ -1,81 +1,77 @@
-import { createElement as h } from "react";
-import styled from "styled-components";
-import Layout from "@utils/layout";
-import SEO from "@utils/seo";
-import Button from "@atoms/button";
-import ContentBlock from "@atoms/contentBlock";
-import Container from "@atoms/container";
-import PolicysaurusHeader from "@molecules/policysaurus/policysaurusHeader";
-import PolicysaurusSetup from "@molecules/policysaurus/policysaurusSetup";
-import PolicysaurusWorks from "@molecules/policysaurus/policysaurusWorks";
+import { createElement as h } from 'react';
+import styled from 'styled-components';
+import Layout from '@utils/layout';
+import SEO from '@utils/seo';
+import Button from '@atoms/button';
+import ContentBlock from '@atoms/contentBlock';
+import Container from '@atoms/container';
+import PolicysaurusHeader from '@molecules/policysaurus/policysaurusHeader';
+import PolicysaurusSetup from '@molecules/policysaurus/policysaurusSetup';
+import PolicysaurusWorks from '@molecules/policysaurus/policysaurusWorks';
 
 const PolicysaurusPage = () => {
   return h(
     Layout,
     null,
-    h(SEO, { title: "Policysaurus by Coablt AI" }),
+    h(SEO, { title: 'Policysaurus by Cobalt AI' }),
     h(PolicysaurusHeader),
     h(PolicysaurusSetup),
     h(
       ContentContainer,
       {
-        content: true
+        content: true,
       },
       h(
         ContentBlock,
         null,
-        h("h2", null, "Product Description"),
-        h("h3", null, "1. Excellent Practices from Excellent Research"),
+        h('h2', null, 'Product Description'),
+        h('h3', null, '1. Excellent Practices from Excellent Research'),
         h(
-          "p",
+          'p',
           null,
-          "“Best practices” come from “bad” practices - we review dozens of laws and policies (ours, yours, comparative jurisdictions) as well as hundreds of case law decisions."
+          '“Best practices” come from “bad” practices - we review dozens of laws and policies (ours, yours, comparative jurisdictions) as well as hundreds of case law decisions.',
         ),
         h(
-          "p",
+          'p',
           null,
-          "Our Policy Compare Tool compares thousands of concepts, with our researchers and software working tirelessly to uncover the nuances. This ability to compare across jurisdictions en masse was previously impossible due to the amount of work required, meaning that previously best practices were limited to the quality of the research inputs."
+          'Our Policy Compare Tool compares thousands of concepts, with our researchers and software working tirelessly to uncover the nuances. This ability to compare across jurisdictions en masse was previously impossible due to the amount of work required, meaning that previously best practices were limited to the quality of the research inputs.',
         ),
         h(
-          "p",
+          'p',
           null,
-          "Best practices lie not only in the similarities between policies but also in the disputes, differences, and gaps.  Our Gap Processing tools identifies the concepts that are missing across a bundle of similar documents."
+          'Best practices lie not only in the similarities between policies but also in the disputes, differences, and gaps.  Our Gap Processing tools identifies the concepts that are missing across a bundle of similar documents.',
         ),
-        h("h3", null, "2. Reviewed and Signed off by our Subject Matter Experts"),
+        h('h3', null, '2. Reviewed and Signed off by our Subject Matter Experts'),
         h(
-          "p",
+          'p',
           null,
-          "Policysaurus has a credible and diverse group of subject matter experts that review, provide feedback, and sign off on our content for quality assurance."
+          'Policysaurus has a credible and diverse group of subject matter experts that review, provide feedback, and sign off on our content for quality assurance.',
         ),
-        h("h3", null, "3. Evergreen"),
+        h('h3', null, '3. Evergreen'),
         h(
-          "p",
+          'p',
           null,
-          "Stay at your “best” by staying on top of good and bad practices - our software continues to update and organize content as the policy story develops."
-        )
-      )
+          'Stay at your “best” by staying on top of good and bad practices - our software continues to update and organize content as the policy story develops.',
+        ),
+      ),
     ),
     h(PolicysaurusWorks),
     h(
       ContentContainer,
       {
-        content: true
+        content: true,
       },
       h(
         ContentBlock,
         null,
-        h("h2", null, "Policysaurus’s Technology Advantage"),
+        h('h2', null, 'Policysaurus’s Technology Advantage'),
+        h('p', null, "Policysaurus is the World's Most Agile “Concordance Table”"),
         h(
-          "p",
+          'p',
           null,
-          "Policysaurus is the World's Most Agile “Concordance Table”"
+          'Zero-copy system: the original documents remain intact; our technology attaches a meta-information pointer to hundreds (or thousands) of reference documents including your own target documents',
         ),
-        h(
-          "p",
-          null,
-          "Zero-copy system: the original documents remain intact; our technology attaches a meta-information pointer to hundreds (or thousands) of reference documents including your own target documents"
-        )
-      )
+      ),
     ),
     h(
       CaseStudyContainer,
@@ -85,36 +81,42 @@ const PolicysaurusPage = () => {
       h(
         ContentBlock,
         null,
-        h("h2", null, "Policysaurus Case Studies: Policy Review and Compare"),
-        h("p", null,
+        h('h2', null, 'Policysaurus Case Studies: Policy Review and Compare'),
+        h(
+          'p',
+          null,
           h(
             CaseStudyButton,
             {
-              to: "./diversity",
+              to: './diversity',
             },
-            "Equity, Diversity, and Inclusion"
-          )
+            'Equity, Diversity, and Inclusion',
+          ),
         ),
-        h("p", null,
+        h(
+          'p',
+          null,
           h(
             CaseStudyButton,
             {
-              to: "./privacyandcybersecurity",
+              to: './privacyandcybersecurity',
             },
-            "Privacy and Cybersecurity"
-          )
+            'Privacy and Cybersecurity',
+          ),
         ),
-        h("p", null,
+        h(
+          'p',
+          null,
           h(
             CaseStudyButton,
             {
-              to: "./sustainability",
+              to: './sustainability',
             },
-            "Sustainability"
-          )
+            'Sustainability',
+          ),
+        ),
       ),
-      )
-    )
+    ),
   );
 };
 
@@ -132,7 +134,7 @@ const ContentContainer = styled(Container)`
   &:after,
   &:before {
     background: inherit;
-    content: "";
+    content: '';
     display: block;
     height: 50%;
     left: 0;
@@ -166,7 +168,7 @@ const CaseStudyContainer = styled(Container)`
   &:after,
   &:before {
     background: inherit;
-    content: "";
+    content: '';
     display: block;
     height: 50%;
     left: 0;
