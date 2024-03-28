@@ -1,14 +1,14 @@
-import { createElement as h } from "react";
-import styled from "styled-components";
-import Logo from "@atoms/logo";
-import Link from "@atoms/link";
-import LinkTop from "@atoms/linkTop";
-import { media } from "@utils/media";
+import { createElement as h } from 'react';
+import styled from 'styled-components';
+import Logo from '@atoms/logo';
+import Link from '@atoms/link';
+import LinkTop from '@atoms/linkTop';
+import { media } from '@utils/media';
 
-const email = "support@cobaltcounsel.com" as const;
+const email = 'support@cobaltcounsel.com' as const;
 const addresses = [
-  "330 Bay Street, Suite 1400, Toronto, Ontario, Canada",
-  "335 Madison Ave, FL. 4 New York, NY",
+  'Legal Innovation Zone, 10 Dundas St. East (10th floor), Suite 1002 Toronto, ON M5B 2G9',
+  '335 Madison Ave, FL. 4 New York, NY',
 ] as const;
 const copyright = `© Cobalt AI ${new Date().getFullYear()}. All rights reserved.`;
 
@@ -28,7 +28,7 @@ const Footer = () =>
           {
             href: `mailto:${email}`,
           },
-          `Email: ${email}`
+          `Email: ${email}`,
         ),
         addresses.map((address) =>
           h(
@@ -36,30 +36,16 @@ const Footer = () =>
             {
               key: address,
               href: `https://www.google.com/maps/place/${address}`,
-              target: "map",
+              target: 'map',
             },
-            address
-          )
-        )
-      )
+            address,
+          ),
+        ),
+      ),
     ),
-    h(
-      Navigation,
-      null,
-      h(
-        "li",
-        null,
-        h(
-          Link,
-          {
-            href: "/",
-          },
-          "Cobalt AI"
-        )
-      )
-    ),
+    h(Navigation, null),
     h(Copyright, null, copyright),
-    h(LinkTop)
+    h(LinkTop),
   );
 
 export default Footer;
@@ -120,5 +106,5 @@ const Navigation = styled.ul`
 `;
 
 const Copyright = styled.small({
-  paddingBottom: "2rem",
+  paddingBottom: '2rem',
 });
