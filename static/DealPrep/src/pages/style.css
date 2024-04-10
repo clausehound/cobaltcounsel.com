@@ -48,12 +48,12 @@ nav {
 }
 
 nav a:hover {
-	color: rgb(4, 145, 183);
+	color: #FFA400;
 }
 
 a {
 	text-transform: uppercase;
-	color: rgb(4, 145, 183);
+	color: #FFA400;
 	font-weight: 600;
 }
 
@@ -83,7 +83,7 @@ h1 {
 h2 {
 	font-size: 2em;
 	font-family: "Roboto", sans-serif;
-	color: rgb(4, 145, 183);
+	color: #FFA400;
 	line-height: 1.2;
 	font-weight: 300;
 }
@@ -118,7 +118,7 @@ p {
 }
 
 .brandEm {
-	color: rgb(4, 145, 183);
+	color: #FFA400;;
 	font-weight: bold;
 	font-family: "Roboto", sans-serif;
 }
@@ -191,7 +191,7 @@ p {
 	top: -0.1em;
 	border-width: 3px;
 	border-style: solid;
-	border-color: rgb(4, 145, 183);
+	border-color: #FFA400;
 	position: absolute;
 	border-right-color: transparent;
 	width: 100%;
@@ -209,7 +209,7 @@ p {
 	top: 0.1em;
 	border-width: 3px;
 	border-style: solid;
-	border-color: rgb(4, 145, 183);
+	border-color: #FFA400;;
 	border-left-color: transparent;
 	border-top-color: transparent;
 	position: absolute;
@@ -245,7 +245,7 @@ p {
 	padding: 5rem 0 5rem 0;
 	display: flex;
 	align-items: center;
-	background-image: linear-gradient(rgb(255, 255, 255), rgb(4, 145, 183));
+	background-image: linear-gradient(rgb(255, 255, 255),rgb(255, 200, 109));
 }
 
 /* ---- | THREE CS SECTION | ---- */
@@ -519,7 +519,7 @@ footer p {
 }
 
 footer a {
-	color: rgb(4, 145, 183);
+	color: #FFA400;
 	font-family: "Roboto", sans-serif;
 	font-size: 1em;
 	line-height: 2;

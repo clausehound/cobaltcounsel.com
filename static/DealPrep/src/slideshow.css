@@ -1,5 +1,5 @@
 .featureHeading {
-  color: rgb(116, 74, 115);
+  color: #717171;
   margin: 1.5rem 0 1rem 0;
 }
 
@@ -117,7 +117,7 @@
 .featuresButton {
   align-self: center;
   background-color: white;
-  color: rgb(116, 74, 115);
+  color: #FFA400;
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 5px;
   border: 2px solid #bbb;
@@ -136,7 +136,7 @@
 .accordianLink {
   margin: 0.5rem 0;
   background-color: white;
-  color: rgb(116, 74, 115);
+  color: #FFA400;
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 5px;
   border: none;
