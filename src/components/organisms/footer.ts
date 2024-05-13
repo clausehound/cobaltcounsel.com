@@ -41,6 +41,13 @@ const Footer = () =>
             address,
           ),
         ),
+        h(
+          Link,
+          {
+            href: 'tel:1-647-749-0047',
+          },
+          'Phone: 1-647-749-0047',
+        ),
       ),
     ),
     h(Navigation, null),
