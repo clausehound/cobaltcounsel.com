@@ -24,8 +24,7 @@ const SectionHeader = () => {
         Content,
         null,
         h(ImageLogo, { src: LogoWithName, alt: 'Cobalt AI' }),
-        h('h3', null, 'Knowledge Re-imagined'),
-        h(Subheading, null, 'Better organization. Better insights. Better actions.'),
+        h('h3', null, 'Tech Assisted Legal Drafting and Review'),
         h(
           Button,
           {
@@ -91,8 +90,8 @@ const Image = styled.div({
   padding: '4.5rem 0 0 0',
   textAlign: 'right',
   [`@media ${media.sm}`]: {
-    width: '60%',
-    flexBasis: '60%',
+    width: '45%',
+    flexBasis: '45%',
   },
   '.gatsby-image-wrapper': {
     width: '80%',
@@ -106,8 +105,8 @@ const Content = styled.div({
   width: '100%',
 
   [`@media ${media.lg}`]: {
-    width: '40%',
-    flexBasis: '40%',
+    width: '55%',
+    flexBasis: '55%',
   },
 
   h1: {

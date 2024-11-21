@@ -29,15 +29,11 @@ const TeamSetup = () => {
       h(
         'div',
         null,
+        h('p', null, 'Rajah is a legal technologist and a technology lawyer.'),
         h(
           'p',
           null,
-          'Rajah has been a knowledge management and technology lawyer in Toronto for more than a decade.',
-        ),
-        h(
-          'p',
-          null,
-          'Prior to founding Cobalt AI, Rajah received his legal training in the corporate law group at Stikeman Elliott LLP in Toronto, as well as internationally for the Technology Media and Telecom group in the Dubai office of Clyde & Co. His particular focus on technology and small business comes from a passion in business and entrepreneurship. A serial entrepreneur himself, Rajah is the founder of Cobalt AI (and the visionary behind our Dealprep product), the founder of Policysaurus (a not-for-profit that tackles public policy and large policy processing challenges), the founder of Clausehound.com – a knowledge management platform company, the co-founder of Multiplicity Accelerator, and is engaged in a number of other non-profit and charity-related volunteer activities.',
+          'Prior to founding Cobalt Lawyers, Rajah received his legal training in the corporate law group at Stikeman Elliott LLP in Toronto, as well as internationally for the Technology Media and Telecom group in the Dubai office of Clyde & Co. His particular focus on technology and small business comes from a passion in business and entrepreneurship. A serial entrepreneur himself, Rajah is the visionary behind our Dealprep product, the founder of Policysaurus (a not-for-profit that tackles public policy and large policy processing challenges), the founder of Clausehound.com – a knowledge management platform company, the co-founder of Multiplicity Accelerator, and is engaged in a number of other non-profit and charity-related volunteer activities. Cobalt Lawyers added the moniker Cobalt AI in 2023 with the launch of AI abilities in the Clausehound software.',
         ),
         h(
           'p',
@@ -74,7 +70,6 @@ const TeamSetup = () => {
             h('h4', null, 'Weylin Lobo'),
             h('p', null, 'Associate Lawyer, Corporate, Commercial, M&A, Corporate Finance'),
           ),
-          h('li', null, h('h4', null, 'Mia Sunner'), h('p', null, 'Research Analyst')),
           h('li', null, h('h4', null, 'Franchesca Graham'), h('p', null, 'Research Analyst')),
           h('li', null, h('h4', null, 'Roya Rismankar'), h('p', null, 'Research Analyst')),
           h('li', null, h('h4', null, 'Sahil Kanaya'), h('p', null, 'Research Analyst')),

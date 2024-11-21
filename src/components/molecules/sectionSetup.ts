@@ -1,7 +1,7 @@
-import { createElement as h } from "react";
-import styled from "styled-components";
-import Container from "@atoms/container";
-import { media } from "@utils/media";
+import { createElement as h } from 'react';
+import styled from 'styled-components';
+import Container from '@atoms/container';
+import { media } from '@utils/media';
 
 const SectionSetup = () => {
   return h(
@@ -10,41 +10,41 @@ const SectionSetup = () => {
       content: true,
       contentTop: true,
     },
-    h(Intro, null, h("h2", null, "Services")),
+    h(Intro, null, h('h2', null, 'Services')),
     h(
       Setup,
       null,
       h(
         Step,
         null,
-        h(Work, null, "Tech Assisted Legal Drafting"),
+        h(Work, null, 'Tech Assisted Legal Drafting'),
         h(
-          "p",
+          'p',
           null,
-          "Tech and AI powered legal services including hyperthorough document reviews and drafting - powered by libraries of documents converted from text into data."
-        )
+          'Tech and AI powered legal services including hyperthorough document reviews and drafting - powered by libraries of documents converted from text into data.',
+        ),
       ),
       h(
         Step,
         null,
-        h(Work, null, "Knowledge Management As A Service"),
+        h(Work, null, 'Knowledge Management As A Service'),
         h(
-          "p",
+          'p',
           null,
-          "For legal teams and other professionals who are trying to organize, understand and improve their many document versions and drafts."
-        )
+          'For legal teams and other professionals who are trying to organize, understand and improve their many document versions and drafts. Supporting commercial redlines, M&A and transactional drafting, and dispute resolution activities',
+        ),
       ),
       h(
         Step,
         null,
-        h(Work, null, "Large Volume Document Processing"),
+        h(Work, null, 'Large Volume Document Processing'),
         h(
-          "p",
+          'p',
           null,
-          "For various research purposes to aid in discovery, updating, M&A diligence and many other abstracting and extract purposes."
-        )
-      )
-    )
+          'For various research purposes to aid in discovery, updating, M&A diligence and many other abstracting and extract purposes.',
+        ),
+      ),
+    ),
   );
 };
 
@@ -126,7 +126,7 @@ const Work = styled.div`
 
   &:after {
     display: none;
-    content: "";
+    content: '';
     position: absolute;
     width: calc(100% + 0.8rem);
     left: -0.4rem;

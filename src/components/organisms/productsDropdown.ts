@@ -25,7 +25,7 @@ const ProductsDropdown = () => {
   return h(
     DropdownContainer,
     { ref: dropdownRef },
-    h(DropdownButton, { onClick: toggleDropdown }, 'Products'),
+    h(DropdownButton, { onClick: toggleDropdown }, 'Tools'),
     h(
       DropdownContent,
       { isOpen: isOpen },
