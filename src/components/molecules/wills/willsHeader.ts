@@ -4,7 +4,7 @@ import styled, { ThemeContext } from 'styled-components';
 import { media } from '@utils/media';
 import fundingAgreement from '@atoms/pretty/policysaurus/FundingAgreement.png';
 
-const DisputeHeader = () => {
+const WillsHeader = () => {
   const theme = useContext(ThemeContext);
   return h(
     Fragment,
@@ -49,7 +49,7 @@ const DisputeHeader = () => {
   );
 };
 
-export default DisputeHeader;
+export default WillsHeader;
 
 const HeaderContainer = styled.header<{
   backgroundSecondary: boolean;
