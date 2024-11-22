@@ -7,6 +7,7 @@ import Container from '@atoms/container';
 import DisputeHeader from '@molecules/dispute/disputeHeader';
 import DisputeSetup from '@molecules/dispute/disputeSetup';
 import SectionCheckout from '@molecules/sectionCheckout';
+import Seperator from '@assets/seperators/a-seperator-4.svg';
 
 const DisputePage = () => {
   return h(Layout, {
@@ -15,7 +16,16 @@ const DisputePage = () => {
       h(SEO, { title: 'Commercial Dispute Resolution by Cobalt Lawyers' }),
       h(DisputeHeader),
       h(DisputeSetup),
-      h(SectionCheckout, { checkoutCopy: h('h1', null, 'Book a call to discuss') }),
+      h(SectionCheckout, {
+        checkoutCopy: h(
+          'div',
+          null,
+          h('h6', null, 'Book a Call'),
+          h('h1', null, 'Book a call to discuss'),
+          h('p', null, 'Our experienced team is happy to work with you.'),
+          h(Seperator),
+        ),
+      }),
     ],
   });
 };

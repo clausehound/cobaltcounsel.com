@@ -1,5 +1,5 @@
 import { createElement as h, useContext, Fragment } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import Button from '@atoms/button';
 import styled, { ThemeContext } from 'styled-components';
 import { media } from '@utils/media';
 import fundingAgreement from '@atoms/pretty/policysaurus/FundingAgreement.png';
@@ -18,7 +18,18 @@ const DisputeHeader = () => {
         backgroundSecondary: true,
       },
       h(Image, null, h('img', { src: fundingAgreement })),
-      h(Content, null, h('h1', null, 'Commercial Dispute Resolution, Simplified')),
+      h(
+        Content,
+        null,
+        h('h1', null, 'Commercial Dispute Resolution, Simplified'),
+        h(
+          Button,
+          {
+            to: '#checkout',
+          },
+          'Get Started',
+        ),
+      ),
     ),
     h(
       HeaderCurve,

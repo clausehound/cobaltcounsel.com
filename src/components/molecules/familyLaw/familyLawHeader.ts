@@ -3,8 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled, { ThemeContext } from 'styled-components';
 import { media } from '@utils/media';
 import Button from '@atoms/button';
-import Subheading from '@atoms/subheading';
-import analysis from '@atoms/pretty/Analysis.svg';
 import fundingAgreement from '@atoms/pretty/policysaurus/FundingAgreement.png';
 
 const FamilyLawHeader = () => {
@@ -21,7 +19,18 @@ const FamilyLawHeader = () => {
         backgroundSecondary: true,
       },
       h(Image, null, h('img', { src: fundingAgreement })),
-      h(Content, null, h('h1', null, 'Family Law Consulting, Simplified')),
+      h(
+        Content,
+        null,
+        h('h1', null, 'Family Law Consulting, Simplified'),
+        h(
+          Button,
+          {
+            to: '#checkout',
+          },
+          'Get Started',
+        ),
+      ),
     ),
     h(
       HeaderCurve,

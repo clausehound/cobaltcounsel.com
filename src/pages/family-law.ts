@@ -7,6 +7,7 @@ import Container from '@atoms/container';
 import FamilyLawHeader from '@molecules/familyLaw/familyLawHeader';
 import FamilyLawSetup from '@molecules/familyLaw/familyLawSetup';
 import SectionCheckout from '@molecules/sectionCheckout';
+import Seperator from '@assets/seperators/a-seperator-4.svg';
 
 const FamilyLawPage = () => {
   return h(Layout, {
@@ -15,7 +16,16 @@ const FamilyLawPage = () => {
       h(SEO, { title: 'Family Law by Cobalt Lawyers' }),
       h(FamilyLawHeader),
       h(FamilyLawSetup),
-      h(SectionCheckout, { checkoutCopy: h('h1', null, 'Book a call to discuss') }),
+      h(SectionCheckout, {
+        checkoutCopy: h(
+          'div',
+          null,
+          h('h6', null, 'Book a Call'),
+          h('h1', null, 'Book a call to discuss'),
+          h('p', null, 'Our experienced team is happy to work with you.'),
+          h(Seperator),
+        ),
+      }),
     ],
   });
 };

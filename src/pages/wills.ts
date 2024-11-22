@@ -7,6 +7,7 @@ import Container from '@atoms/container';
 import WillsHeader from '@molecules/wills/willsHeader';
 import WillsSetup from '@molecules/wills/willsSetup';
 import SectionCheckout from '@molecules/sectionCheckout';
+import Seperator from '@assets/seperators/a-seperator-4.svg';
 
 const WillsPage = () => {
   return h(Layout, {
@@ -15,7 +16,16 @@ const WillsPage = () => {
       h(SEO, { title: 'Wills and Estate Planning by Cobalt Lawyers' }),
       h(WillsHeader),
       h(WillsSetup),
-      h(SectionCheckout, { checkoutCopy: h('h1', null, 'Book a call to discuss') }),
+      h(SectionCheckout, {
+        checkoutCopy: h(
+          'div',
+          null,
+          h('h6', null, 'Book a Call'),
+          h('h1', null, 'Book a call to discuss'),
+          h('p', null, 'Our experienced team is happy to work with you.'),
+          h(Seperator),
+        ),
+      }),
     ],
   });
 };
