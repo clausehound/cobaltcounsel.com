@@ -1,19 +1,14 @@
-import {
-  useEffect,
-  useState,
-  useRef,
-  useContext,
-  createElement as h,
-} from "react";
-import { withPrefix, useStaticQuery, graphql } from "gatsby";
-import styled, { ThemeContext } from "styled-components";
-import { InlineWidget } from "react-calendly";
-import { GatsbyImage } from "gatsby-plugin-image";
-import Seperator from "@assets/seperators/a-seperator-4.svg";
-import Container from "@atoms/container";
-import { media } from "@utils/media";
+import { useEffect, useState, useRef, useContext, createElement as h, ReactElement } from 'react';
+import { withPrefix, useStaticQuery, graphql } from 'gatsby';
+import styled, { ThemeContext } from 'styled-components';
+import { InlineWidget } from 'react-calendly';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import Seperator from '@assets/seperators/a-seperator-4.svg';
+import Container from '@atoms/container';
+import { media } from '@utils/media';
 
-const SectionCheckout = () => {
+const SectionCheckout = ({ checkoutCopy }: { checkoutCopy?: ReactElement }) => {
+  console.log('checkoutCopy:', checkoutCopy);
   const [loaded, setLoaded] = useState(false);
   const scriptEl = useRef<HTMLScriptElement>(null);
   const theme = useContext(ThemeContext);
@@ -29,11 +24,11 @@ const SectionCheckout = () => {
   return h(
     CalendlyContainer,
     {
-      id: "checkout",
+      id: 'checkout',
     },
     h(SquatImage, {
       image: data.bg.childImageSharp.gatsbyImageData,
-      alt: "checkout lobby",
+      alt: 'checkout lobby',
     }),
     h(
       CheckoutContainer,
@@ -41,14 +36,18 @@ const SectionCheckout = () => {
       h(
         Content,
         null,
-        h("h6", null, "Book a Demo"),
-        h("h1", null, "Ready to see the future of knowledge management?"),
-        h(
-          "p",
-          null,
-          "Our experienced knowledge management, business intelligence and software development experts are happy to work with you."
-        ),
-        h(Seperator)
+        checkoutCopy ||
+          h(
+            'div',
+            h('h6', null, 'Book a Demo'),
+            h('h1', null, 'Ready to see the future of knowledge management?'),
+            h(
+              'p',
+              null,
+              'Our experienced knowledge management, business intelligence and software development experts are happy to work with you.',
+            ),
+            h(Seperator),
+          ),
       ),
       h(InlineWidget, {
         pageSettings: {
@@ -58,9 +57,9 @@ const SectionCheckout = () => {
           backgroundColor: theme.colors.black.slice(1),
           textColor: theme.colors.white.slice(1),
         },
-        url: "https://calendly.com/rajahlehal/kickoff",
-      })
-    )
+        url: 'https://calendly.com/rajahlehal/kickoff',
+      }),
+    ),
   );
 };
 

@@ -5,13 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import { createElement as h } from "react";
-import type { ReactNode } from "react";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-import theme from "@utils/theme";
-import Navigation from "@organisms/navigation";
-import Footer from "@organisms/footer";
-import "./variables.css";
+import { createElement as h } from 'react';
+import type { ReactNode } from 'react';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import theme from '@utils/theme';
+import Navigation from '@organisms/navigation';
+import Footer from '@organisms/footer';
+import './variables.css';
 
 const GlobalStyle = createGlobalStyle`
  @media (min-width: 480px) {
@@ -36,14 +36,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 // Needs children
-const Layout = ({ children }: { children: ReactNode }) =>
+const Layout = ({ children, showFullNav }: { children: ReactNode; showFullNav?: boolean }) =>
   h(
     ThemeProvider,
     { theme },
     h(GlobalStyle),
-    h(Navigation),
-    h("main", null, children),
-    h(Footer)
+    h(Navigation, { siteTitle: '', showFullNav }),
+    h('main', null, children),
+    h(Footer),
   );
 
 export default Layout;

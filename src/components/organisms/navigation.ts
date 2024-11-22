@@ -1,48 +1,50 @@
-import { createElement as h } from "react";
-import Logo from "@atoms/logo";
-import styled from "styled-components";
-import Link from "@atoms/link";
-import { media } from "@utils/media";
-import ProductsDropdown from "./productsDropdown";
+import { createElement as h } from 'react';
+import Logo from '@atoms/logo';
+import styled from 'styled-components';
+import Link from '@atoms/link';
+import { media } from '@utils/media';
+import ProductsDropdown from './productsDropdown';
 
-const Navigation = ({ siteTitle = "" }: { siteTitle: string }) =>
+const Navigation = ({
+  siteTitle = '',
+  showFullNav = true,
+}: {
+  siteTitle: string;
+  showFullNav?: boolean;
+}) =>
   h(
     Nav,
     null,
     h(Logo),
-    h(
-      NavLinks,
-      null,
+    showFullNav &&
       h(
-        "li",
+        NavLinks,
         null,
+        h('li', null, h(ProductsDropdown)),
         h(
-          ProductsDropdown
-        )
+          'li',
+          null,
+          h(
+            NavLink,
+            {
+              href: '/team',
+            },
+            'Team',
+          ),
+        ),
+        h(
+          'li',
+          null,
+          h(
+            NavLink,
+            {
+              href: 'https://blog.dealprep.co',
+              target: '_blank',
+            },
+            'Blog',
+          ),
+        ),
       ),
-      h(
-        "li",
-        null,
-        h(
-          NavLink,
-          {
-            href: "/team",
-          },
-          "Team"
-        )
-      ),
-      h(
-        "li",
-        null,
-        h(
-          NavLink,
-          {
-            href: "https://blog.dealprep.co", target: "_blank"
-          },
-          "Blog"
-        )
-      )
-    )
   );
 
 export default Navigation;
@@ -85,6 +87,6 @@ const NavLinks = styled.ul`
 `;
 
 const NavLink = styled(Link)({
-  marginRight: "1.75rem",
-  lineHeight: "1.1rem",
+  marginRight: '1.75rem',
+  lineHeight: '1.1rem',
 });
