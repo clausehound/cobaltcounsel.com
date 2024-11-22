@@ -11,7 +11,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-anchor-links`,
-    `gatsby-plugin-sitemap`,
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
