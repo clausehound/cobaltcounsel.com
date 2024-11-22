@@ -1,23 +1,16 @@
 import { createElement as h } from 'react';
-import { useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '@utils/layout';
 import SEO from '@utils/seo';
 import Button from '@atoms/button';
 import ContentBlock from '@atoms/contentBlock';
 import Container from '@atoms/container';
-import List from '@atoms/list';
 import Subheading from '@atoms/subheading';
 import SectionHeader from '@molecules/sectionHeader';
 import SectionSetup from '@molecules/sectionSetup';
 import SectionCheckout from '@molecules/sectionCheckout';
 import SectionTestimonial from '@molecules/sectionTestimonial';
-import toolingSvg from '@atoms/pretty/Tooling.svg';
-import workflowSvg from '@atoms/pretty/Workflow.svg';
-import rankedSvg from '@atoms/pretty/Ranked.svg';
 import knowledgeSvg from '@atoms/pretty/Knowledge.svg';
-import metaMachineSvg from '@atoms/pretty/MetaMachine.svg';
-import businessMeetingSvg from '@atoms/pretty/BusinessMeeting.svg';
 
 const IndexPage = () => {
   return h(
