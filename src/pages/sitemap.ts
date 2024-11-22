@@ -22,8 +22,6 @@ const Sitemap = () => {
       data.allSitePage.nodes.map((node: { path: string }) =>
         h('li', { key: node.path }, h(Link, { to: node.path }, node.path)),
       ),
-      h('li', null, h(Link, { to: '/legacy/testimonials' }, 'Testimonials')),
-      h('li', null, h(Link, { to: '/legacy/transactions' }, 'Transactions')),
     ),
   );
 };
