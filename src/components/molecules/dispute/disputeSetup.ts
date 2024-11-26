@@ -31,7 +31,7 @@ const DisputeSetup = () => {
         h(
           IntroBlock,
           null,
-          'We may be able to assist you with the drafting of a letter to help resolve your dispute within an hour.',
+          'We may be able to assist you with the drafting of a letter to help resolve your dispute, within an hour.',
         ),
         h(AssistImage, { src: tacitKnowledge, alt: 'Tacit Knowledge' }),
       ),

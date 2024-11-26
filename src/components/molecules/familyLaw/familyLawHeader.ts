@@ -1,10 +1,8 @@
 import { createElement as h, useContext, Fragment } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import styled, { ThemeContext } from 'styled-components';
 import { media } from '@utils/media';
 import Button from '@atoms/button';
-import fundingAgreement from '@atoms/pretty/policysaurus/FundingAgreement.png';
-
+import ruleLaws from '@atoms/pretty/RuleLaws.png';
 const FamilyLawHeader = () => {
   const theme = useContext(ThemeContext);
   return h(
@@ -18,11 +16,12 @@ const FamilyLawHeader = () => {
         grid: true,
         backgroundSecondary: true,
       },
-      h(Image, null, h('img', { src: fundingAgreement })),
+      h(Image, null, h('img', { src: ruleLaws, alt: 'Rule of Laws' })),
       h(
         Content,
         null,
-        h('h1', null, 'Family Law Consulting, Simplified'),
+        h('h1', null, 'Cobalt Lawyers'),
+        h('h3', null, 'Family Law Consulting, Simplified'),
         h(
           Button,
           {
@@ -71,8 +70,6 @@ const HeaderContainer = styled.header<{
   }
   @media ${media.md} {
     min-height: 80%;
-  }
-  @media ${media.lg} {
     flex-direction: row-reverse;
   }
 `;
@@ -80,13 +77,18 @@ const HeaderContainer = styled.header<{
 const Image = styled.div({
   display: 'block',
   flexBasis: '100%',
-  width: '100%',
+  width: '30%',
   padding: '4.5rem 0 0 0',
-  textAlign: 'right',
+  textAlign: 'center',
   [`@media ${media.sm}`]: {
-    padding: '1rem 0 0 0',
-    width: '60%',
-    flexBasis: '60%',
+    width: '30%',
+    flexBasis: '30%',
+  },
+  [`@media ${media.md}`]: {
+    padding: '3rem',
+    width: '40%',
+    flexBasis: '40%',
+    textAlign: 'left',
   },
   '.gatsby-image-wrapper': {
     width: '80%',
@@ -98,12 +100,11 @@ const Content = styled.div({
   display: 'block',
   flexBasis: '100%',
   width: '100%',
-  // centering the text
   textAlign: 'center',
 
-  [`@media ${media.lg}`]: {
-    width: '40%',
-    flexBasis: '40%',
+  [`@media ${media.md}`]: {
+    width: '60%',
+    flexBasis: '60%',
     textAlign: 'left',
   },
 
@@ -114,6 +115,10 @@ const Content = styled.div({
     [`@media ${media.lg}`]: {
       fontSize: '3.5rem',
     },
+  },
+
+  h3: {
+    lineHeight: '1.2',
   },
 });
 

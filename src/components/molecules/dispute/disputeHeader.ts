@@ -73,9 +73,6 @@ const HeaderContainer = styled.header<{
     min-height: 80%;
     flex-direction: row-reverse;
   }
-  // @media ${media.lg} {
-  //   flex-direction: row-reverse;
-  // }
 `;
 
 const Image = styled.div({
