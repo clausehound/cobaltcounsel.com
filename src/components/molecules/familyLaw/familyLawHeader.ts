@@ -3,6 +3,7 @@ import styled, { ThemeContext } from 'styled-components';
 import { media } from '@utils/media';
 import Button from '@atoms/button';
 import ruleLaws from '@atoms/pretty/RuleLaws.png';
+
 const FamilyLawHeader = () => {
   const theme = useContext(ThemeContext);
   return h(

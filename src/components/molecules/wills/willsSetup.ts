@@ -1,7 +1,9 @@
 import { createElement as h } from 'react';
 import styled from 'styled-components';
 import Container from '@atoms/container';
+import { media } from '@utils/media';
 import ContentBlock from '@atoms/contentBlock';
+import tacitKnowledge from '@atoms/pretty/TacitKnowledge.png';
 
 const DisputeSetup = () => {
   return h(
@@ -29,15 +31,42 @@ const DisputeSetup = () => {
         'Where your matter is a little more complicated and you are in need of wills and estates research, we may be able to assist you with results within an hour.',
       ),
       h(
-        IntroBlock,
+        AssistBlock,
         null,
-        'Our wills team members have reviewed more than 2000 wills and have experience drafting wills, estates, codicils and trust agreements.',
+        h(
+          IntroBlock,
+          null,
+          'Our wills team members have reviewed more than 2000 wills and have experience drafting wills, estates, codicils and trust agreements.',
+        ),
+        h(AssistImage, { src: tacitKnowledge, alt: 'Tacit Knowledge' }),
       ),
     ),
   );
 };
 
 export default DisputeSetup;
+
+const AssistBlock = styled.div({
+  display: 'flex',
+  h3: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+});
+
+const AssistImage = styled.img({
+  padding: '3rem',
+  width: '40%',
+  display: 'none',
+  [`@media ${media.md}`]: {
+    display: 'block',
+  },
+  [`@media ${media.xl}`]: {
+    width: '30%',
+  },
+});
 
 const Intro = styled.div`
   h2 {

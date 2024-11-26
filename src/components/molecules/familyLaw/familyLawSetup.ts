@@ -5,7 +5,7 @@ import { media } from '@utils/media';
 import ContentBlock from '@atoms/contentBlock';
 import tacitKnowledge from '@atoms/pretty/TacitKnowledge.png';
 
-const familyLawSetup = () => {
+const FamilyLawSetup = () => {
   return h(
     Container,
     {
@@ -39,7 +39,7 @@ const familyLawSetup = () => {
   );
 };
 
-export default familyLawSetup;
+export default FamilyLawSetup;
 
 const AssistBlock = styled.div({
   display: 'flex',
