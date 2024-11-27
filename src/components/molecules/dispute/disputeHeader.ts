@@ -3,6 +3,7 @@ import Button from '@atoms/button';
 import styled, { ThemeContext } from 'styled-components';
 import { media } from '@utils/media';
 import ruleLaws from '@atoms/pretty/RuleLaws.png';
+import CobaltLawyersLogo from '@atoms/pretty/CobaltLawyersLogo.png';
 
 const DisputeHeader = () => {
   const theme = useContext(ThemeContext);
@@ -21,7 +22,7 @@ const DisputeHeader = () => {
       h(
         Content,
         null,
-        h('h1', null, 'Cobalt Lawyers'),
+        h('img', { src: CobaltLawyersLogo, alt: 'Cobalt Lawyers' }),
         h('h3', null, 'Commercial Dispute Resolution, Simplified'),
         h(
           Button,
