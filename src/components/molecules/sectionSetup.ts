@@ -21,7 +21,7 @@ const SectionSetup = () => {
         h(
           'p',
           null,
-          'Tech and AI powered legal services including hyperthorough document reviews and drafting - powered by libraries of documents converted from text into data.',
+          'Tech and AI powered legal services including hyperthorough document reviews and drafting - powered by libraries of documents converted from text into data. Supporting M&A diligence and tech-assisted drafting, and transactional drafting, and dispute resolution activities',
         ),
       ),
       h(
