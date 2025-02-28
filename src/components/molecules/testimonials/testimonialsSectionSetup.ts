@@ -64,10 +64,6 @@ const Intro = styled.div`
 const Setup = styled.div`
   display: grid;
   grid-template-columns: var(--gridTriple);
-
-  @media ${media.lg} {
-    padding: 1rem 0;
-  }
 `;
 
 const Seperator = styled.div`
@@ -124,7 +120,7 @@ const Work = styled.div`
   }
 
   &:after {
-    display: none;
+    display: block;
     content: '';
     position: absolute;
     width: calc(100% + 0.8rem);
@@ -134,11 +130,5 @@ const Work = styled.div`
     z-index: -1;
     opacity: 0.6;
     background: ${(props) => props.theme.colors.primary};
-    @media ${media.sm} {
-      display: block;
-    }
-    @media ${media.md} {
-      // margin-bottom: 5rem;
-    }
   }
 `;
