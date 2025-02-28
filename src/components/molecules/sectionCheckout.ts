@@ -40,7 +40,7 @@ const SectionCheckout = ({ checkoutCopy }: { checkoutCopy?: ReactElement }) => {
           h(
             'div',
             h('h6', null, 'Book a Demo'),
-            h('h1', null, 'Ready to see the future of knowledge management?'),
+            h('h1', null, 'Ready to see the future of AI legal document processing?'),
             h(
               'p',
               null,
