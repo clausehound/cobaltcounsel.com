@@ -7,7 +7,6 @@ import ContentBlock from '@atoms/contentBlock';
 import Container from '@atoms/container';
 import DiligenceHeader from '@molecules/diligence/diligenceHeader';
 import DiligenceSetup from '@molecules/diligence/diligenceSetup';
-import PolicysaurusWorks from '@molecules/policysaurus/policysaurusWorks';
 import Tooling from '@atoms/pretty/Tooling.svg';
 
 const DiligencePage = () => {
