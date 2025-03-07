@@ -94,6 +94,8 @@ const Intro = styled.div`
 
 const Conclusion = styled.div`
   text-align: center;
+  // padding-bottom: 5rem;
+  // border-bottom: 1px solid black;
   h2 {
     margin-top: 2rem;
     line-height: 1.5;

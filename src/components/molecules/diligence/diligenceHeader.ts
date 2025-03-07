@@ -20,7 +20,7 @@ const DiligenceHeader = () => {
       h(
         Content,
         null,
-        h('h1', null, 'Diliglence Monster'),
+        h('h1', null, 'Diligence Monster'),
         h('h2', null, 'Supporting your next business acquisitions'),
         h('h3', null, 'For deal teams who need incredibly precise AI'),
       ),

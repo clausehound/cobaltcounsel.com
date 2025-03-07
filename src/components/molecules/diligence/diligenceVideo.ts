@@ -1,54 +1,44 @@
-import { createElement as h } from 'react';
+import { createElement as h, useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Container from '@atoms/container';
-import { media } from '@utils/media';
+import './slideShow.css';
 
 const VideoSection = () => {
-  let slideIndex = 1;
+  const [slideIndex, setSlideIndex] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
+  const slidesRef = useRef<HTMLDivElement[]>([]);
+  const dotsRef = useRef<HTMLSpanElement[]>([]);
 
-  // Next/previous controls
-  function plusSlides(n: number) {
-    showSlides((slideIndex += n));
-  }
+  useEffect(() => {
+    if (slidesRef.current.length > 0) {
+      slidesRef.current.forEach((slide, i) => {
+        slide.style.display = i + 1 === slideIndex ? 'block' : 'none';
+      });
+    }
+    if (dotsRef.current.length > 0) {
+      dotsRef.current.forEach((dot, i) => {
+        dot.className = dot.className.replace(' active', '');
+        if (i + 1 === slideIndex) {
+          dot.className += ' active';
+        }
+      });
+    }
+    slidesRef.current[slideIndex - 1]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, [slideIndex]);
 
-  // Thumbnail image controls
-  function currentSlide(n: number) {
-    showSlides((slideIndex = n));
-  }
+  const showSlide = (n: number) => {
+    let newIndex = n;
+    if (newIndex > slidesRef.current.length) newIndex = 1;
+    if (newIndex < 1) newIndex = slidesRef.current.length;
+    setSlideIndex(newIndex);
+  };
 
-  function showSlides(n: number) {
-    let i;
-    const slides = document.getElementsByClassName('mySlides') as HTMLCollectionOf<HTMLElement>;
-    const dots = document.getElementsByClassName('dot') as HTMLCollectionOf<HTMLElement>;
-    if (n > slides.length) {
-      slideIndex = 1;
-    }
-    if (n < 1) {
-      slideIndex = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = 'none';
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(' active', '');
-    }
-    slides[slideIndex - 1].style.display = 'block';
-    dots[slideIndex - 1].className += ' active';
-    slides[slideIndex - 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  function toggleAccordian() {
-    const accordian = document.getElementById('accordianLinksContainer');
-    if (!accordian) return;
-    if (accordian.className.indexOf('show') == -1) {
-      accordian.className += ' show';
-    } else {
-      accordian.className = accordian.className.replace(' show', '');
-    }
-  }
+  const toggleAccordian = () => {
+    setIsOpen(!isOpen);
+  };
 
   return h(
-    Container,
+    VideoContainer,
     {
       content: true,
       contentTop: true,
@@ -62,34 +52,96 @@ const VideoSection = () => {
         h(
           'div',
           { className: 'slidesContainer' },
+          Array.from({ length: 10 }).map((_, i) =>
+            h(
+              'div',
+              {
+                key: i,
+                ref: (el: HTMLDivElement) => (slidesRef.current[i] = el!),
+                className: i === 0 ? 'mySlides show fade' : 'mySlides fade',
+              },
+              h('video', {
+                src: '../ClausehoundAiVideo/' + i + '.mp4',
+                type: 'video/mp4',
+                autoPlay: true,
+                loop: true,
+                muted: true,
+                playsInline: true,
+                className: 'slideVideo',
+              }),
+            ),
+          ),
           h(
             'div',
-            { className: 'mySlides show fade' },
-            h(
-              'video',
-              { className: 'slideVideo', autoPlay: '', muted: '', playsInline: '' },
-              h('source', { src: './ClausehoundAiVideo/1.mp4', type: 'video/mp4' }),
-              'Your browser does not support the video tag.',
-            ),
+            { className: 'prevNextContainer' },
+            h('a', { className: 'prev', onClick: () => showSlide(slideIndex - 1) }, '❮'),
+            h('a', { className: 'next', onClick: () => showSlide(slideIndex + 1) }, '❯'),
           ),
         ),
         h(
           'div',
           { className: 'navDots' },
-          h('span', { className: 'dot active', onClick: currentSlide(1) }),
-          h('span', { className: 'dot ', onClick: currentSlide(2) }),
-          h('span', { className: 'dot ', onClick: currentSlide(3) }),
+          Array.from({ length: 10 }).map((_, i) =>
+            h('span', {
+              key: i,
+              ref: (el: HTMLSpanElement) => (dotsRef.current[i] = el!),
+              className: i === 0 ? 'dot active' : 'dot',
+              onClick: () => showSlide(i + 1),
+            }),
+          ),
         ),
         h(
-          'div',
-          { className: 'slideshowLinks flexContainer' },
-          h('button', { className: 'featuresButton', onClick: toggleAccordian() }, 'FEATURES'),
+          FeaturesContainer,
+          null,
+          h(Button, { onClick: () => toggleAccordian() }, 'FEATURES'),
           h(
-            'div',
-            { id: 'accordianLinksContainer', className: 'hide hide' },
-            h('button', { className: 'accordianLink', onClick: currentSlide(1) }, 'Feature 1'),
-            h('button', { className: 'accordianLink', onClick: currentSlide(2) }, 'Feature 2'),
-            h('button', { className: 'accordianLink', onClick: currentSlide(3) }, 'Feature 3'),
+            FeatureLinksContainer,
+            { isOpen },
+            h(
+              Button,
+              { onClick: () => showSlide(2) },
+              'SPEED - Instantly draw knowledge from huge batches of documents with AI queries',
+            ),
+            h(
+              Button,
+              { onClick: () => showSlide(3) },
+              'CONFIDENCE - Immediately verify the accuracy of your queries with fully mapped document sources',
+            ),
+            h(
+              Button,
+              { onClick: () => showSlide(4) },
+              'STRETCH - Stretch like rubber with expanded context and immediate double checking',
+            ),
+            h(
+              Button,
+              { onClick: () => showSlide(5) },
+              'FOCUS - Instantly chunk your documents by opening a portal to what’s important',
+            ),
+            h(
+              Button,
+              { onClick: () => showSlide(6) },
+              'PERSPECTIVE - Filter documents down to specific clauses or categories of language, allowing you to see your documents multi-dimensionally',
+            ),
+            h(
+              Button,
+              { onClick: () => showSlide(7) },
+              'ARMOR - Audit your selections to confirm your data has been comprehensively sourced and nothing is missing',
+            ),
+            h(
+              Button,
+              { onClick: () => showSlide(8) },
+              'BLUR - Redact sections of documents to protect the seller until the timing is right',
+            ),
+            h(
+              Button,
+              { onClick: () => showSlide(9) },
+              'DETECT - Compare chunks of similar agreements across your entire library, and catch the little variances in the wording that make a big difference',
+            ),
+            h(
+              Button,
+              { onClick: () => showSlide(10) },
+              'UNIFY - Save your queries for future analysis, quickly create filtered or chunked datasets, and send them to your team with a single link',
+            ),
           ),
         ),
       ),
@@ -99,123 +151,43 @@ const VideoSection = () => {
 
 export default VideoSection;
 
-const ImageIcon = styled.div`
-  width: 10rem;
-  img {
-    width: 60%;
-  }
+const VideoContainer = styled(Container)`
+  padding-top: 5rem;
+  border-top: 1px solid black;
 `;
 
-const Intro = styled.div`
-  text-align: center;
-  h2 {
-    margin-bottom: 0;
-  }
-  @media ${media.md} {
-    h2 {
-      margin-bottom: 5rem;
-    }
-  }
-`;
-
-const Conclusion = styled.div`
-  text-align: center;
-  h2 {
-    margin-top: 2rem;
-    line-height: 1.5;
-  }
-`;
-
-const Setup = styled.div`
-  display: grid;
-  grid-template-columns: var(--gridTriple);
-
-  @media ${media.lg} {
-    padding: 1rem 0;
-  }
-`;
-
-const SetupSecondRow = styled.div`
-  display: grid;
-  grid-template-columns: var(--gridSplit);
-  width: 70%;
-  column-gap: 5%;
-  margin: 0 auto;
-
-  @media ${media.lg} {
-    padding: 1rem 0;
-  }
-`;
-
-const Seperator = styled.div`
-  display: none;
-  position: absolute;
-  right: -22%;
-  top: 5%;
-  width: 180px;
-
-  svg {
-    width: 100%;
-    height: auto;
-  }
-
-  @media ${media.lg} {
-    display: block;
-  }
-`;
-
-const Step = styled.div`
+const FeatureLinksContainer = styled.div<{ isOpen: boolean }>`
+  display: ${(props) => (props.isOpen ? 'flex' : 'none')};
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  max-width: 35rem;
+`;
+
+const FeaturesContainer = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
-  text-align: center;
-
-  &:nth-of-type(2) {
-    ${Seperator} {
-      top: 25%;
-    }
-  }
-  @media ${media.lg} {
-    padding: 1rem;
-  }
-
-  @media ${media.md} {
-    padding: 1rem;
-  }
-`;
-const Work = styled.div`
-  align-items: center;
-  color: ${(props) => props.theme.colors.heading};
-  display: flex;
-  font-size: 1.5rem;
-  font-weight: 700;
   justify-content: center;
-  margin-bottom: 1rem;
-  margin-top: 3rem;
-  position: relative;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
 
-  @media ${media.md} {
-    height: 32px;
-    // margin-bottom: 3rem;
-  }
+const Button = styled.button`
+  background-color: ${(props) => props.theme.colors.primary};
+  border-radius: ${(props) => props.theme.button.radius};
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  color: ${(props) => props.theme.colors.black};
+  text-decoration: none;
+  transition: ${(props) => props.theme.animation.transition};
+  border: none;
 
-  &:after {
-    display: none;
-    content: '';
-    position: absolute;
-    width: calc(100% + 0.8rem);
-    left: -0.4rem;
-    bottom: -0.2rem;
-    height: calc(50% + 0.2rem);
-    z-index: -1;
-    opacity: 0.6;
-    background: ${(props) => props.theme.colors.primary};
-    @media ${media.sm} {
-      display: block;
-    }
-    @media ${media.md} {
-      margin-bottom: 5rem;
-    }
+  &:hover {
+    filter: brightness(105%);
+    box-shadow: 0px 6px 24px rgba(242, 187, 99, 0.4);
+    cursor: pointer;
   }
 `;

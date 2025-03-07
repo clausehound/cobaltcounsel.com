@@ -9,6 +9,7 @@ import DiligenceHeader from '@molecules/diligence/diligenceHeader';
 import DiligenceSetup from '@molecules/diligence/diligenceSetup';
 import Tooling from '@atoms/pretty/Tooling.svg';
 import DiligenceVideo from '@molecules/diligence/diligenceVideo';
+import SectionCheckout from '@molecules/sectionCheckout';
 
 const DiligencePage = () => {
   return h(
@@ -23,7 +24,7 @@ const DiligencePage = () => {
         grid: true,
         gridSplit: true,
       },
-      h(Image, null, h('img', { src: Tooling, alt: 'Tooling' })),
+      h('div', null, h('img', { src: Tooling, alt: 'Tooling' })),
       h(
         ContentBlock,
         null,
@@ -36,19 +37,13 @@ const DiligencePage = () => {
         ),
       ),
     ),
-    h(DiligenceVideo),
     h(DiligenceSetup),
+    h(DiligenceVideo),
+    h(SectionCheckout),
   );
 };
 
 export default DiligencePage;
-
-const Image = styled.div``;
-
-const CaseStudyButton = styled(Button)`
-  display: block;
-  width: 19rem;
-`;
 
 const ContentContainer = styled(Container)`
   padding-bottom: 0;
