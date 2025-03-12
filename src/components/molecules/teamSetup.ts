@@ -29,11 +29,11 @@ const TeamSetup = () => {
       h(
         'div',
         null,
-        h('p', null, 'Rajah is a legal technologist and a technology lawyer.'),
+        h('p', null, 'Rajah is a legal technologist, and a technology and M&A lawyer.'),
         h(
           'p',
           null,
-          'Prior to founding Cobalt Lawyers, Rajah received his legal training in the corporate law group at Stikeman Elliott LLP in Toronto, as well as internationally for the Technology Media and Telecom group in the Dubai office of Clyde & Co. His particular focus on technology and small business comes from a passion in business and entrepreneurship. A serial entrepreneur himself, Rajah is the visionary behind our Dealprep product, the founder of Policysaurus (a not-for-profit that tackles public policy and large policy processing challenges), the founder of Clausehound.com – a knowledge management platform company, the co-founder of Multiplicity Accelerator, and is engaged in a number of other non-profit and charity-related volunteer activities. Cobalt Lawyers added the moniker Cobalt AI in 2023 with the launch of AI abilities in the Clausehound software.',
+          'Prior to founding Cobalt Lawyers, Rajah received his legal training in the corporate law group at Stikeman Elliott LLP in Toronto, as well as internationally for the Technology Media and Telecom group in the Dubai office of Clyde & Co. His particular focus on technology and small business comes from a passion in business and entrepreneurship. A serial entrepreneur himself, Rajah is the visionary behind products that solve many of the difficult elements of document research including the Diligence Monster, Dealprep and Policysaurus products that are widely used by our team and clients. Cobalt Lawyers added the moniker Cobalt AI in 2023 with the launch of AI abilities in the Clausehound software.',
         ),
         h(
           'p',
