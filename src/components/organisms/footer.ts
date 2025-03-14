@@ -44,9 +44,9 @@ const Footer = () =>
         h(
           Link,
           {
-            href: 'tel:1-647-749-0047',
+            href: 'https://calendly.com/rajahlehal/kickoff',
           },
-          'Phone: 1-647-749-0047',
+          'Book a call here',
         ),
       ),
     ),
