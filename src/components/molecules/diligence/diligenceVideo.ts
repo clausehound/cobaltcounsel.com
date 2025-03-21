@@ -1,7 +1,7 @@
 import { createElement as h, useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Container from '@atoms/container';
-import './slideShow.css';
+import './slideshow.css';
 
 const VideoSection = () => {
   const [slideIndex, setSlideIndex] = useState(1);
