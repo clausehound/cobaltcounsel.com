@@ -8,6 +8,8 @@ const VideoSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   const slidesRef = useRef<HTMLDivElement[]>([]);
   const dotsRef = useRef<HTMLSpanElement[]>([]);
+  const firstRender = useRef(true);
+  const navDotsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (slidesRef.current.length > 0) {
@@ -23,6 +25,10 @@ const VideoSection = () => {
         }
       });
     }
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
     slidesRef.current[slideIndex - 1]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, [slideIndex]);
 
@@ -34,6 +40,7 @@ const VideoSection = () => {
   };
 
   const toggleAccordian = () => {
+    navDotsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     setIsOpen(!isOpen);
   };
 
@@ -80,7 +87,7 @@ const VideoSection = () => {
         ),
         h(
           'div',
-          { className: 'navDots' },
+          { className: 'navDots', ref: navDotsRef },
           Array.from({ length: 10 }).map((_, i) =>
             h('span', {
               key: i,
