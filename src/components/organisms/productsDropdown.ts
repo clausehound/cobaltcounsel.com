@@ -31,6 +31,7 @@ const ProductsDropdown = () => {
       { isOpen: isOpen },
       h('a', { href: '/dealprep', target: '_blank' }, 'Dealprep'),
       h('a', { href: '/policysaurus' }, 'Policysaurus'),
+      h('a', { href: '/diligencemonster' }, 'Diligence Monster'),
     ),
   );
 };
@@ -76,7 +77,7 @@ const DropdownContent = styled.div<{ isOpen: boolean }>`
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 180px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 
