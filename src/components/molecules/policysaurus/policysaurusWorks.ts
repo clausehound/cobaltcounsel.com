@@ -1,30 +1,22 @@
-import { createElement as h } from "react";
-import styled from "styled-components";
-import Container from "@atoms/container";
-import Subheading from "@atoms/subheading";
-import { media } from "@utils/media";
-import PolicyGenerator from "@atoms/pretty/policysaurus/PolicyGenerator.png";
-import CompareTool from "@atoms/pretty/policysaurus/CompareTool.png";
-import GapProcessing from "@atoms/pretty/policysaurus/GapProcessing.png";
-import KnowledgeMapping from "@atoms/pretty/policysaurus/KnowledgeMapping.svg";
-import Workflow from "@atoms/pretty/policysaurus/Workflow.png";
-
-import SeperatorOne from "@assets/seperators/a-seperator-1.svg";
-import SeperatorTwo from "@assets/seperators/a-seperator-2.svg";
-import SeperatorThree from "@assets/seperators/a-seperator-3.svg";
+import { createElement as h } from 'react';
+import styled from 'styled-components';
+import Container from '@atoms/container';
+import { media } from '@utils/media';
+import PolicyGenerator from '@atoms/pretty/policysaurus/PolicyGenerator.png';
+import CompareTool from '@atoms/pretty/policysaurus/CompareTool.png';
+import GapProcessing from '@atoms/pretty/policysaurus/GapProcessing.png';
+import KnowledgeMapping from '@atoms/pretty/policysaurus/KnowledgeMapping.svg';
+import Workflow from '@atoms/pretty/policysaurus/Workflow.png';
+import SeperatorOne from '@assets/seperators/a-seperator-1.svg';
 
 const PolicysaurusWorks = () => {
   return h(
-    Container,
+    ContentContainer,
     {
       content: true,
       contentTop: true,
     },
-    h(
-      Intro,
-      null,
-      h("h2", null, "How It Works")
-    ),
+    h(Intro, null, h('h2', null, 'How It Works')),
     h(
       Setup,
       null,
@@ -32,67 +24,82 @@ const PolicysaurusWorks = () => {
         Step,
         null,
         h(Seperator, null, h(SeperatorOne, null)),
-        h(Image, null, h("img", { src: PolicyGenerator })),
-        h(
-          "p",
-          null,
-          "1. Policy Generator - Policies Upload Tool"
-        )
+        h(Image, null, h('img', { src: PolicyGenerator })),
+        h('p', null, '1. Policy Generator - Policies Upload Tool'),
       ),
       h(
         Step,
         null,
         h(Seperator, null, h(SeperatorOne, null)),
-        h(Image, null, h("img", { src: CompareTool })),
+        h(Image, null, h('img', { src: CompareTool })),
         h(
-          "p",
+          'p',
           null,
-          "2. Compare Tool - A differentiation tool in which our software and researchers search to uncover the nuances"
-        )
+          '2. Compare Tool - A differentiation tool in which our software and researchers search to uncover the nuances',
+        ),
       ),
       h(
         Step,
         null,
-        h(Image, null, h("img", { src: GapProcessing })),
+        h(Image, null, h('img', { src: GapProcessing })),
         h(
-          "p",
+          'p',
           null,
-          "3. Gap Processing - Compare document content to identify gaps in your document"
-        )
+          '3. Gap Processing - Compare document content to identify gaps in your document',
+        ),
       ),
     ),
     h(
-        Setup2,
+      Setup2,
+      null,
+      h(
+        Step,
         null,
+        h(Seperator, null, h(SeperatorOne, null)),
+        h(Image, null, h('img', { src: KnowledgeMapping })),
         h(
-          Step,
+          'p',
           null,
-          h(Seperator, null, h(SeperatorOne, null)),
-          h(Image, null, h("img", { src: KnowledgeMapping })),
-          h(
-            "p",
-            null,
-            "4. Knowledge Mapping - Map knowledge directly to concepts to support policy drafters "
-          )
+          '4. Knowledge Mapping - Map knowledge directly to concepts to support policy drafters ',
         ),
+      ),
+      h(
+        Step,
+        null,
+        h(Image, null, h('img', { src: Workflow })),
         h(
-          Step,
+          'p',
           null,
-          h(Image, null, h("img", { src: Workflow })),
-          h(
-            "p",
-            null,
-            "5. Integrate into your Workflow - Connect directly into tools, whether it's field operations technology or document management systems"
-          )
-        )
-      )
+          "5. Integrate into your Workflow - Connect directly into tools, whether it's field operations technology or document management systems",
+        ),
+      ),
+    ),
   );
 };
 
 export default PolicysaurusWorks;
 
+const ContentContainer = styled(Container)`
+  padding-top: var(--spacingSection);
+  padding-bottom: 0;
+  &:after,
+  &:before {
+    background: inherit;
+    content: '';
+    display: block;
+    height: 50%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform: skewY(-4.5deg);
+    transform-origin: 100%;
+    z-index: -1;
+  }
+`;
+
 const Image = styled.div`
-max-width: 10rem;`;
+  max-width: 10rem;
+`;
 
 const Intro = styled.div`
   text-align: center;

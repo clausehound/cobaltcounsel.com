@@ -8,6 +8,7 @@ import Container from '@atoms/container';
 import PolicysaurusHeader from '@molecules/policysaurus/policysaurusHeader';
 import PolicysaurusSetup from '@molecules/policysaurus/policysaurusSetup';
 import PolicysaurusWorks from '@molecules/policysaurus/policysaurusWorks';
+import PolicysaurusList from '@molecules/policysaurus/policysaurusList';
 
 const PolicysaurusPage = () => {
   return h(
@@ -16,6 +17,7 @@ const PolicysaurusPage = () => {
     h(SEO, { title: 'Policysaurus by Cobalt AI' }),
     h(PolicysaurusHeader),
     h(PolicysaurusSetup),
+    h(PolicysaurusList),
     h(
       ContentContainer,
       {
@@ -57,7 +59,7 @@ const PolicysaurusPage = () => {
     ),
     h(PolicysaurusWorks),
     h(
-      ContentContainer,
+      ContentContainerAlternate,
       {
         content: true,
       },
@@ -122,14 +124,13 @@ const PolicysaurusPage = () => {
 
 export default PolicysaurusPage;
 
-const Image = styled.div``;
-
 const CaseStudyButton = styled(Button)`
   display: block;
   width: 19rem;
 `;
 
 const ContentContainer = styled(Container)`
+  margin-top: 7rem;
   padding-bottom: 1em;
   &:after,
   &:before {
@@ -161,6 +162,11 @@ const ContentContainer = styled(Container)`
   }
 `;
 
+const ContentContainerAlternate = styled(ContentContainer)`
+  background-color: ${(props) => props.theme.colors.secondary};
+  border-top: 1px solid ${(p) => p.theme.colors.black};
+`;
+
 const CaseStudyContainer = styled(Container)`
   margin-top: 5rem;
   margin-bottom: 2rem;
@@ -186,8 +192,6 @@ const CaseStudyContainer = styled(Container)`
   }
   &:nth-of-type(even) {
     direction: rtl;
-    border-top: 1px solid ${(p) => p.theme.colors.black};
-    background-color: ${(props) => props.theme.colors.secondary};
     div {
       direction: ltr;
     }
