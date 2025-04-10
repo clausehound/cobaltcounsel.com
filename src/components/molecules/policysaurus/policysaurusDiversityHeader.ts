@@ -1,7 +1,7 @@
-import { createElement as h, useContext, Fragment } from "react";
-import styled, { ThemeContext } from "styled-components";
-import { media } from "@utils/media";
-import DiversityIpad from "@atoms/pretty/policysaurus/DiversityIpad.svg";
+import { createElement as h, useContext, Fragment } from 'react';
+import styled, { ThemeContext } from 'styled-components';
+import { media } from '@utils/media';
+import DiversityIpad from '@atoms/pretty/policysaurus/DiversityIpad.svg';
 
 const PolicysaurusDiversityHeader = () => {
   const theme = useContext(ThemeContext);
@@ -16,29 +16,29 @@ const PolicysaurusDiversityHeader = () => {
         grid: true,
         backgroundSecondary: true,
       },
-      h(Image, null, h("img", { src: DiversityIpad })),
+      h(Image, null, h('img', { src: DiversityIpad })),
       h(
         Content,
         null,
-        h("h1", null, "Policysaurus for EDI Topics"),
-        h("h3", null, "Rules and Policy Compare Tool and Builder")
-      )
+        h('h1', null, 'Policysaurus for HR Policies'),
+        h('h3', null, 'Rules and Policy Compare Tool and Builder'),
+      ),
     ),
     h(
       HeaderCurve,
       {
-        fill: "none",
-        viewBox: "0 0 1680 232",
+        fill: 'none',
+        viewBox: '0 0 1680 232',
       },
-      h("path", {
+      h('path', {
         fill: theme.colors.secondary,
-        d: "M0 0h1680v119.847S1428.43 231 1260 231C967.343 231 712.766 9.26 420 9.26 251.618 9.26 0 119.848 0 119.848V0z",
+        d: 'M0 0h1680v119.847S1428.43 231 1260 231C967.343 231 712.766 9.26 420 9.26 251.618 9.26 0 119.848 0 119.848V0z',
       }),
-      h("path", {
-        stroke: "#000000",
-        d: "M0 0h1680v119.847S1428.43 231 1260 231C967.343 231 712.766 9.26 420 9.26 251.618 9.26 0 119.848 0 119.848V0z",
-      })
-    )
+      h('path', {
+        stroke: '#000000',
+        d: 'M0 0h1680v119.847S1428.43 231 1260 231C967.343 231 712.766 9.26 420 9.26 251.618 9.26 0 119.848 0 119.848V0z',
+      }),
+    ),
   );
 };
 
@@ -70,45 +70,45 @@ const HeaderContainer = styled.header<{
 `;
 
 const Image = styled.div({
-  display: "block",
-  flexBasis: "100%",
-  width: "100%",
-  padding: "4.5rem 0 2rem 0",
-  textAlign: "right",
+  display: 'block',
+  flexBasis: '100%',
+  width: '100%',
+  padding: '4.5rem 0 2rem 0',
+  textAlign: 'right',
   [`@media ${media.sm}`]: {
-    "padding-left": "2rem",
-    width: "60%",
-    flexBasis: "60%",
+    'padding-left': '2rem',
+    width: '60%',
+    flexBasis: '60%',
   },
-  ".gatsby-image-wrapper": {
-    width: "80%",
-    margin: "0 auto",
+  '.gatsby-image-wrapper': {
+    width: '80%',
+    margin: '0 auto',
   },
 });
 
 const Content = styled.div({
-  display: "block",
-  flexBasis: "100%",
-  width: "100%",
+  display: 'block',
+  flexBasis: '100%',
+  width: '100%',
 
   [`@media ${media.lg}`]: {
-    width: "40%",
-    flexBasis: "40%",
+    width: '40%',
+    flexBasis: '40%',
   },
 
   h1: {
-    marginBottom: "3rem",
-    fontSize: "2rem",
+    marginBottom: '3rem',
+    fontSize: '2rem',
     [`@media ${media.lg}`]: {
-      fontSize: "3.5rem",
+      fontSize: '3.5rem',
     },
   },
 });
 
 const HeaderCurve = styled.svg({
-  width: "100%",
-  height: "auto",
-  marginBottom: "2rem",
+  width: '100%',
+  height: 'auto',
+  marginBottom: '2rem',
   // Stupid but it works to remove the line, so is it really stupid?
-  marginTop: "-2px",
+  marginTop: '-2px',
 });

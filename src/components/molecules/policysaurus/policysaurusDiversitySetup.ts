@@ -25,7 +25,7 @@ const PolicysaurusDiversitySetup = () => {
         'For the purpose of supplying research on complex topics to support the development of laws, rulebooks, practitioner guides, judicial reference guides, or policies for topics that are nuanced.',
       ),
     ),
-    h(Intro, null, h('h2', null, 'Equity, Diversity, and Inclusion')),
+    h(Intro, null, h('h2', null, 'Human Resources Policies')),
     h(
       ContentBlock,
       null,

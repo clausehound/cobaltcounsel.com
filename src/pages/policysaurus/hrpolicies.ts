@@ -2,22 +2,22 @@ import { createElement as h } from 'react';
 import styled from 'styled-components';
 import Layout from '@utils/layout';
 import SEO from '@utils/seo';
-import Button from '@atoms/button';
 import ContentBlock from '@atoms/contentBlock';
 import Container from '@atoms/container';
-import PolicysaurusHeader from '@molecules/policysaurus/policysaurusHeader';
-import PolicysaurusSetup from '@molecules/policysaurus/policysaurusSetup';
+import PolicysaurusDiversityHeader from '@molecules/policysaurus/policysaurusDiversityHeader';
+import PolicysaurusDiversitySetup from '@molecules/policysaurus/policysaurusDiversitySetup';
 import PolicysaurusWorks from '@molecules/policysaurus/policysaurusWorks';
-import PolicysaurusList from '@molecules/policysaurus/policysaurusList';
+import DiversityPlaybook from '@atoms/pretty/policysaurus/DiversityPlaybook.svg';
+import DiversityGlass from '@atoms/pretty/policysaurus/DiversityGlass.svg';
+import Integrate from '@atoms/pretty/policysaurus/Integrate.svg';
 
-const PolicysaurusPage = () => {
+const PolicysaurusHRPoliciesPage = () => {
   return h(
     Layout,
     null,
-    h(SEO, { title: 'Policysaurus by Cobalt AI' }),
-    h(PolicysaurusHeader),
-    h(PolicysaurusSetup),
-    h(PolicysaurusList),
+    h(SEO, { title: 'Policysaurus for HR Policies' }),
+    h(PolicysaurusDiversityHeader),
+    h(PolicysaurusDiversitySetup),
     h(
       ContentContainer,
       {
@@ -59,7 +59,36 @@ const PolicysaurusPage = () => {
     ),
     h(PolicysaurusWorks),
     h(
-      ContentContainerAlternate,
+      ContentContainer,
+      {
+        content: true,
+      },
+      h(
+        ActionBlock,
+        null,
+        h('h2', null, 'See it in Action'),
+        h(Image, { src: DiversityPlaybook }),
+        h(
+          'p',
+          null,
+          'We will collect research from a variety of sources, including our database of policies. We will map relevant precedents from the Policysaurus database and other sources and categorize the collected data into frameworks that capture the various nuances of the documents.”',
+        ),
+        h(Image, { src: DiversityGlass }),
+        h(
+          'p',
+          null,
+          'Our approach aggregates information that is easily accessed, shared, criticized, queried, and reviewed. It also allows us to analyze and develop materials that can be edited at an individual content level by a variety of reviewers, and edits are saved.',
+        ),
+        h(Image, { src: Integrate }),
+        h(
+          'p',
+          null,
+          'Once our team of researchers, lawyers, and subject matter experts have created policies that work for your organization, we can deliver them to you in your preferred format or integrate with your systems.',
+        ),
+      ),
+    ),
+    h(
+      FinalContainer,
       {
         content: true,
       },
@@ -75,62 +104,25 @@ const PolicysaurusPage = () => {
         ),
       ),
     ),
-    h(
-      CaseStudyContainer,
-      {
-        content: true,
-      },
-      h(
-        ContentBlock,
-        null,
-        h('h2', null, 'Policysaurus Case Studies: Policy Review and Compare'),
-        h(
-          'p',
-          null,
-          h(
-            CaseStudyButton,
-            {
-              to: './hrpolicies',
-            },
-            'HR Policies',
-          ),
-        ),
-        h(
-          'p',
-          null,
-          h(
-            CaseStudyButton,
-            {
-              to: './privacyandcybersecurity',
-            },
-            'Privacy and Cybersecurity',
-          ),
-        ),
-        h(
-          'p',
-          null,
-          h(
-            CaseStudyButton,
-            {
-              to: './sustainability',
-            },
-            'Sustainability',
-          ),
-        ),
-      ),
-    ),
   );
 };
 
-export default PolicysaurusPage;
+export default PolicysaurusHRPoliciesPage;
 
-const CaseStudyButton = styled(Button)`
-  display: block;
-  width: 19rem;
+const ActionBlock = styled(ContentBlock)`
+  max-width: 60rem;
+  margin: 0 auto;
+  text-align: center;
+`;
+
+const Image = styled.img`
+  border: 2px solid ${(p) => p.theme.colors.primary};
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 `;
 
 const ContentContainer = styled(Container)`
-  margin-top: 7rem;
+  margin-top: 5rem;
   padding-bottom: 1em;
   &:after,
   &:before {
@@ -162,38 +154,10 @@ const ContentContainer = styled(Container)`
   }
 `;
 
-const ContentContainerAlternate = styled(ContentContainer)`
-  background-color: ${(props) => props.theme.colors.secondary};
-  border-top: 1px solid ${(p) => p.theme.colors.black};
-`;
-
-const CaseStudyContainer = styled(Container)`
-  margin-top: 5rem;
+const FinalContainer = styled(ContentContainer)`
   margin-bottom: 2rem;
-  padding-bottom: 1em;
   &:after,
   &:before {
-    background: inherit;
-    content: '';
-    display: block;
-    height: 50%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    transform-origin: 100%;
-    z-index: -1;
-  }
-  &:after {
-    bottom: 0;
-    border-bottom: 1px solid ${(p) => p.theme.colors.black};
-  }
-  &:before {
-    top: 0;
-  }
-  &:nth-of-type(even) {
-    direction: rtl;
-    div {
-      direction: ltr;
-    }
+    transform: none;
   }
 `;
