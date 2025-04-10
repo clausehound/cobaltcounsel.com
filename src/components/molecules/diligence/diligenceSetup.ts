@@ -7,6 +7,7 @@ import TwoPager from '@atoms/twoPager.svg';
 import DatasetLinked from '@atoms/datasetLinked.svg';
 import SearchCheck from '@atoms/searchCheck.svg';
 import Group from '@atoms/group.svg';
+import Button from '@atoms/button';
 
 const SectionSetup = () => {
   return h(
@@ -68,10 +69,27 @@ const SectionSetup = () => {
         'To navigate through document-filled wind tunnels pressure-tested on 10,000+ matters',
       ),
     ),
+    h(
+      ButtonWrapper,
+      null,
+      h(
+        Button,
+        {
+          to: '../transactions',
+        },
+        'Case Studies and Representative Transactions',
+      ),
+    ),
   );
 };
 
 export default SectionSetup;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+`;
 
 const ImageIcon = styled.div`
   width: 10rem;
