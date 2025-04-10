@@ -18,7 +18,7 @@ const DisputeSetup = () => {
       h(
         IntroBlock,
         null,
-        'When you are having trouble collecting on invoices issued to your customers, are dealing with scope creep issues or unfulfilled scope, or otherwise have heartburn from one one your customers, vendors, employees, contractors or shareholders, consult with us.',
+        'When you are having trouble collecting on invoices issued to your customers, are dealing with scope creep issues or unfulfilled scope, or otherwise have heartburn from one of your customers, vendors, employees, contractors or shareholders, consult with us.',
       ),
       h(
         IntroBlock,
