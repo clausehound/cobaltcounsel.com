@@ -38,7 +38,7 @@ const Navigation = ({
           h(
             NavLink,
             {
-              href: 'https://blog.dealprep.co',
+              href: 'https://blog.clausehound.com',
               target: '_blank',
             },
             'Blog',
