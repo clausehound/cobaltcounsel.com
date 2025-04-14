@@ -2,7 +2,6 @@ import { createElement as h } from 'react';
 import styled from 'styled-components';
 import Layout from '@utils/layout';
 import SEO from '@utils/seo';
-import Button from '@atoms/button';
 import ContentBlock from '@atoms/contentBlock';
 import Container from '@atoms/container';
 import DiligenceHeader from '@molecules/diligence/diligenceHeader';
