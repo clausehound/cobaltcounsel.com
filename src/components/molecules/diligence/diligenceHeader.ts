@@ -2,6 +2,7 @@ import { createElement as h, useContext, Fragment } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { media } from '@utils/media';
 import ranked from '@atoms/pretty/Ranked.svg';
+import DiligenceMonsterImage from '@atoms/pretty/DiligenceMonster.png';
 
 const DiligenceHeader = () => {
   const theme = useContext(ThemeContext);
@@ -20,7 +21,12 @@ const DiligenceHeader = () => {
       h(
         Content,
         null,
-        h('h1', null, 'Diligence Monster'),
+        h(
+          MonsterContainer,
+          null,
+          h('img', { src: DiligenceMonsterImage }),
+          h('h1', null, 'Diligence Monster'),
+        ),
         h('h2', null, 'Supporting your next business acquisitions'),
         h('h2', null, 'For deal teams who need incredibly precise AI'),
       ),
@@ -44,6 +50,23 @@ const DiligenceHeader = () => {
 };
 
 export default DiligenceHeader;
+
+const MonsterContainer = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: '2rem',
+  gap: '1.5rem',
+  img: {
+    width: '6rem',
+  },
+  h1: {
+    fontSize: '2rem',
+    [`@media ${media.lg}`]: {
+      fontSize: '3.5rem',
+    },
+  },
+});
 
 const HeaderContainer = styled.header<{
   backgroundSecondary: boolean;
@@ -91,18 +114,14 @@ const Content = styled.div({
   display: 'block',
   flexBasis: '100%',
   width: '100%',
+  [`@media ${media.sm}`]: {
+    textAlign: 'center',
+  },
 
   [`@media ${media.lg}`]: {
     width: '40%',
     flexBasis: '40%',
-  },
-
-  h1: {
-    marginBottom: '3rem',
-    fontSize: '2rem',
-    [`@media ${media.lg}`]: {
-      fontSize: '3.5rem',
-    },
+    textAlign: 'left',
   },
 
   h2: {

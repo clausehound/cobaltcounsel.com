@@ -8,6 +8,7 @@ import DiligenceHeader from '@molecules/diligence/diligenceHeader';
 import DiligenceSetup from '@molecules/diligence/diligenceSetup';
 import Tooling from '@atoms/pretty/Tooling.svg';
 import DiligenceVideo from '@molecules/diligence/diligenceVideo';
+import DiligenceInfoGraphic from '@molecules/diligence/diligenceInfoGraphic';
 import SectionCheckout from '@molecules/sectionCheckout';
 
 const DiligencePage = () => {
@@ -38,6 +39,7 @@ const DiligencePage = () => {
     ),
     h(DiligenceSetup),
     h(DiligenceVideo),
+    h(DiligenceInfoGraphic),
     h(SectionCheckout),
   );
 };
