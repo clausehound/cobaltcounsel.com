@@ -22,7 +22,7 @@ const DiligenceHeader = () => {
         null,
         h('h1', null, 'Diligence Monster'),
         h('h2', null, 'Supporting your next business acquisitions'),
-        h('h3', null, 'For deal teams who need incredibly precise AI'),
+        h('h2', null, 'For deal teams who need incredibly precise AI'),
       ),
     ),
     h(
@@ -102,6 +102,13 @@ const Content = styled.div({
     fontSize: '2rem',
     [`@media ${media.lg}`]: {
       fontSize: '3.5rem',
+    },
+  },
+
+  h2: {
+    fontSize: '1.5rem',
+    [`@media ${media.lg}`]: {
+      fontSize: '2rem',
     },
   },
 });
