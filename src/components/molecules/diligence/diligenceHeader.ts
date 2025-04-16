@@ -78,7 +78,7 @@ const MonsterContainer = styled.div({
     fontSize: '2rem',
     textAlign: 'center',
     [`@media ${media.lg}`]: {
-      fontSize: '3.5rem',
+      fontSize: '3rem',
     },
   },
 });
@@ -100,15 +100,18 @@ const HeaderContainer = styled.header<{
   @media ${media.md} {
     flex-direction: row-reverse;
     padding-top: 7rem;
+    gap: 2rem;
   }
 `;
 
 const Image = styled.div({
-  width: '80%',
+  width: '70%',
   padding: '4.5rem 0 0 0',
   textAlign: 'right',
   [`@media ${media.sm}`]: {
-    padding: '1rem 0 0 0',
+    padding: '0',
+  },
+  [`@media ${media.lg}`]: {
     width: '60%',
   },
 });
