@@ -111,21 +111,12 @@ const Image = styled.div({
     padding: '1rem 0 0 0',
     width: '60%',
   },
-  // '.gatsby-image-wrapper': {
-  //   width: '80%',
-  //   margin: '0 auto',
-  // },
 });
 
 const Content = styled.div({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-  // [`@media ${media.md}`]: {
-  //   textAlign: 'center',
-  //   flexDirection: 'row',
-  //   gap: '4rem',
-  // },
 
   [`@media ${media.lg}`]: {
     textAlign: 'left',
