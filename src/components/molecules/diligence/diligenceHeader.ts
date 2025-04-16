@@ -24,11 +24,15 @@ const DiligenceHeader = () => {
         h(
           MonsterContainer,
           null,
-          h('img', { src: DiligenceMonsterImage }),
           h('h1', null, 'Diligence Monster'),
+          h('img', { src: DiligenceMonsterImage }),
         ),
-        h('h2', null, 'Supporting your next business acquisitions'),
-        h('h2', null, 'For deal teams who need incredibly precise AI'),
+        h(
+          HeadlineContainer,
+          null,
+          h('h2', null, 'Supporting your next business acquisitions'),
+          h('h2', null, 'For deal teams who need incredibly precise AI'),
+        ),
       ),
     ),
     h(
@@ -51,17 +55,28 @@ const DiligenceHeader = () => {
 
 export default DiligenceHeader;
 
+const HeadlineContainer = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+});
+
 const MonsterContainer = styled.div({
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
   marginBottom: '2rem',
   gap: '1.5rem',
   img: {
     width: '6rem',
   },
+  [`@media ${media.sm}`]: {
+    fontSize: '3.5rem',
+  },
+  [`@media ${media.md}`]: {},
   h1: {
     fontSize: '2rem',
+    textAlign: 'center',
     [`@media ${media.lg}`]: {
       fontSize: '3.5rem',
     },
@@ -80,52 +95,46 @@ const HeaderContainer = styled.header<{
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 80vh;
-  padding: var(--spacingContent) var(--spacingContent) 0 var(--spacingContent);
-  @media ${media.sm} {
-    min-height: 80%;
-  }
+  padding: var(--spacingContent);
+
   @media ${media.md} {
-    min-height: 80%;
-  }
-  @media ${media.lg} {
     flex-direction: row-reverse;
+    padding-top: 7rem;
   }
 `;
 
 const Image = styled.div({
-  display: 'block',
-  flexBasis: '100%',
-  width: '100%',
+  width: '80%',
   padding: '4.5rem 0 0 0',
   textAlign: 'right',
   [`@media ${media.sm}`]: {
     padding: '1rem 0 0 0',
     width: '60%',
-    flexBasis: '60%',
   },
-  '.gatsby-image-wrapper': {
-    width: '80%',
-    margin: '0 auto',
-  },
+  // '.gatsby-image-wrapper': {
+  //   width: '80%',
+  //   margin: '0 auto',
+  // },
 });
 
 const Content = styled.div({
-  display: 'block',
-  flexBasis: '100%',
-  width: '100%',
-  [`@media ${media.sm}`]: {
-    textAlign: 'center',
-  },
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  // [`@media ${media.md}`]: {
+  //   textAlign: 'center',
+  //   flexDirection: 'row',
+  //   gap: '4rem',
+  // },
 
   [`@media ${media.lg}`]: {
-    width: '40%',
-    flexBasis: '40%',
     textAlign: 'left',
+    flexDirection: 'column',
   },
 
   h2: {
     fontSize: '1.5rem',
+    textAlign: 'center',
     [`@media ${media.lg}`]: {
       fontSize: '2rem',
     },
