@@ -31,7 +31,7 @@ const ProductsDropdown = () => {
       { isOpen: isOpen },
       h('a', { href: '/dealprep', target: '_blank' }, 'Dealprep'),
       h('a', { href: '/policysaurus' }, 'Policysaurus'),
-      h('a', { href: '/diligencemonster' }, 'Diligence Monster'),
+      h('a', { href: '/diligence-monster' }, 'Diligence Monster'),
     ),
   );
 };
