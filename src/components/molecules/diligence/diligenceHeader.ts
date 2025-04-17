@@ -64,9 +64,20 @@ const HeadlineContainer = styled.div({
 const MonsterContainer = styled.div({
   display: 'flex',
   flexDirection: 'row',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
+  flexWrap: 'wrap',
   alignItems: 'center',
   marginBottom: '2rem',
+  gap: '1rem',
+  [`@media ${media.sm}`]: {
+    fontSize: '3.5rem',
+    justifyContent: 'center',
+  },
+  [`@media ${media.md}`]: {
+    fontSize: '3.5rem',
+    justifyContent: 'flex-start',
+  },
+
   img: {
     maxHeight: '4rem',
     [`@media ${media.md}`]: {
@@ -76,14 +87,13 @@ const MonsterContainer = styled.div({
       maxHeight: '6rem',
     },
   },
-  [`@media ${media.sm}`]: {
-    fontSize: '3.5rem',
-  },
+
   h1: {
     fontSize: '2rem',
-    width: '50%',
+    width: '10rem',
     [`@media ${media.lg}`]: {
       fontSize: '3rem',
+      width: '15rem',
     },
   },
 });
@@ -116,27 +126,21 @@ const Image = styled.div({
   [`@media ${media.sm}`]: {
     padding: '0',
   },
-  [`@media ${media.md}`]: {
-    width: '100%',
-  },
-  [`@media ${media.md}`]: {
-    width: '70%',
-  },
 });
 
 const Content = styled.div({
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  flexWrap: 'wrap',
+  display: 'block',
+  // flexDirection: 'row',
+  // justifyContent: 'flex-start',
+  // flexWrap: 'wrap',
   [`@media ${media.lg}`]: {
     textAlign: 'left',
-    flexDirection: 'column',
+    // flexDirection: 'column',
   },
 
   h2: {
     fontSize: '1.5rem',
-    textAlign: 'center',
+    textAlign: 'left',
     [`@media ${media.lg}`]: {
       fontSize: '2rem',
     },
