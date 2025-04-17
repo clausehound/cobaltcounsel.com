@@ -74,15 +74,11 @@ const MonsterContainer = styled.div({
     justifyContent: 'center',
   },
   [`@media ${media.md}`]: {
-    fontSize: '3.5rem',
     justifyContent: 'flex-start',
   },
 
   img: {
     maxHeight: '4rem',
-    [`@media ${media.md}`]: {
-      maxHeight: '4rem',
-    },
     [`@media ${media.lg}`]: {
       maxHeight: '6rem',
     },
@@ -130,12 +126,8 @@ const Image = styled.div({
 
 const Content = styled.div({
   display: 'block',
-  // flexDirection: 'row',
-  // justifyContent: 'flex-start',
-  // flexWrap: 'wrap',
   [`@media ${media.lg}`]: {
     textAlign: 'left',
-    // flexDirection: 'column',
   },
 
   h2: {
