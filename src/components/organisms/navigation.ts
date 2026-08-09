@@ -38,6 +38,17 @@ const Navigation = ({
           h(
             NavLink,
             {
+              href: '/overview/',
+            },
+            'Overview',
+          ),
+        ),
+        h(
+          'li',
+          null,
+          h(
+            NavLink,
+            {
               href: 'https://blog.clausehound.com',
               target: '_blank',
             },

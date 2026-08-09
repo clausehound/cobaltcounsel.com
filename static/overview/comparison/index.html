@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diligence Monster — Service vs. Product</title>
+<style>
+  :root {
+    --ground: #f6f3ec;
+    --panel: #fffdf8;
+    --ink: #1a2332;
+    --ink-soft: #4c5566;
+    --hair: #d8d2c4;
+    --svc: #2f7d6e;
+    --svc-tint: #e6f0ec;
+    --prod: #4a5f8a;
+    --prod-tint: #e8ecf4;
+    --shadow: 0 1px 2px rgba(26,35,50,.06), 0 8px 24px rgba(26,35,50,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #14181f;
+      --panel: #1c222c;
+      --ink: #eef1f6;
+      --ink-soft: #a8b1c0;
+      --hair: #2e3742;
+      --svc: #5fbfac;
+      --svc-tint: #16302b;
+      --prod: #8aa0cf;
+      --prod-tint: #1a2233;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #14181f; --panel: #1c222c; --ink: #eef1f6; --ink-soft: #a8b1c0;
+    --hair: #2e3742; --svc: #5fbfac; --svc-tint: #16302b; --prod: #8aa0cf;
+    --prod-tint: #1a2233; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"] {
+    --ground: #f6f3ec; --panel: #fffdf8; --ink: #1a2332; --ink-soft: #4c5566;
+    --hair: #d8d2c4; --svc: #2f7d6e; --svc-tint: #e6f0ec; --prod: #4a5f8a;
+    --prod-tint: #e8ecf4; --shadow: 0 1px 2px rgba(26,35,50,.06), 0 8px 24px rgba(26,35,50,.06);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 56px 24px 72px; }
+
+  .eyebrow {
+    font-size: 12px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--svc); font-weight: 600; margin: 0 0 12px;
+  }
+  h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 5vw, 42px); line-height: 1.1; font-weight: 600;
+    margin: 0 0 14px; text-wrap: balance; letter-spacing: -.01em;
+  }
+  .lede { font-size: 17px; color: var(--ink-soft); max-width: 62ch; margin: 0 0 40px; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 680px) { .cols { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--panel); border: 1px solid var(--hair); border-radius: 14px;
+    padding: 26px 24px; box-shadow: var(--shadow);
+  }
+  .card.svc { border-top: 3px solid var(--svc); }
+  .card.prod { border-top: 3px solid var(--prod); }
+  .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 999px; margin-bottom: 14px;
+  }
+  .svc .tag { background: var(--svc-tint); color: var(--svc); }
+  .prod .tag { background: var(--prod-tint); color: var(--prod); }
+  .card h2 {
+    font-family: Georgia, "Times New Roman", serif; font-size: 22px;
+    margin: 0 0 4px; font-weight: 600;
+  }
+  .card .sub { font-size: 13.5px; color: var(--ink-soft); margin: 0 0 18px; }
+
+  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 13px; }
+  li { display: flex; gap: 11px; font-size: 14.5px; align-items: flex-start; }
+  .mark { flex: none; width: 18px; height: 18px; margin-top: 2px; }
+  .svc .mark { color: var(--svc); }
+  .prod .mark { color: var(--prod); }
+  li b { font-weight: 600; }
+  li span { color: var(--ink); }
+  li .note { display: block; color: var(--ink-soft); font-size: 13px; margin-top: 1px; }
+
+  .matrix {
+    margin-top: 44px; background: var(--panel); border: 1px solid var(--hair);
+    border-radius: 14px; box-shadow: var(--shadow); overflow-x: auto;
+  }
+  table { width: 100%; border-collapse: collapse; min-width: 560px; }
+  caption {
+    text-align: left; font-family: Georgia, serif; font-size: 18px; font-weight: 600;
+    padding: 22px 24px 4px; color: var(--ink);
+  }
+  th, td { text-align: left; padding: 13px 24px; font-size: 14px; vertical-align: top; }
+  thead th { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; }
+  thead th.h-svc { color: var(--svc); }
+  thead th.h-prod { color: var(--prod); }
+  tbody tr { border-top: 1px solid var(--hair); }
+  td.dim-label { font-weight: 600; color: var(--ink); width: 28%; }
+  tbody td { color: var(--ink-soft); }
+
+  .foot {
+    margin-top: 40px; border-left: 3px solid var(--svc); background: var(--svc-tint);
+    padding: 18px 22px; border-radius: 0 10px 10px 0; font-size: 14px; color: var(--ink);
+  }
+  .foot b { color: var(--svc); }
+  .figures { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 10px; }
+  .fig { font-variant-numeric: tabular-nums; margin: 0; }
+  .fig .n { font-family: Georgia, serif; font-size: 24px; font-weight: 600; display: block; }
+  .fig .l { font-size: 12px; color: var(--ink-soft); }
+
+  .disclaimer { margin-top: 28px; font-size: 12px; color: var(--ink-soft); }
+</style>
+
+<main class="wrap">
+  <header>
+    <p class="eyebrow">Due Diligence · Commercial Comparison</p>
+    <h1>Diligence as a service, or diligence as a product?</h1>
+    <p class="lede">Two ways to add due-diligence capability. One is a platform you license and staff yourself; the other is a tailored, results-based engagement with no fixed cost. Here is how they differ where it matters commercially.</p>
+  </header>
+
+  <div class="cols">
+    <article class="card svc">
+      <span class="tag">Diligence Monster — as a service</span>
+      <h2>You get the finished work</h2>
+      <p class="sub">Scoped per matter, vetted by our research team, delivered ready to drop into the firm's draft.</p>
+      <ul>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10.5l4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>No up-front or monthly cost.</b><span class="note">Scoped together and billed by the hour or by project.</span></span></li>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10.5l4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Billable through the firm.</b><span class="note">Charge us out as an extension of your team.</span></span></li>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10.5l4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Fully tailored deliverables.</b><span class="note">Data extraction, disclosure schedules, and review shaped to each matter.</span></span></li>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10.5l4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Human-vetted output.</b><span class="note">Every answer checked before it reaches your draft.</span></span></li>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10.5l4 4 8-9" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Works within the client's budget.</b><span class="note">Realistic scoping; pay only for the matters you run.</span></span></li>
+      </ul>
+    </article>
+
+    <article class="card prod">
+      <span class="tag">Platform — as a product</span>
+      <h2>You build the capability</h2>
+      <p class="sub">A broader tool licensed in-house that can support due diligence alongside other use cases.</p>
+      <ul>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10" cy="10" r="7"/><path d="M7.5 12.5l5-5M12.5 12.5l-5-5" stroke-linecap="round"/></svg><span><b>Subscription / license cost.</b><span class="note">Committed spend regardless of matter volume.</span></span></li>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10" cy="10" r="7"/><path d="M7.5 12.5l5-5M12.5 12.5l-5-5" stroke-linecap="round"/></svg><span><b>You supply the reviewers.</b><span class="note">Capability lives in-house; your team runs and checks it.</span></span></li>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10" cy="10" r="7"/><path d="M7.5 12.5l5-5M12.5 12.5l-5-5" stroke-linecap="round"/></svg><span><b>General-purpose configuration.</b><span class="note">Broad platform; tailoring to a matter is your effort.</span></span></li>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10" cy="10" r="7"/><path d="M7.5 12.5l5-5M12.5 12.5l-5-5" stroke-linecap="round"/></svg><span><b>Serves other use cases too.</b><span class="note">Value spreads beyond diligence if you adopt it widely.</span></span></li>
+        <li><svg class="mark" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="10" cy="10" r="7"/><path d="M7.5 12.5l5-5M12.5 12.5l-5-5" stroke-linecap="round"/></svg><span><b>Fixed cost, variable demand.</b><span class="note">Spend is committed before the work materialises.</span></span></li>
+      </ul>
+    </article>
+  </div>
+
+  <section class="matrix">
+    <table>
+      <caption>Side by side</caption>
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th class="h-svc">Service — Diligence Monster</th>
+          <th class="h-prod">Product — platform license</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="dim-label">Cost model</td><td>Per matter — hourly or fixed project fee</td><td>Up-front and/or recurring subscription</td></tr>
+        <tr><td class="dim-label">Financial commitment</td><td>None until a matter is scoped</td><td>Committed regardless of usage</td></tr>
+        <tr><td class="dim-label">Who does the review</td><td>Our research team, vetted output</td><td>Your in-house team</td></tr>
+        <tr><td class="dim-label">Billing to end client</td><td>Charge us out through the firm</td><td>Absorbed as firm overhead</td></tr>
+        <tr><td class="dim-label">Customisation</td><td>Tailored per matter as we learn the client</td><td>Self-configured, general-purpose</td></tr>
+        <tr><td class="dim-label">Deliverable</td><td>Finished, disclosure-ready schedule</td><td>Tooling; output is your responsibility</td></tr>
+        <tr><td class="dim-label">Breadth beyond diligence</td><td>Focused DD expertise</td><td>Broader platform, multiple use cases</td></tr>
+        <tr><td class="dim-label">Ramp-up</td><td>Ready now — no build-out</td><td>Adoption, training, staffing</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <aside class="foot">
+    <b>What recent engagements looked like.</b> Fees scaled to document volume and analysis complexity — no fixed platform outlay. Each delivered a final, research-vetted spreadsheet dropped straight into the firm's draft.
+    <div class="figures">
+      <figure class="fig"><span class="n">8k</span><figcaption class="l">Due diligence / research matter</figcaption></figure>
+      <figure class="fig"><span class="n">32k</span><figcaption class="l">Higher-volume / complex matter</figcaption></figure>
+      <figure class="fig"><span class="n">0</span><figcaption class="l">Up-front or monthly cost</figcaption></figure>
+    </div>
+  </aside>
+
+  <footer>
+    <p class="disclaimer">Illustrative commercial comparison prepared for discussion. Figures reflect prior project fees and are indicative, not a quote; every engagement is scoped to the matter, and can be billed in the currency of the jurisdiction of work.</p>
+  </footer>
+</main>
+
+</html>
