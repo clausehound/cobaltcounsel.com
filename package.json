@@ -34,8 +34,10 @@
     "typography": "^0.16.21"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
     "@types/styled-components": "^5.1.9",
     "@types/typography": "^0.16.3",
+    "esbuild": "^0.28.2",
     "prettier": "^2.3.0"
   },
   "keywords": [
@@ -43,13 +45,14 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "eleventy",
+    "develop": "eleventy --serve",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "build:js": "esbuild src/ts/main.ts --bundle --minify --target=es2020 --outfile=public/js/main.js"
   },
   "repository": {
     "type": "git",

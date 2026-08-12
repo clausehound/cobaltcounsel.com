@@ -1,0 +1,873 @@
+/* ==========================================================================
+   cobaltcounsel.com — one hand-written stylesheet.
+
+   Breakpoints (one scale, reconciled per plan §4):
+     sm 640px   md 800px   lg 1100px   xl 1600px
+   The old code had two disagreeing scales: variables.css used 1200 for `lg`
+   and media.ts used 1100. Standardised on 1100, because `lg` is what flips
+   layout structure (flex direction, grid columns) in the components — keeping
+   that where it was matters more than where a padding token steps.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Spacing / grid tokens — from src/utils/variables.css
+   -------------------------------------------------------------------------- */
+:root {
+  --spacingContent: 1rem;
+  --spacingSection: 4rem;
+  --spacingGap: 1rem;
+  --spacingFooter: 6rem;
+
+  --gridSplit: 1fr;
+  --gridQuad: 1fr;
+  --gridTriple: 1fr;
+}
+
+@media only screen and (min-width: 640px) {
+  :root {
+    --spacingContent: 2rem;
+    --spacingSection: 4rem;
+    --spacingGap: 1.5rem;
+    --spacingFooter: 4rem;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  :root {
+    --spacingContent: 2.5rem;
+    --spacingSection: 5rem;
+    --spacingGap: 2rem;
+
+    --gridSplit: 1fr 1fr;
+    --gridQuad: repeat(4, 1fr);
+    --gridTriple: repeat(3, 1fr);
+    --spacingFooter: 4rem;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  :root {
+    --spacingContent: 3.5rem;
+    --spacingSection: 6rem;
+    --spacingGap: 2.5rem;
+    --spacingFooter: 6rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  :root {
+    --spacingContent: 5rem;
+    --spacingSection: 8rem;
+    --spacingGap: 3rem;
+    --spacingFooter: 6rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Theme tokens — from src/utils/theme.ts
+   -------------------------------------------------------------------------- */
+:root {
+  --color-primary: #ffa400;
+  --color-secondary: #f9f6f3;
+  --color-tertiary: #faaa8d;
+  --color-heading: #392d40;
+  --color-black: #201c22;
+  --color-gray: #5a535e;
+  --color-light-gray: #8a828f;
+  --color-white: #ffffff;
+
+  --space-xxs: 0.5rem;
+  --space-xs: 1rem;
+  --space-sm: 1.5rem;
+  --space-md: 2.5rem;
+  --space-lg: 5rem;
+  --space-xl: 10rem;
+  --space-xxl: 15rem;
+
+  --radius-button: 4px;
+  --transition: all 500ms ease;
+
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Base — replaces typography.js and layout.ts's GlobalStyle
+
+   The root font-size ramp is load-bearing: a lot of the site's proportions
+   are rem-based off it. Values carried over verbatim from GlobalStyle.
+   -------------------------------------------------------------------------- */
+html {
+  box-sizing: border-box;
+  font: 125% / var(--line-height) var(--font-body);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 480px) {
+  html {
+    font-size: 90%;
+  }
+}
+@media (min-width: 600px) {
+  html {
+    font-size: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  html {
+    font-size: 125%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  color: hsl(0 0% 0% / 0.8);
+  font-weight: 400;
+  word-wrap: break-word;
+  font-kerning: normal;
+}
+
+/* Type scale — the explicit equivalent of Typography.js's scaleRatio 3.5 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1.5rem;
+  color: inherit;
+  font-weight: 500;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 2.12051rem;
+}
+h3 {
+  font-size: 1.65054rem;
+}
+h4 {
+  font-size: 1rem;
+}
+h5 {
+  font-size: 0.77837rem;
+}
+h6 {
+  font-size: 0.7rem;
+  line-height: 1.5rem;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1.5rem;
+}
+
+ul,
+ol {
+  padding-left: 0;
+  margin-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.75rem;
+}
+
+li > p:last-child,
+p > *:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+  margin: 0 0 1.5rem;
+  border-style: none;
+  /* every <img> carries truthful width/height attributes so the browser can
+     reserve the box; `height: auto` keeps them from fighting max-width */
+  height: auto;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+small {
+  font-size: 80%;
+}
+
+/* Underline-on-hover link, from atoms/link.ts */
+a {
+  color: var(--color-gray);
+  padding: 0.25rem 0;
+  position: relative;
+  text-decoration: none;
+}
+
+a::after {
+  content: "";
+  border-bottom: solid 2px var(--color-primary);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s;
+}
+
+a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   Layout primitive — from atoms/container.ts, `content` variant
+   -------------------------------------------------------------------------- */
+.content {
+  align-items: center;
+  display: block;
+  gap: var(--spacingGap);
+  height: 100%;
+  margin: 0 auto;
+  max-width: 105rem;
+  padding: 0 var(--spacingContent) var(--spacingSection);
+  position: relative;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Nav — from organisms/navigation.ts + organisms/productsDropdown.ts
+   -------------------------------------------------------------------------- */
+.nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+@media (min-width: 1100px) {
+  .nav {
+    padding: 2rem;
+  }
+}
+
+.logo {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1.75rem;
+  margin-bottom: 0;
+  transition-duration: 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo::after {
+  content: none;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  padding-top: 0;
+}
+
+@media (min-width: 800px) {
+  .nav-links {
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+  }
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1rem;
+  margin-right: 1.75rem;
+}
+
+/* <details> dropdown — works with no JS; src/ts/dropdown.ts only adds
+   close-on-outside-click and close-on-Escape. */
+.dropdown {
+  display: inline-block;
+  margin-right: 1.5rem;
+  position: relative;
+}
+
+.dropdown summary {
+  color: var(--color-gray);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  list-style: none;
+  padding: 0 0 5px;
+}
+
+.dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.dropdown-menu {
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 0.2);
+  min-width: 180px;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  color: black;
+  display: block;
+  margin-right: 0;
+  padding: 12px 16px;
+}
+
+.dropdown-menu a::after {
+  content: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+/* --------------------------------------------------------------------------
+   Button — from atoms/button.ts. A plain anchor; the smooth scroll to #hash
+   comes from `scroll-behavior` on <html>.
+   -------------------------------------------------------------------------- */
+.button {
+  background-color: var(--color-primary);
+  border-radius: var(--radius-button);
+  color: var(--color-black);
+  display: inline-block;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  transition: var(--transition);
+}
+
+.button:hover {
+  filter: brightness(105%);
+  box-shadow: 0 6px 24px rgb(242 187 99 / 0.4);
+  cursor: pointer;
+}
+
+.button::after {
+  content: none;
+}
+
+/* Small all-caps eyebrow above a heading — from atoms/subheading.ts */
+.subheading {
+  color: var(--color-gray);
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Page header — from molecules/teamHeader.ts and molecules/sectionHeader.ts.
+   Same shell; the --hero variant just gives the copy more of the row.
+   -------------------------------------------------------------------------- */
+.page-header {
+  align-items: center;
+  background-color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  padding: var(--spacingContent) var(--spacingContent) 0;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .page-header {
+    min-height: 80%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .page-header {
+    flex-direction: row-reverse;
+  }
+}
+
+.page-header-image {
+  display: block;
+  flex-basis: 100%;
+  width: 100%;
+  padding: 4.5rem 0 0;
+  margin-top: 1rem;
+  text-align: right;
+}
+
+@media (min-width: 640px) {
+  .page-header-image {
+    padding: 1rem 0 0;
+    width: 60%;
+    flex-basis: 60%;
+  }
+}
+
+.page-header-content {
+  display: block;
+  flex-basis: 100%;
+  width: 100%;
+}
+
+@media (min-width: 1100px) {
+  .page-header-content {
+    width: 40%;
+    flex-basis: 40%;
+  }
+}
+
+.page-header-content h1 {
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+@media (min-width: 1100px) {
+  .page-header-content h1 {
+    font-size: 3.5rem;
+  }
+}
+
+/* the home hero gives the copy 55% and the art 45%, rather than 40/60 */
+@media (min-width: 640px) {
+  .page-header--hero .page-header-image {
+    width: 45%;
+    flex-basis: 45%;
+  }
+}
+
+.page-header--hero .page-header-image {
+  margin-top: 0;
+}
+
+@media (min-width: 1100px) {
+  .page-header--hero .page-header-content {
+    width: 55%;
+    flex-basis: 55%;
+  }
+}
+
+.page-header-logo {
+  width: 18rem;
+  height: auto;
+}
+
+.header-curve {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+  /* pulls the seam closed under the header's background */
+  margin-top: -2px;
+}
+
+.header-curve-fill {
+  fill: var(--color-secondary);
+}
+
+.header-curve-line {
+  fill: none;
+  stroke: #000000;
+}
+
+/* --------------------------------------------------------------------------
+   Three-up section grid — shared by sectionSetup, sectionTestimonial and
+   teamSetup, which all used a byte-identical Setup/Step/Seperator trio.
+   Only the title treatment differs, so that stays a separate class.
+   -------------------------------------------------------------------------- */
+.section-intro {
+  text-align: center;
+}
+
+.section-intro h2 {
+  margin-bottom: 0;
+}
+
+@media (min-width: 800px) {
+  .section-intro h2 {
+    margin-bottom: 2rem;
+  }
+}
+
+.section-intro--spaced {
+  margin-top: 6rem;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: var(--gridTriple);
+}
+
+@media (min-width: 1100px) {
+  .steps {
+    padding: 1rem 0;
+  }
+}
+
+.step {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .step {
+    padding: 1rem;
+  }
+}
+
+.step-title {
+  align-items: center;
+  color: var(--color-heading);
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 700;
+  justify-content: center;
+  margin: 3rem 0 1rem;
+  position: relative;
+}
+
+@media (min-width: 800px) {
+  .step-title {
+    height: 32px;
+    margin-bottom: 3rem;
+  }
+}
+
+/* highlighter-pen swash behind the title; suppressed on the narrowest screens,
+   where the title wraps to two lines and the swash lands wrong */
+.step-title::after {
+  content: "";
+  display: none;
+  position: absolute;
+  width: calc(100% + 0.8rem);
+  left: -0.4rem;
+  bottom: -0.2rem;
+  height: calc(50% + 0.2rem);
+  z-index: -1;
+  opacity: 0.6;
+  background: var(--color-primary);
+}
+
+@media (min-width: 640px) {
+  .step-title::after {
+    display: block;
+  }
+}
+
+/* decorative squiggle, hung outside the step. Hidden until there's room. */
+.step-flourish {
+  display: none;
+  position: absolute;
+  right: -22%;
+  top: 5%;
+  width: 180px;
+  height: auto;
+  margin-bottom: 0;
+}
+
+.step:nth-of-type(2) .step-flourish {
+  top: 25%;
+}
+
+@media (min-width: 1100px) {
+  .step-flourish {
+    display: block;
+  }
+}
+
+.steps-cta {
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+@media (min-width: 800px) {
+  .steps-cta {
+    margin-top: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Team page — from molecules/teamSetup.ts
+   -------------------------------------------------------------------------- */
+.profile-head {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .profile-head {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.profile-image {
+  border-radius: 50%;
+  height: 7rem;
+  width: 7rem;
+  border: 4px solid var(--color-primary);
+}
+
+.profile-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .profile-title h3 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Same shell as .step-title, but this one keeps its fixed height and its
+   swash at every width — the group names are short enough not to wrap. */
+.team-group-title {
+  align-items: center;
+  color: var(--color-heading);
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 700;
+  height: 32px;
+  justify-content: center;
+  margin: 3rem 0 2rem;
+  position: relative;
+}
+
+/* the highlighter-pen swash behind each group title */
+.team-group-title::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 0.8rem);
+  left: -0.4rem;
+  bottom: -0.2rem;
+  height: calc(50% + 0.2rem);
+  z-index: -1;
+  opacity: 0.6;
+  background: var(--color-primary);
+}
+
+.team-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.team-list li {
+  margin-bottom: 1.5rem;
+}
+
+.team-list h4 {
+  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+}
+
+.team-list p {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Checkout / Calendly section — from molecules/sectionCheckout.ts
+   -------------------------------------------------------------------------- */
+.checkout {
+  margin-bottom: var(--spacingContent);
+}
+
+.checkout-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  object-fit: cover;
+}
+
+@media (min-width: 1100px) {
+  .checkout-image {
+    max-height: 200px;
+  }
+}
+
+.checkout-body {
+  background-color: var(--color-black);
+  border-radius: var(--radius-button);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 1100px) {
+  .checkout-body {
+    align-items: start;
+    flex-direction: row;
+  }
+}
+
+.checkout-copy {
+  padding: var(--spacingContent);
+  width: 100%;
+}
+
+@media (min-width: 1100px) {
+  .checkout-copy {
+    width: 50%;
+    padding-top: 25px;
+  }
+}
+
+.checkout-copy h6 {
+  color: var(--color-light-gray);
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.checkout-copy h1 {
+  color: var(--color-white);
+  font-size: 2rem;
+}
+
+.checkout-copy p {
+  color: var(--color-light-gray);
+}
+
+.checkout-widget {
+  min-width: 320px;
+  min-height: 700px;
+  padding: var(--spacingContent);
+  width: 100%;
+}
+
+@media (min-width: 1100px) {
+  .checkout-widget {
+    width: 50%;
+  }
+}
+
+.checkout-widget > a {
+  color: var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   Footer — from organisms/footer.ts + atoms/linkTop.ts
+   -------------------------------------------------------------------------- */
+.footer {
+  align-items: start;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0 var(--spacingContent);
+  padding-bottom: var(--spacingFooter);
+  position: relative;
+}
+
+@media (min-width: 1100px) {
+  .footer {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+
+.footer-logo {
+  position: relative;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.footer-contact a {
+  color: var(--color-gray);
+  margin-bottom: 0;
+}
+
+.footer-contact a:hover {
+  color: var(--color-black);
+}
+
+.footer-copyright {
+  padding-bottom: 2rem;
+}
+
+/* "Top" puck. A plain anchor to #top — the smooth scroll is
+   `scroll-behavior` on <html>, which respects prefers-reduced-motion. */
+.link-top {
+  align-items: center;
+  background-color: var(--color-secondary);
+  border-radius: 50rem;
+  bottom: 2rem;
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  text-align: center;
+  transition: var(--transition);
+  width: 120px;
+}
+
+.link-top:hover {
+  background-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.link-top::after {
+  content: none;
+}
+
+.link-top h5 {
+  margin: 0;
+}

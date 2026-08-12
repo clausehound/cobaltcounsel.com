@@ -1,0 +1,14 @@
+<footer class="footer">
+  <div class="footer-logo">
+    <a class="logo" href="/"><img src="/assets/Logo.svg" alt="Cobalt AI logo" width="49" height="57"></a>
+  </div>
+  <div class="footer-contact">
+    <a href="mailto:{{ site.email }}">Email: {{ site.email }}</a>
+    {% for address in site.addresses %}
+      <a href="https://www.google.com/maps/place/{{ address | url_encode }}" target="map">{{ address }}</a>
+    {% endfor %}
+    <a href="{{ site.calendlyUrl }}">Book a call here</a>
+  </div>
+  <small class="footer-copyright">&copy; Cobalt AI {{ buildYear }}. All rights reserved.</small>
+  <a class="link-top" href="#top"><h5>Top</h5></a>
+</footer>
