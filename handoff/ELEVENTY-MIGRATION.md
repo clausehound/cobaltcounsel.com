@@ -225,7 +225,7 @@ Work in this order. Each phase should end in a working state.
    `src/assets` → `/assets`, `src/css` → `/css`. Hook `build:js` into `eleventy.after`.
 3. Build **one** page end-to-end — `team.html` (19 lines, simplest) — with `base.html`,
    `head.html`, `nav.html`, `footer.html`.
-4. Confirm `npx @11ty/eleventy --serve` renders it and that `/overview/` still passes through.
+4. Confirm `npx @11ty/eleventy --serve` renders it and that `/legacy/` still passes through.
 
 ### Phase 2 — Chrome
 5. Port nav (with `<details>` dropdown), footer, and `main.css` (tokens + base + type scale).
@@ -272,11 +272,27 @@ but verify rather than assume.
 These are static passthrough and must survive **byte-identical**:
 
 ```
-/overview/  /overview/comparison/   (added Aug 2026, live — see handoff/HANDOFF.md)
-/legacy/**       (3.8M, 14 live pages)
+/legacy/**       (3.8M, 14 live pages — this is also what serves /legacy/icons/**)
 /DealPrep/**     (39M)  /ClausehoundAIVideo/**  (27M)
-/ads.txt  /terms.pdf  /moonclerk.js  /icons/**
+/ads.txt  /terms.pdf  /moonclerk.js
 ```
+
+**`/overview/` and `/overview/comparison/` were deleted on 2026-08-13 and are no longer
+part of this list.** They were the brand-consolidation prototype from `ed95ef4`
+(`handoff/HANDOFF.md`). The **design** was rejected — a blue `#2f52e0` palette and a
+periodic-table logo tile that never went through review. They had shipped to production, so
+they 404 from the first `master` push after their removal, and the `Overview` nav entry is
+gone too.
+
+**The content in them was not rejected** — it was Josh's scoping of the brand hierarchy
+(Cobalt the company / Clausehound the platform / Policysaurus, DealPrep, Diligence Monster
+the services). That is preserved in **`handoff/BRAND-AND-OFFERINGS.md`** and is the content
+brief for whenever those sections get built natively per §8. Don't rebuild from the deleted
+HTML; do build from that file.
+
+**`/icons/**` was listed here in error.** The only `icons/` directory in the repo is
+`static/legacy/icons/`, already covered by the `/legacy/**` passthrough. Nothing is served
+from a top-level `/icons/`.
 
 **Other traps:**
 
@@ -303,7 +319,7 @@ These are static passthrough and must survive **byte-identical**:
    `find public -name '*.html' | sed 's|^public||; s|/index\.html$|/|' | sort`
 3. Visually compare each of the 14 pages against the current live site.
 4. Confirm the Calendly widget loads and books.
-5. Confirm `/overview/` and three `/legacy/*` pages still render.
+5. Confirm three `/legacy/*` pages still render, and that `/overview/` is **gone**.
 6. Grep the output for `0` occurrences of `webpack`, `page-data`, `styled-components`,
    `react`.
 7. Confirm the only scripts on any page are `/js/main.js` and Calendly's vendor script, and
@@ -323,5 +339,7 @@ These are static passthrough and must survive **byte-identical**:
   drop them (with redirects), but that's a content decision, not a technical one.
 - This migration and the brand-consolidation work in **`handoff/HANDOFF.md`** overlap. If the
   homepage is being rebuilt anyway, do it once — on Eleventy — rather than building it in
-  Gatsby and porting it a month later. Recommend finishing this migration first, then
-  building the new sections natively.
+  Gatsby and porting it a month later. **Settled 2026-08-13: finish the migration first.**
+  The one prototype that existed for that work (`/overview/`) was rejected and deleted; the
+  brand direction and the umbrella-brand question in HANDOFF.md §1 are still open and still
+  Rajah's call. Nothing about it should block porting the existing 14 pages verbatim.
