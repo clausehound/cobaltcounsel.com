@@ -254,6 +254,103 @@ a:hover::after {
   width: 100%;
 }
 
+/* two-column variant — Container's `gridSplit` prop */
+.content--split {
+  display: grid;
+  grid-template-columns: var(--gridSplit);
+}
+
+/* --------------------------------------------------------------------------
+   Skewed content band — from the ContentContainer in src/pages/index.ts.
+
+   The two pseudo-elements are skewed slabs that inherit the band's own
+   background, which is what produces the slanted top and bottom edges.
+
+   In Gatsby this alternated via `&:nth-of-type(even)`, counting <section>
+   siblings — so which bands got the flipped treatment depended on how many
+   sections happened to precede them in the page. That is exactly the kind of
+   action-at-a-distance worth losing: `--alt` is now stated on the element,
+   and each page below sets it to match what the old selector actually
+   resolved to on the live site.
+   -------------------------------------------------------------------------- */
+.band {
+  padding-bottom: 1em;
+}
+
+.band::before,
+.band::after {
+  background: inherit;
+  content: "";
+  display: block;
+  height: 50%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform: skewY(-4.5deg);
+  transform-origin: 100%;
+  z-index: -1;
+}
+
+.band::before {
+  top: 0;
+}
+
+.band::after {
+  bottom: 0;
+  border-bottom: 1px solid var(--color-black);
+}
+
+/* The variants compose. In the React source each page redeclared the whole
+   band and then differed in one or two properties, and `nth-of-type(even)`
+   decided which of those differences were live; these are those differences,
+   named and applied by hand.
+
+   --flip      art swaps sides (rtl, with the text put back to ltr)
+   --tint      tinted ground and a hard top edge
+   --gap       pushed down from whatever precedes it
+   --noskew    square slabs instead of slanted ones
+   --edgeless  no bottom rule, and owns its vertical padding */
+.band--flip {
+  direction: rtl;
+}
+
+.band--flip div {
+  direction: ltr;
+}
+
+.band--tint {
+  border-top: 1px solid var(--color-black);
+  background-color: var(--color-secondary);
+}
+
+.band--gap {
+  margin-top: 7rem;
+}
+
+/* the case-study pages use a slightly smaller gap than /policysaurus/ */
+.band--gap-sm {
+  margin-top: 5rem;
+}
+
+/* last band on a page, so it needs its own breathing room at the bottom */
+.band--final {
+  margin-bottom: 2rem;
+}
+
+.band--noskew::before,
+.band--noskew::after {
+  transform: none;
+}
+
+.band--edgeless {
+  padding-top: var(--spacingSection);
+  padding-bottom: 0;
+}
+
+.band--edgeless::after {
+  border-bottom: none;
+}
+
 /* --------------------------------------------------------------------------
    Nav — from organisms/navigation.ts + organisms/productsDropdown.ts
    -------------------------------------------------------------------------- */
@@ -400,6 +497,11 @@ a:hover::after {
   content: none;
 }
 
+/* padded text column inside a band — from atoms/contentBlock.ts */
+.content-block {
+  padding: var(--spacingContent);
+}
+
 /* Small all-caps eyebrow above a heading — from atoms/subheading.ts */
 .subheading {
   color: var(--color-gray);
@@ -451,6 +553,11 @@ a:hover::after {
   }
 }
 
+/* the team header nudges its art down; the Policysaurus ones don't */
+.page-header-image--flush {
+  margin-top: 0;
+}
+
 .page-header-content {
   display: block;
   flex-basis: 100%;
@@ -494,9 +601,88 @@ a:hover::after {
   }
 }
 
+/* /testimonials/ — art leads at full width, copy takes 60% once there's room.
+   Its flex-basis stays 100% at every width; only `width` changes. */
+.page-header--wide-art .page-header-image {
+  width: 60%;
+  flex-basis: 100%;
+  margin-top: 0;
+  padding: 4.5rem 0 0;
+  text-align: center;
+}
+
+@media (min-width: 1100px) {
+  .page-header--wide-art .page-header-image {
+    width: 100%;
+  }
+
+  .page-header--wide-art .page-header-content {
+    width: 60%;
+    flex-basis: 60%;
+  }
+}
+
 .page-header-logo {
   width: 18rem;
   height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Cobalt Lawyers header variant — wills / dispute / family-law.
+   Different enough from the other two to get its own element names: it turns
+   at `md` rather than `lg`, is centred until then, and splits 40/60.
+   -------------------------------------------------------------------------- */
+.page-header--product {
+  min-height: 80vh;
+}
+
+@media (min-width: 800px) {
+  .page-header--product {
+    flex-direction: row-reverse;
+  }
+}
+
+.page-header-art {
+  display: block;
+  flex-basis: 100%;
+  width: 30%;
+  padding: 4.5rem 0 0;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .page-header-art {
+    width: 30%;
+    flex-basis: 30%;
+  }
+}
+
+@media (min-width: 800px) {
+  .page-header-art {
+    padding: 3rem;
+    width: 40%;
+    flex-basis: 40%;
+    text-align: left;
+  }
+}
+
+.page-header-copy {
+  display: block;
+  flex-basis: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .page-header-copy {
+    width: 60%;
+    flex-basis: 60%;
+    text-align: left;
+  }
+}
+
+.page-header-copy h3 {
+  line-height: 1.2;
 }
 
 .header-curve {
@@ -625,6 +811,49 @@ a:hover::after {
   }
 }
 
+/* the testimonials 3-up sits tight against its neighbours */
+@media (min-width: 1100px) {
+  .steps--flush {
+    padding: 0;
+  }
+}
+
+/* On /testimonials/ the three group titles are empty divs — the swash *is* the
+   design element, a full-width orange bar over each paragraph. Empty in the
+   original markup too, so this stays a presentational div rather than becoming
+   a heading with no text in it. */
+.step-rule {
+  align-items: center;
+  color: var(--color-heading);
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 700;
+  justify-content: center;
+  margin-bottom: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  .step-rule {
+    height: 32px;
+    margin-bottom: 3rem;
+  }
+}
+
+.step-rule::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: calc(100% + 0.8rem);
+  left: -0.4rem;
+  bottom: -0.2rem;
+  height: calc(50% + 0.2rem);
+  z-index: -1;
+  opacity: 0.6;
+  background: var(--color-primary);
+}
+
 .steps-cta {
   width: 100%;
   text-align: center;
@@ -715,6 +944,172 @@ a:hover::after {
 
 .team-list p {
   margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Policysaurus — from molecules/policysaurus/*.ts
+   -------------------------------------------------------------------------- */
+/* centred lead-in above a section */
+.intro-centered {
+  text-align: center;
+}
+
+.intro-centered h2 {
+  margin-bottom: 0;
+}
+
+.intro-centered--spaced {
+  margin: var(--spacingContent);
+}
+
+.intro-centered--tall {
+  margin-top: 6rem;
+}
+
+.intro-block--centered {
+  text-align: center;
+  margin: var(--spacingContent);
+}
+
+/* the scrolling list of research collections */
+.collections-list {
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 0 var(--spacingContent);
+  margin-bottom: var(--spacingContent);
+  border: 1px solid var(--color-gray);
+  background-color: var(--color-white);
+}
+
+.collections-list p {
+  margin-bottom: 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.collections-list p:last-child {
+  border-bottom: none;
+}
+
+/* "How It Works" — same step grid, but each step leads with a small figure */
+.steps--split {
+  display: grid;
+  grid-template-columns: var(--gridSplit);
+}
+
+@media (min-width: 1100px) {
+  .steps--split {
+    padding: 1rem 0;
+  }
+}
+
+.step-figure {
+  max-width: 10rem;
+}
+
+/* "See it in Action" — a narrow centred column of captioned screenshots */
+.action-block {
+  padding: var(--spacingContent);
+  max-width: 60rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.action-image {
+  border: 2px solid var(--color-primary);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* a section that runs straight into the next one */
+.content--flush {
+  padding-bottom: 0;
+}
+
+/* the sustainability header leaves room under its art */
+.page-header-image--padded {
+  margin-top: 0;
+  padding: 4.5rem 0 2rem;
+}
+
+/* full-width case-study buttons */
+.case-study {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.button--wide {
+  display: block;
+  width: 19rem;
+}
+
+/* the white-ground header variant used by the Policysaurus case studies */
+.page-header--white {
+  background-color: var(--color-white);
+}
+
+.header-curve--white .header-curve-fill {
+  fill: var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   /testimonials/ quote list — from src/pages/testimonials.ts.
+   Its ContentContainer defined :after/:before rules but never gave them a
+   `content`, so the skewed band never actually rendered there. All that was
+   live is the padding change, so that's all this carries over.
+   -------------------------------------------------------------------------- */
+.quote-list {
+  padding-bottom: 0;
+}
+
+.quote {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.quote-source {
+  font-size: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   Cobalt Lawyers body copy — from wills/dispute/familyLaw *Setup.ts.
+   These pages are just a stack of oversized intro paragraphs, the last of
+   which sits beside an illustration.
+   -------------------------------------------------------------------------- */
+.intro-block {
+  line-height: 1.25;
+}
+
+.assist-block {
+  display: flex;
+}
+
+.assist-block h3 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* the illustration is decorative — it stays out of the way on small screens */
+.assist-image {
+  display: none;
+  padding: 3rem;
+  width: 40%;
+}
+
+@media (min-width: 800px) {
+  .assist-image {
+    display: block;
+  }
+}
+
+@media (min-width: 1600px) {
+  .assist-image {
+    width: 30%;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -870,4 +1265,373 @@ a:hover::after {
 
 .link-top h5 {
   margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   /transactions/ — a long ruled list of matters, from src/pages/transactions.ts
+   -------------------------------------------------------------------------- */
+.transaction {
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-black);
+}
+
+/* --------------------------------------------------------------------------
+   Diligence Monster — from molecules/diligence/*.ts and slideshow.css
+   -------------------------------------------------------------------------- */
+.page-header--monster {
+  min-height: auto;
+  padding: var(--spacingContent);
+}
+
+@media (min-width: 800px) {
+  .page-header--monster {
+    flex-direction: row-reverse;
+    padding-top: 7rem;
+    gap: 2rem;
+  }
+}
+
+.page-header--monster .page-header-image {
+  width: 70%;
+  flex-basis: auto;
+  margin-top: 0;
+  padding: 4.5rem 0 0;
+  text-align: right;
+}
+
+@media (min-width: 640px) {
+  .page-header--monster .page-header-image {
+    width: 70%;
+    flex-basis: auto;
+    padding: 0;
+  }
+}
+
+.page-header--monster .page-header-content {
+  width: auto;
+  flex-basis: auto;
+}
+
+@media (min-width: 1100px) {
+  .page-header--monster .page-header-content {
+    width: auto;
+    flex-basis: auto;
+    text-align: left;
+  }
+}
+
+.page-header--monster h2 {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+@media (min-width: 1100px) {
+  .page-header--monster h2 {
+    font-size: 2rem;
+  }
+}
+
+/* wordmark and mascot side by side */
+.monster-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .monster-title {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 800px) {
+  .monster-title {
+    justify-content: flex-start;
+  }
+}
+
+.monster-title h1 {
+  font-size: 2rem;
+  width: 10rem;
+}
+
+.monster-title img {
+  max-height: 4rem;
+  width: auto;
+}
+
+@media (min-width: 1100px) {
+  .monster-title h1 {
+    font-size: 3rem;
+    width: 15rem;
+  }
+
+  .monster-title img {
+    max-height: 6rem;
+  }
+}
+
+.monster-headline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* the five capability tiles */
+.step-icon {
+  width: 10rem;
+}
+
+.step-icon img {
+  width: 60%;
+}
+
+.intro-centered--wide h2 {
+  margin-bottom: 0;
+}
+
+@media (min-width: 800px) {
+  .intro-centered--wide h2 {
+    margin-bottom: 5rem;
+  }
+}
+
+.steps--pair {
+  display: grid;
+  grid-template-columns: var(--gridSplit);
+  width: 70%;
+  column-gap: 5%;
+  margin: 0 auto;
+}
+
+@media (min-width: 1100px) {
+  .steps--pair {
+    padding: 1rem 0;
+  }
+}
+
+.conclusion {
+  text-align: center;
+}
+
+.conclusion h2 {
+  margin-top: 2rem;
+  line-height: 1.5;
+}
+
+.cta-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: var(--spacingSection);
+}
+
+/* --- the video carousel ---------------------------------------------------
+   A scroll-snap strip. It scrolls with no JS; carousel.ts only adds the
+   prev/next buttons and keeps the dots in step. */
+.carousel {
+  padding-top: 5rem;
+  border-top: 1px solid black;
+}
+
+.carousel-viewport {
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+.carousel-slide video {
+  display: block;
+  width: 100%;
+  max-height: 80vh;
+  margin-bottom: 0;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  width: auto;
+  padding: 16px;
+  border: none;
+  background: transparent;
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.carousel-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.carousel-prev:active,
+.carousel-next:active {
+  color: white;
+  background-color: rgb(169 124 167 / 0.8);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.carousel-dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  padding: 0;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+}
+
+.carousel-dot::after {
+  content: none;
+}
+
+.carousel-dot.is-active {
+  background-color: #717171;
+}
+
+@media screen and (max-width: 750px) {
+  .carousel-dots {
+    gap: 0.5rem;
+  }
+}
+
+@media (hover: hover) {
+  .carousel-dot:hover {
+    background-color: #717171;
+  }
+
+  .carousel-prev:hover,
+  .carousel-next:hover {
+    color: white;
+    background-color: rgb(255 164 0 / 0.8);
+  }
+
+  .features-toggle:hover,
+  .feature-link:hover {
+    background-color: #717171;
+    color: white;
+    border-color: #717171;
+  }
+}
+
+/* FEATURES accordion — a real <details>, open/close with no JS */
+.features {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.features-toggle {
+  align-self: center;
+  display: inline-block;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-button);
+  color: var(--color-black);
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  list-style: none;
+  transition: var(--transition);
+}
+
+.features-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.features-toggle:hover {
+  filter: brightness(105%);
+  box-shadow: 0 6px 24px rgb(242 187 99 / 0.4);
+}
+
+.feature-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  max-width: 35rem;
+}
+
+.feature-link {
+  background-color: var(--color-primary);
+  border-radius: var(--radius-button);
+  color: var(--color-black);
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.feature-link::after {
+  content: none;
+}
+
+.feature-link:hover {
+  filter: brightness(105%);
+  box-shadow: 0 6px 24px rgb(242 187 99 / 0.4);
+  cursor: pointer;
+}
+
+/* the closing infographic */
+.infographic {
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-secondary);
+}
+
+.infographic img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  margin-bottom: 0;
+}
+
+/* the Diligence Monster intro band runs flush into the section below it */
+.diligence-intro {
+  padding-bottom: 0;
+  margin-bottom: 12rem;
 }

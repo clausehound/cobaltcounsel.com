@@ -1,0 +1,22 @@
+---
+layout: bare.html
+title: Site Map
+permalink: /sitemap/
+---
+
+{% comment %}
+  Replaces the `allSitePage` GraphQL query. collections.all is every template
+  Eleventy built, so this stays correct as pages are added or removed. Two
+  differences from the Gatsby original, both deliberate: the list is sorted by
+  URL rather than by component name, and /sitemap/ now lists itself — the old
+  query left it out.
+{% endcomment %}
+<h1>Site Map</h1>
+<ul>
+  {% assign pages = collections.all | sort: "url" %}
+  {% for page in pages %}
+    {% unless page.url == "/404.html" %}
+      <li><a href="{{ page.url }}">{{ page.url }}</a></li>
+    {% endunless %}
+  {% endfor %}
+</ul>

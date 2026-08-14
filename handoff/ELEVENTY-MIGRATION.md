@@ -110,6 +110,23 @@ Delete all of these. Nothing in the right column needs a plugin unless noted.
 | `iter-tools` | check usage first; likely removable |
 | `typescript` | **keep** — now used for the client-side bundle |
 
+### Calendly embed settings
+
+The embed's `data-url` carries its configuration as query parameters, replacing
+`react-calendly`'s `pageSettings`: `hide_event_type_details`, `hide_landing_page_details`,
+`primary_color`, `background_color`, `text_color`.
+
+**`hide_gdpr_banner=1` was added 2026-08-13**, because Calendly's cookie-consent bar renders
+*inside* the iframe and swallows most of a half-width embed. Calendly supports the parameter
+(`react-calendly` exposed it as `hideGdprBanner`; the old code simply never set it), on the
+understanding that the embedding site takes care of consent itself. **cobaltcounsel.com
+currently has no cookie banner of its own.** Right now nothing on the site sets non-essential
+cookies — analytics are dead, see the row above — so there is likely nothing to consent to.
+That stops being true the moment an analytics replacement is chosen, so decide the two
+together: a GA4-style cookie-setting tracker means the site needs its own consent mechanism,
+whereas Plausible or Cloudflare Web Analytics are cookieless and don't. Rajah should confirm
+either way; it's his call and his professional exposure, not a technical detail.
+
 Keep `prettier` and `typescript`. **Add `esbuild`** as the only new build dependency.
 
 End state is roughly three devDependencies: `@11ty/eleventy`, `esbuild`, `typescript`
@@ -236,6 +253,11 @@ Work in this order. Each phase should end in a working state.
    it works with JS disabled, then layer the enhancement on.
 
 ### Phase 3 — Pages
+**Phase 3 completed 2026-08-14.** All 14 routes exist and every page's rendered text was
+diffed word-for-word against the live Gatsby site. Two known deviations, both deliberate and
+both listed in §9 below. Verbatim copy was kept even where it is visibly wrong — see the
+`/transactions/` title note.
+
 9. Port pages, easiest first. Copy the marketing text **verbatim** — do not rewrite it:
    `team` → `index` → `wills` / `dispute` / `family-law` (near-identical structure, ~105
    lines each) → `diligence-monster` → `testimonials` → `policysaurus` + its 3 children →
@@ -333,8 +355,20 @@ from a top-level `/icons/`.
 ## 8. Open questions for Rajah / Josh
 
 - **Analytics replacement** (§2) — GA4, Plausible, or Cloudflare Web Analytics?
-- **Does anything still use `moonclerk.js`?** It's a payments widget from the original
-  `gatsby-starter-payments` template this repo was forked from; it may be dead.
+- **⚠️ Calendly consent — OPEN, must be resolved before the cutover.** `hide_gdpr_banner=1`
+  is currently set *without* anything gating the iframe load, so calendly.com's cookies are
+  set on page load with no consent step. That is the one arrangement that is worse than
+  either alternative, and it should not ship as-is. Verified 2026-08-13 that the Eleventy
+  build sets **no cookies of its own** — no `document.cookie`, no storage, no analytics — so
+  a site-wide cookie banner is not needed and should not be built. Two ways to close it:
+  (a) keep the parameter and gate the embed behind a click-to-load button (~35 lines of TS,
+  nothing loads from calendly.com until asked), or (b) drop the parameter and let Calendly
+  show its own in-frame consent bar, which is compliant but is the annoyance that prompted
+  this. Josh's preference is not to see the in-frame bar; (a) is the way to have both.
+- ~~**Does anything still use `moonclerk.js`?**~~ **Answered 2026-08-13: no.** Nothing in
+  `src/` or `static/legacy/` references it — no `<script>` tag, no import, 549 bytes. Dead
+  leftover from the `gatsby-starter-payments` fork. Left in place as passthrough rather than
+  deleted, in case something off-repo hotlinks `/moonclerk.js`; safe to drop if not.
 - **`/legacy/**` — still needed?** 14 pages, 3.8MB. If they're dead, this is the moment to
   drop them (with redirects), but that's a content decision, not a technical one.
 - This migration and the brand-consolidation work in **`handoff/HANDOFF.md`** overlap. If the
@@ -343,3 +377,56 @@ from a top-level `/icons/`.
   The one prototype that existed for that work (`/overview/`) was rejected and deleted; the
   brand direction and the umbrella-brand question in HANDOFF.md §1 are still open and still
   Rajah's call. Nothing about it should block porting the existing 14 pages verbatim.
+
+
+---
+
+## 9. Deviations from the Gatsby output (Phase 3)
+
+Every one of the 14 pages was diffed word-for-word against the live site. These are the only
+differences, and each is here on purpose.
+
+**1. "Book a call on Calendly" appears in the checkout embed.** It is the no-JS fallback
+inside the `calendly-inline-widget` div; `widget.js` replaces the div's contents when it
+loads, so nobody with JS sees it. Without it, a visitor without JS gets an empty black box.
+
+**2. "Book a Demo" now renders on `/` and `/team/`.** The React source was
+`h('div', h('h6', null, 'Book a Demo'), h('h1', …))` — the missing `null` meant the `<h6>`
+was passed as the props argument and React dropped it. It was clearly meant to render:
+`sectionCheckout` styles that `h6` explicitly (uppercase, 3px letter-spacing, light gray),
+and the wills/dispute/family-law pages pass `checkoutCopy` *with* the `null`, so their
+"Book a Call" eyebrow does appear live. Restored. Trivially removable if parity is preferred.
+
+### Bugs left in place on purpose
+
+**`/transactions/` has the wrong `<title>`.** `src/pages/transactions.ts` passed
+`'Testimonials for Cobalt AI'` to `SEO`, so the live page's title is
+`Testimonials for Cobalt AI | Cobaltcounsel.com`. Copied verbatim, because fixing it means
+writing new SEO copy and §5 step 9 says not to invent any. **Someone should decide the real
+title** — `Transactions by Cobalt AI` would match the other pages' pattern. One-line change
+in `src/transactions.html` frontmatter.
+
+**Typos in body copy are preserved**, e.g. "Flight Pans" (Flight Plans) and "Aicraft
+Carriers" (Aircraft) on `/diligence-monster/`, and "has have helped their firm" in the
+Michael Younder testimonial. Same reasoning: they're content, not code.
+
+### Things that were dead and stayed dead
+
+- `/legacy/` itself has no `index.html` and 404s — **on the live site too**, verified. Only
+  the individual `/legacy/*.html` pages are reachable. Not a regression.
+- The `Seperator`/`Intro`/`Source`/`CaseStudyButton` styled-components in several page files
+  were declared and never used; they were not carried over.
+- On `/testimonials/` and `/transactions/`, `ContentContainer` declared `:after`/`:before`
+  rules but never gave them a `content`, so the skewed band never rendered there. Only the
+  padding change was real, and only the padding change was ported.
+
+### The video paths
+
+The carousel loaded `../ClausehoundAiVideo/N.mp4` — lowercase `i`, while the directory is
+`static/ClausehoundAIVideo`. It works today because the production server answers both
+spellings, which is luck rather than design. The Eleventy pages use the directory's real
+casing, `/ClausehoundAIVideo/N.mp4`, and absolute paths rather than `../`.
+
+`preload="metadata"` was added to the ten `<video>` elements. The originals were all
+`autoplay loop muted` with nine of them `display: none`, and the directory is 27MB; without
+it a visit can pull far more video than it shows.

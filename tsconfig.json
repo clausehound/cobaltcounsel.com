@@ -3,7 +3,7 @@
   "compilerOptions": {
     "allowJs": false,
     "esModuleInterop": true,
-    "lib": ["DOM", "ES2020"],
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
     "module": "ES2020",
     "moduleResolution": "node",
     "noEmit": true,

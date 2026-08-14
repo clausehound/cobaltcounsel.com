@@ -1,5 +1,11 @@
 <nav class="nav">
   <a class="logo" href="/"><img src="/assets/Logo.svg" alt="Cobalt AI logo" width="49" height="57"></a>
+  {% comment %}
+    The Cobalt Lawyers pages (wills, dispute, family-law) show the logo alone —
+    this is the old Layout `showFullNav: false`. Set `fullNav: false` in a
+    page's frontmatter to get that; every other page gets the links.
+  {% endcomment %}
+  {% if fullNav != false %}
   <ul class="nav-links">
     <li>
       <details class="dropdown">
@@ -14,4 +20,5 @@
     <li><a href="/team/">Team</a></li>
     <li><a href="{{ site.blogUrl }}" target="_blank">Blog</a></li>
   </ul>
+  {% endif %}
 </nav>

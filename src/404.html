@@ -1,0 +1,14 @@
+---
+layout: bare.html
+title: "404: Not found"
+permalink: /404.html
+---
+
+{% comment %}
+  Gatsby emitted the 404 with no nav, footer or <main> — bare.html matches that.
+  It also emitted it at two paths, /404.html and /404/index.html, and the deploy
+  is `rsync --delete`, so both have to exist or one of them 404s for real.
+  404-directory.html is the second one; the body lives in a partial so the two
+  can't drift apart.
+{% endcomment %}
+{% include "sections/not-found.html" %}

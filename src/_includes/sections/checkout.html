@@ -1,20 +1,30 @@
 <section class="checkout" id="checkout">
   <img class="checkout-image" src="/assets/lobbySketch.png" alt="checkout lobby" width="1920" height="1080" loading="lazy">
   <div class="checkout-body">
+    {% comment %}
+      Copy defaults to the main-site wording; the Cobalt Lawyers pages override
+      all three at the include site. This replaces the old `checkoutCopy` prop.
+    {% endcomment %}
     <div class="checkout-copy">
-      <h6>Book a Demo</h6>
-      <h1>Ready to see the future of AI legal document processing?</h1>
+      <h6>{{ eyebrow | default: "Book a Demo" }}</h6>
+      <h1>{{ heading | default: "Ready to see the future of AI legal document processing?" }}</h1>
       <p>
-        Our experienced knowledge management, business intelligence and software development
-        experts are happy to work with you.
+        {{ body | default: "Our experienced knowledge management, business intelligence and software development experts are happy to work with you." }}
       </p>
       <img src="/assets/seperators/a-seperator-4.svg" alt="" width="160" height="1">
     </div>
-    <!-- Calendly's own vanilla embed. widget.js replaces the contents of this div;
-         the link below is what a visitor without JS sees. -->
+    {% comment %}
+      Calendly's own vanilla embed. widget.js replaces the contents of this div;
+      the link below is what a visitor without JS sees.
+
+      hide_gdpr_banner=1 suppresses Calendly's cookie-consent bar, which
+      otherwise appears *inside* the iframe and eats most of a small embed.
+      Calendly's position is that you may hide it if the embedding site handles
+      consent itself — see the note in handoff/ELEVENTY-MIGRATION.md §2.
+    {% endcomment %}
     <div
       class="calendly-inline-widget checkout-widget"
-      data-url="{{ site.calendlyUrl }}?hide_event_type_details=1&hide_landing_page_details=1&primary_color=FFA400&background_color=201C22&text_color=FFFFFF"
+      data-url="{{ site.calendlyUrl }}?hide_event_type_details=1&hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=FFA400&background_color=201C22&text_color=FFFFFF"
     >
       <a href="{{ site.calendlyUrl }}">Book a call on Calendly</a>
     </div>
