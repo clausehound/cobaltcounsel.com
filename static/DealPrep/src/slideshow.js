@@ -17,12 +17,25 @@ function showSlides(n) {
   if (n > slides.length) {slideIndex = 1} 
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none"; 
+    slides[i].style.display = "none";
+    const video = slides[i].querySelector("video");
+    if (video) video.pause();
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block"; 
+  slides[slideIndex-1].style.display = "block";
+  // Videos only download once their slide is shown (source starts as data-src)
+  const video = slides[slideIndex-1].querySelector("video");
+  if (video) {
+    const source = video.querySelector("source[data-src]");
+    if (source) {
+      source.src = source.dataset.src;
+      source.removeAttribute("data-src");
+      video.load();
+    }
+    video.play().catch(() => {});
+  }
   dots[slideIndex-1].className += " active";
   slides[slideIndex-1].scrollIntoView({behavior: "smooth", block: "center"});
 }

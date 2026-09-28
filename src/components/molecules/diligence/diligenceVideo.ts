@@ -67,8 +67,9 @@ const VideoSection = () => {
                 ref: (el: HTMLDivElement) => (slidesRef.current[i] = el!),
                 className: i === 0 ? 'mySlides show fade' : 'mySlides fade',
               },
+              // Only the visible slide gets a src, so clips download when opened
               h('video', {
-                src: '../ClausehoundAiVideo/' + i + '.mp4',
+                src: i + 1 === slideIndex ? '/ClausehoundAIVideo/' + i + '.mp4' : undefined,
                 type: 'video/mp4',
                 autoPlay: true,
                 loop: true,
