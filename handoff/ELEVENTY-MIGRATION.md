@@ -267,6 +267,15 @@ both listed in §9 below. Verbatim copy was kept even where it is visibly wrong 
 11. Replace `sitemap.ts`'s `allSitePage` query with an 11ty collection over `collections.all`.
 
 ### Phase 4 — Cut over
+**Phase 4 completed 2026-09-28.** Gatsby and React are gone; `package.json` has four
+devDependencies (`@11ty/eleventy`, `esbuild`, `typescript`, `prettier`) and none at runtime.
+Hosting moved off Netlify to DigitalOcean App Platform the same day, so step 14 became the
+`Dockerfile` (node:22) and `.do/app.yaml`; `bitbucket-pipelines.yml` was deleted. Analytics
+(step 15): the dead `UA-32778170-8` tag was dropped and nothing replaces it yet — see §8.
+Also added in the cutover: `/manifest.webmanifest` + `/icons/**` (copied from the last
+Gatsby build so installed icons keep working), `/sitemap.xml`, canonical and absolute
+og:image URLs, and the Calendly click-to-load from §8.
+
 12. Delete `gatsby-*.js` config files, `src/components`, `src/utils`, `src/pages`, and every
     dependency in §2. `package.json` should end with ~3 devDependencies and no dependencies.
 13. Update `package.json` scripts per §2's TS build block.
@@ -318,19 +327,16 @@ from a top-level `/icons/`.
 
 **Other traps:**
 
-- **`about/` and `DealPrep/` at the repo root are NOT part of the build.** The pipeline
-  rsyncs them separately to their own directories on the server. Don't move, delete, or feed
-  them to Eleventy.
-- **The deploy is `rsync --delete`.** Anything missing from the build output is deleted from
-  production. This is why URL parity must be verified *before* pushing.
-- **`gatsby-plugin-offline` installed a service worker.** Returning visitors have it cached
-  and it can keep serving stale assets after the framework is gone. Ship an unregistering
-  stub at the old `sw.js` path — do not simply delete the file.
-- **`static/DealPrep` and root `DealPrep/`** both exist and are different things. Check which
-  serves `/DealPrep/` before touching either.
-- Deploy is via `master` → Bitbucket pipeline → rsync to `$PUB_IP`, fronted by Cloudflare.
-  **Pushing to `master` deploys to production immediately.** Consider a branch + preview build
-  for the cutover, and purge the Cloudflare cache after.
+- **`about/` and `DealPrep/` at the repo root are NOT part of the build, and are not served.**
+  The old Bitbucket pipeline rsynced them to a server; neither Netlify nor App Platform ever
+  published them. `/DealPrep/` is served from `static/DealPrep/`. The root copies are stale.
+- **Each deploy replaces the whole site.** Anything missing from `public/` stops existing in
+  production, so verify URL parity *before* pushing.
+- ~~Service worker stub~~ — not needed: `gatsby-plugin-offline` was never enabled in
+  `gatsby-config.js`, and the live site had no `/sw.js`.
+- **Deploy is DigitalOcean App Platform** (app `cobaltcounsel-com`, spec in `.do/app.yaml`),
+  building the `Dockerfile`. **Pushing to `master` deploys to production within minutes.**
+  DNS for `www` is a CNAME at GoDaddy; the apex is a GoDaddy 301 forward to `www`.
 
 ---
 
@@ -355,7 +361,10 @@ from a top-level `/icons/`.
 ## 8. Open questions for Rajah / Josh
 
 - **Analytics replacement** (§2) — GA4, Plausible, or Cloudflare Web Analytics?
-- **⚠️ Calendly consent — OPEN, must be resolved before the cutover.** `hide_gdpr_banner=1`
+- ~~**Calendly consent**~~ **Resolved 2026-09-28 with option (a)**: `src/ts/calendly.ts` shows
+  a "Pick a time" button and only loads `widget.js` on click; no request reaches calendly.com
+  before that (verified in a browser). Without JS the plain Calendly link is the flow. Original
+  note: `hide_gdpr_banner=1`
   is currently set *without* anything gating the iframe load, so calendly.com's cookies are
   set on page load with no consent step. That is the one arrangement that is worse than
   either alternative, and it should not ship as-is. Verified 2026-08-13 that the Eleventy

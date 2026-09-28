@@ -83,48 +83,52 @@ permalink: /diligence-monster/
     A CSS scroll-snap strip. The dots and the FEATURES links are plain anchors
     to a slide id, so they work with JS off; src/ts/carousel.ts adds the
     prev/next buttons (hidden until it runs) and syncs the active dot.
+
+    Every slide is laid out at once, so only the first video autoplays; the
+    rest are preload="none" with controls. carousel.ts drops the controls and
+    plays whichever slide is on screen, so a visit only downloads what it shows.
   {% endcomment %}
   <div class="carousel-viewport">
     <div class="carousel-track">
       <div class="carousel-slide" id="slide-0">
         <video src="/ClausehoundAIVideo/0.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+               preload="auto"></video>
       </div>
       <div class="carousel-slide" id="slide-1">
-        <video src="/ClausehoundAIVideo/1.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+        <video src="/ClausehoundAIVideo/1.mp4" class="carousel-video" loop muted playsinline controls
+               preload="none"></video>
       </div>
       <div class="carousel-slide" id="slide-2">
-        <video src="/ClausehoundAIVideo/2.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+        <video src="/ClausehoundAIVideo/2.mp4" class="carousel-video" loop muted playsinline controls
+               preload="none"></video>
       </div>
       <div class="carousel-slide" id="slide-3">
-        <video src="/ClausehoundAIVideo/3.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+        <video src="/ClausehoundAIVideo/3.mp4" class="carousel-video" loop muted playsinline controls
+               preload="none"></video>
       </div>
       <div class="carousel-slide" id="slide-4">
-        <video src="/ClausehoundAIVideo/4.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+        <video src="/ClausehoundAIVideo/4.mp4" class="carousel-video" loop muted playsinline controls
+               preload="none"></video>
       </div>
       <div class="carousel-slide" id="slide-5">
-        <video src="/ClausehoundAIVideo/5.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+        <video src="/ClausehoundAIVideo/5.mp4" class="carousel-video" loop muted playsinline controls
+               preload="none"></video>
       </div>
       <div class="carousel-slide" id="slide-6">
-        <video src="/ClausehoundAIVideo/6.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+        <video src="/ClausehoundAIVideo/6.mp4" class="carousel-video" loop muted playsinline controls
+               preload="none"></video>
       </div>
       <div class="carousel-slide" id="slide-7">
-        <video src="/ClausehoundAIVideo/7.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+        <video src="/ClausehoundAIVideo/7.mp4" class="carousel-video" loop muted playsinline controls
+               preload="none"></video>
       </div>
       <div class="carousel-slide" id="slide-8">
-        <video src="/ClausehoundAIVideo/8.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+        <video src="/ClausehoundAIVideo/8.mp4" class="carousel-video" loop muted playsinline controls
+               preload="none"></video>
       </div>
       <div class="carousel-slide" id="slide-9">
-        <video src="/ClausehoundAIVideo/9.mp4" class="carousel-video" autoplay loop muted playsinline
-               preload="metadata"></video>
+        <video src="/ClausehoundAIVideo/9.mp4" class="carousel-video" loop muted playsinline controls
+               preload="none"></video>
       </div>
     </div>
     <button class="carousel-prev" type="button" hidden aria-label="Previous video">❮</button>

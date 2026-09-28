@@ -28,13 +28,21 @@ export function initCarousels(): void {
       button.addEventListener("click", () => scrollBy(1));
     }
 
-    if (dots.length === 0) continue;
+    // Videos are preload="none" with controls for the no-JS case. From here
+    // on, the observer plays the slide on screen and pauses the rest, so a
+    // clip only downloads once someone scrolls to it.
+    for (const video of track.querySelectorAll("video")) video.controls = false;
 
     // Mark the dot for whichever slide is most visible in the track.
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
+          const video = entry.target.querySelector("video");
+          if (!entry.isIntersecting) {
+            video?.pause();
+            continue;
+          }
+          video?.play().catch(() => {});
           const index = slides.indexOf(entry.target as HTMLElement);
           dots.forEach((dot, i) => {
             dot.classList.toggle("is-active", i === index);
