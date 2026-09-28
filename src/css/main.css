@@ -752,42 +752,54 @@ a:hover::after {
 }
 
 .step-title {
-  align-items: center;
   color: var(--color-heading);
-  display: flex;
   font-size: 1.5rem;
   font-weight: 700;
-  justify-content: center;
   margin: 3rem 0 1rem;
-  position: relative;
+  text-align: center;
 }
 
 @media (min-width: 800px) {
   .step-title {
-    height: 32px;
+    min-height: 32px;
     margin-bottom: 3rem;
   }
 }
 
-/* highlighter-pen swash behind the title; suppressed on the narrowest screens,
-   where the title wraps to two lines and the swash lands wrong */
-.step-title::after {
-  content: "";
-  display: none;
-  position: absolute;
-  width: calc(100% + 0.8rem);
-  left: -0.4rem;
-  bottom: -0.2rem;
-  height: calc(50% + 0.2rem);
-  z-index: -1;
-  opacity: 0.6;
-  background: var(--color-primary);
+/* In the multi-column layout, titled steps share row lines with their
+   neighbours (subgrid), so a title that wraps to two lines doesn't push its
+   own paragraph below the others in the row. */
+@media (min-width: 640px) {
+  .step:has(> .step-title) {
+    align-content: start;
+    align-items: start;
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    justify-items: center;
+  }
+
+  .step:has(> .step-title):has(> .step-icon) {
+    grid-row: span 3;
+  }
+
+  .step > .step-title {
+    align-self: center;
+  }
 }
 
-@media (min-width: 640px) {
-  .step-title::after {
-    display: block;
-  }
+/* Highlighter-pen swash on the text itself: an inline background covering the
+   lower half of each line, cloned per line so a wrapped title gets one swash
+   per line instead of a single bar across the gap. */
+.step-title > span {
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-primary) 60%, transparent) 55%,
+    transparent 55%
+  );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 0.4rem;
 }
 
 /* decorative squiggle, hung outside the step. Hidden until there's room. */
