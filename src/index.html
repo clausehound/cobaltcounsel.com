@@ -23,7 +23,7 @@ permalink: /
     <p class="hero-lede">
       We've spent a decade building the AI that reads, structures and compares legal documents.
       Now we use it to deliver finished work (due diligence, deal knowledge and policy research),
-      checked by our lawyers and researchers before it reaches you, at a price that makes sense.
+      checked by real, human lawyers and researchers before it reaches you, at a price that makes sense.
     </p>
     <div class="hero-actions">
       <a class="button" href="#checkout">Book a call</a>
@@ -94,6 +94,59 @@ permalink: /
       </ul>
     </div>
   </div>
+</section>
+
+<section class="content current" id="current">
+  <div class="current-copy">
+    <h6 class="subheading">Current, cited, on the record</h6>
+    <h2>The modern, boring, thorough lawyer.</h2>
+    <p>
+      We're real, human lawyers and researchers. Every law and regulation in our platform is
+      kept under full change control: each amendment is recorded, dated and kept, never overwritten.
+      So we can answer the question most AI tools can't: what did the law say then, what does it
+      say now, and which provisions changed in between.
+    </p>
+    <ul class="current-points">
+      <li>
+        <strong>Point in time.</strong> Ask what changed for your business between any two dates,
+        and get the answer provision by provision.
+      </li>
+      <li>
+        <strong>No citation, no claim.</strong> Every finding is tied to the source text it came
+        from. If we can't cite it, we don't say it.
+      </li>
+      <li>
+        <strong>Kept current by people.</strong> Our lawyers track amendments as they're made, and
+        review what the platform ingests.
+      </li>
+    </ul>
+  </div>
+
+  {% comment %}
+    Illustrative point-in-time diff. The two amendments are real Ontario
+    Employment Standards Act changes, but they're examples, not advice, and
+    should be checked by the legal team (or swapped for an example straight
+    out of the platform) before this ships.
+  {% endcomment %}
+  <figure class="law-diff" aria-label="Example: what changed for an Ontario employer between 2004 and 2009">
+    <figcaption>
+      <span>Ontario employer · Employment standards</span>
+      <span class="law-diff-range">2004 → 2009</span>
+    </figcaption>
+    <ol>
+      <li>
+        <span class="law-diff-kind law-diff-kind--amended">Amended</span>
+        <span class="law-diff-what">Hours of work: excess weekly hours need employee agreement and Director approval</span>
+        <cite>Employment Standards Amendment Act (Hours of Work and Other Matters), 2004, S.O. 2004, c. 21</cite>
+      </li>
+      <li>
+        <span class="law-diff-kind law-diff-kind--added">Added</span>
+        <span class="law-diff-what">New obligations for temporary help agencies and their clients</span>
+        <cite>Employment Standards Amendment Act (Temporary Help Agencies), 2009, S.O. 2009, c. 9</cite>
+      </li>
+    </ol>
+    <p class="law-diff-note">Illustrative example. In the platform, each change links to its enacting text, and every version is kept.</p>
+  </figure>
 </section>
 
 <section class="content services" id="services">

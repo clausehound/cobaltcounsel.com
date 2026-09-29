@@ -1928,6 +1928,125 @@ mark.tbd {
   position: absolute;
 }
 
+/* --- Current, cited, on the record (change control) ------------------------ */
+.current {
+  display: grid;
+  gap: var(--spacingGap);
+}
+
+@media (min-width: 1100px) {
+  .current {
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.current h2 {
+  color: var(--color-heading);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.current-copy > p {
+  color: var(--color-gray);
+}
+
+.current-points {
+  list-style: none;
+  margin-left: 0;
+}
+
+.current-points li {
+  border-left: 3px solid var(--color-verified);
+  color: var(--color-gray);
+  padding-left: 1rem;
+}
+
+.current-points strong {
+  color: var(--color-heading);
+}
+
+.law-diff {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+  box-shadow: 0 24px 60px rgb(20 34 58 / 0.1);
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+}
+
+.law-diff figcaption {
+  border-bottom: 1px solid var(--color-hairline);
+  color: var(--color-heading);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+}
+
+.law-diff-range {
+  color: var(--color-black);
+  font-variant-numeric: tabular-nums;
+}
+
+.law-diff ol {
+  list-style: none;
+  margin: 0;
+}
+
+.law-diff li {
+  border-bottom: 1px solid var(--color-hairline);
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.law-diff-kind {
+  border-radius: 50rem;
+  color: var(--color-black);
+  font-size: 0.65rem;
+  font-weight: 700;
+  justify-self: start;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.6rem;
+  text-transform: uppercase;
+}
+
+.law-diff-kind--amended {
+  background: color-mix(in srgb, var(--color-primary) 35%, transparent);
+}
+
+.law-diff-kind--added {
+  background: color-mix(in srgb, var(--color-verified) 18%, transparent);
+}
+
+.law-diff-what {
+  color: var(--color-black);
+  font-size: 0.9rem;
+}
+
+.law-diff cite {
+  color: var(--color-light-gray);
+  font-size: 0.75rem;
+  font-style: normal;
+}
+
+.law-diff cite::before {
+  content: "§ ";
+  color: var(--color-verified);
+  font-weight: 700;
+}
+
+.law-diff-note {
+  color: var(--color-light-gray);
+  font-size: 0.7rem;
+  margin: 0.75rem 0 0;
+}
+
 /* --- Services -------------------------------------------------------------- */
 .service-grid {
   display: grid;
@@ -2509,7 +2628,8 @@ mark.tbd {
     .pillars li,
     .shift-split > div,
     .quotes figure,
-    .pricing-card {
+    .pricing-card,
+    .law-diff {
       animation: reveal ease-out both;
       animation-range: entry 0% entry 60%;
       animation-timeline: view();
