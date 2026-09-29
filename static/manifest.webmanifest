@@ -2,8 +2,8 @@
   "name": "Cobalt Counsel",
   "short_name": "Cobalt",
   "start_url": "/",
-  "background_color": "#201C22",
-  "theme_color": "#FFA400",
+  "background_color": "#14223A",
+  "theme_color": "#FFBA52",
   "display": "minimal-ui",
   "icons": [
     { "src": "/icons/icon-48x48.png", "sizes": "48x48", "type": "image/png" },

@@ -64,16 +64,25 @@
 }
 
 /* --------------------------------------------------------------------------
-   Theme tokens — from src/utils/theme.ts
+   Theme tokens — Pantone "Modern Harmony" palette (trial, 2026-09-29).
+   Named swatches: Orange Pop 13-1145 TN, Star Sapphire 18-4041 TCX,
+   Icy Morn 13-5306 TCX, Parakeet 17-5735 TCX, Aurora 12-0642 TCX. The
+   text, ink and gray steps are derived from Star Sapphire, since the palette
+   has no darks; every text colour here passes WCAG AA on white. The previous
+   warm/amber palette is recorded in handoff/palette.tokens.json.
    -------------------------------------------------------------------------- */
 :root {
-  --color-primary: #ffa400;
-  --color-secondary: #f9f6f3;
-  --color-tertiary: #faaa8d;
-  --color-heading: #392d40;
-  --color-black: #201c22;
-  --color-gray: #5a535e;
-  --color-light-gray: #8a828f;
+  --color-primary: #ffba52; /* Orange Pop: CTAs, underlines, stat numbers */
+  --color-secondary: #eef5f5; /* Icy Morn, tinted: page and band backgrounds */
+  --color-tertiary: #b0d3d1; /* Icy Morn: pills, carousel dots */
+  --color-heading: #386192; /* Star Sapphire: headings */
+  --color-black: #14223a; /* ink, derived: dark bands, text on Orange Pop */
+  --color-text: #2a3441; /* derived: body copy */
+  --color-gray: #4e5a68; /* derived: secondary text */
+  --color-light-gray: #5f6b79; /* derived: meta text, 4.5:1 on the tint */
+  --color-hairline: #d6e5e4; /* derived from Icy Morn: borders, dividers */
+  --color-verified: #008c69; /* Parakeet: review ticks and badges */
+  --color-highlight: #eddd59; /* Aurora: the highlighter swash */
   --color-white: #ffffff;
 
   --space-xxs: 0.5rem;
@@ -135,7 +144,7 @@ html {
 
 body {
   margin: 0;
-  color: hsl(0 0% 0% / 0.8);
+  color: var(--color-text);
   font-weight: 400;
   word-wrap: break-word;
   font-kerning: normal;
@@ -451,8 +460,8 @@ a:hover::after {
 }
 
 .dropdown-menu {
-  background-color: #f9f9f9;
-  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 0.2);
+  background-color: var(--color-white);
+  box-shadow: 0 8px 16px 0 rgb(20 34 58 / 0.15);
   min-width: 180px;
   position: absolute;
   z-index: 1;
@@ -470,7 +479,7 @@ a:hover::after {
 }
 
 .dropdown-menu a:hover {
-  background-color: #f1f1f1;
+  background-color: var(--color-secondary);
 }
 
 /* --------------------------------------------------------------------------
@@ -489,7 +498,7 @@ a:hover::after {
 
 .button:hover {
   filter: brightness(105%);
-  box-shadow: 0 6px 24px rgb(242 187 99 / 0.4);
+  box-shadow: 0 6px 24px rgb(255 186 82 / 0.4);
   cursor: pointer;
 }
 
@@ -700,7 +709,7 @@ a:hover::after {
 
 .header-curve-line {
   fill: none;
-  stroke: #000000;
+  stroke: var(--color-black);
 }
 
 /* --------------------------------------------------------------------------
@@ -794,7 +803,7 @@ a:hover::after {
 .step-title > span {
   background: linear-gradient(
     to top,
-    color-mix(in srgb, var(--color-primary) 60%, transparent) 55%,
+    color-mix(in srgb, var(--color-highlight) 75%, transparent) 55%,
     transparent 55%
   );
   -webkit-box-decoration-break: clone;
@@ -936,7 +945,7 @@ a:hover::after {
   height: calc(50% + 0.2rem);
   z-index: -1;
   opacity: 0.6;
-  background: var(--color-primary);
+  background: var(--color-highlight);
 }
 
 .team-list {
@@ -1175,8 +1184,10 @@ a:hover::after {
   }
 }
 
+/* Muted text on the ink band uses Icy Morn: the light gray is tuned for
+   light backgrounds and drops to ~3:1 here. */
 .checkout-copy h6 {
-  color: var(--color-light-gray);
+  color: var(--color-tertiary);
   letter-spacing: 3px;
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -1188,7 +1199,7 @@ a:hover::after {
 }
 
 .checkout-copy p {
-  color: var(--color-light-gray);
+  color: var(--color-tertiary);
 }
 
 .checkout-widget {
@@ -1521,7 +1532,7 @@ a:hover::after {
 .carousel-prev:active,
 .carousel-next:active {
   color: white;
-  background-color: rgb(169 124 167 / 0.8);
+  background-color: color-mix(in srgb, var(--color-heading) 80%, transparent);
 }
 
 .carousel-dots {
@@ -1536,7 +1547,7 @@ a:hover::after {
   width: 15px;
   margin: 0 2px;
   padding: 0;
-  background-color: #bbb;
+  background-color: var(--color-tertiary);
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
@@ -1548,7 +1559,7 @@ a:hover::after {
 }
 
 .carousel-dot.is-active {
-  background-color: #717171;
+  background-color: var(--color-heading);
 }
 
 @media screen and (max-width: 750px) {
@@ -1559,20 +1570,20 @@ a:hover::after {
 
 @media (hover: hover) {
   .carousel-dot:hover {
-    background-color: #717171;
+    background-color: var(--color-heading);
   }
 
   .carousel-prev:hover,
   .carousel-next:hover {
     color: white;
-    background-color: rgb(255 164 0 / 0.8);
+    background-color: color-mix(in srgb, var(--color-primary) 80%, transparent);
   }
 
   .features-toggle:hover,
   .feature-link:hover {
-    background-color: #717171;
+    background-color: var(--color-heading);
     color: white;
-    border-color: #717171;
+    border-color: var(--color-heading);
   }
 }
 
@@ -1605,7 +1616,7 @@ a:hover::after {
 
 .features-toggle:hover {
   filter: brightness(105%);
-  box-shadow: 0 6px 24px rgb(242 187 99 / 0.4);
+  box-shadow: 0 6px 24px rgb(255 186 82 / 0.4);
 }
 
 .feature-links {
@@ -1634,7 +1645,7 @@ a:hover::after {
 
 .feature-link:hover {
   filter: brightness(105%);
-  box-shadow: 0 6px 24px rgb(242 187 99 / 0.4);
+  box-shadow: 0 6px 24px rgb(255 186 82 / 0.4);
   cursor: pointer;
 }
 
@@ -1746,7 +1757,7 @@ mark.tbd {
 .hero-sample {
   background: var(--color-white);
   border-radius: 8px;
-  box-shadow: 0 24px 60px rgb(32 28 34 / 0.12);
+  box-shadow: 0 24px 60px rgb(20 34 58 / 0.12);
   margin: 0;
   padding: 1.25rem 1.5rem;
 }
@@ -1800,9 +1811,9 @@ mark.tbd {
 }
 
 .hero-sample-check {
-  background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  background: color-mix(in srgb, var(--color-verified) 12%, transparent);
   border-radius: 50rem;
-  color: var(--color-heading);
+  color: var(--color-black);
   font-size: 0.7rem;
   font-weight: 600;
   grid-column: 2;
@@ -1811,6 +1822,7 @@ mark.tbd {
 }
 
 .hero-sample-check::before {
+  color: var(--color-verified);
   content: "✓ ";
 }
 
@@ -1909,7 +1921,7 @@ mark.tbd {
 }
 
 .checklist li::before {
-  color: var(--color-primary);
+  color: var(--color-verified);
   content: "✓";
   font-weight: 700;
   left: 0;
@@ -1930,7 +1942,7 @@ mark.tbd {
 
 .service-card {
   background: var(--color-white);
-  border: 1px solid #ece6e0;
+  border: 1px solid var(--color-hairline);
   border-radius: 8px;
   border-top: 4px solid var(--color-primary);
   color: inherit;
@@ -1945,7 +1957,7 @@ mark.tbd {
 }
 
 .service-card:hover {
-  box-shadow: 0 16px 40px rgb(32 28 34 / 0.1);
+  box-shadow: 0 16px 40px rgb(20 34 58 / 0.1);
   transform: translateY(-2px);
 }
 
@@ -2184,7 +2196,7 @@ mark.tbd {
 }
 
 .post-card {
-  border-top: 1px solid #e3ddd6;
+  border-top: 1px solid var(--color-hairline);
   color: inherit;
   display: flex;
   flex-direction: column;
@@ -2251,7 +2263,7 @@ mark.tbd {
 }
 
 .post-body {
-  color: #3a343d;
+  color: var(--color-text);
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -2307,12 +2319,12 @@ mark.tbd {
 
 .post-body td,
 .post-body th {
-  border: 1px solid #e3ddd6;
+  border: 1px solid var(--color-hairline);
   padding: 0.4rem 0.6rem;
 }
 
 .post-footer {
-  border-top: 1px solid #e3ddd6;
+  border-top: 1px solid var(--color-hairline);
   margin-top: 3rem;
   padding-top: 1.5rem;
 }
