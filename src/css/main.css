@@ -2390,114 +2390,48 @@ mark.tbd {
    Motion: geometric backgrounds, parallax, scroll reveals
    All CSS. Parallax and reveals use scroll-driven animations
    (animation-timeline), inside @supports, so browsers without them get the
-   same shapes, static. Everything here stops under prefers-reduced-motion.
+   same backgrounds, static. Everything here stops under prefers-reduced-motion.
    ========================================================================== */
 
-/* --- Hero: dot grid + floating shapes -------------------------------------- */
+/* --- Hero: rotating, breathing dot field --------------------------------- */
 .hero {
   isolation: isolate;
   overflow: hidden;
   position: relative;
 }
 
-/* A fine dot grid, faded out toward the edges, drifting diagonally. */
-.hero::before {
-  animation: grid-drift 90s linear infinite;
+/* Parakeet dots across the whole hero. The layer is oversized (inset -50%)
+   so its corners stay out of view while it turns. It rotates once every
+   four minutes and zooms in and out over 40 seconds; `rotate` and `scale`
+   are separate properties so both run at once, leaving `translate` free
+   for the scroll parallax below. */
+.hero-dots {
+  animation:
+    dots-turn 240s linear infinite,
+    dots-breathe 40s ease-in-out infinite alternate;
   background-image: radial-gradient(
-    color-mix(in srgb, var(--color-heading) 22%, transparent) 1px,
-    transparent 1.6px
+    color-mix(in srgb, var(--color-verified) 30%, transparent) 2px,
+    transparent 2.6px
   );
-  background-size: 28px 28px;
-  content: "";
-  inset: 0;
-  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 70% 40%, #000 20%, transparent 75%);
-  mask-image: radial-gradient(ellipse 70% 80% at 70% 40%, #000 20%, transparent 75%);
-  position: absolute;
-  z-index: -1;
-}
-
-@keyframes grid-drift {
-  to {
-    background-position: 280px 280px;
-  }
-}
-
-.hero-shapes {
-  inset: 0;
+  background-size: 22px 22px;
+  inset: -50%;
   pointer-events: none;
   position: absolute;
   z-index: -1;
 }
 
-.shape {
-  --size: 9rem;
-  animation: shape-float 40s ease-in-out infinite alternate;
-  display: block;
-  height: var(--size);
-  position: absolute;
-  width: var(--size);
+@keyframes dots-turn {
+  to {
+    rotate: 360deg;
+  }
 }
 
-.shape--small {
-  --size: 4rem;
-  animation-duration: 28s;
-}
-
-.shape--ring {
-  border: 1.5px solid color-mix(in srgb, var(--color-heading) 22%, transparent);
-  border-radius: 50%;
-}
-
-.shape--square {
-  background: color-mix(in srgb, var(--color-tertiary) 45%, transparent);
-  border-radius: 18%;
-  rotate: 18deg;
-}
-
-.shape--cross {
-  --size: 2.5rem;
-  background:
-    linear-gradient(var(--color-primary), var(--color-primary)) center / 100% 3px no-repeat,
-    linear-gradient(var(--color-primary), var(--color-primary)) center / 3px 100% no-repeat;
-  opacity: 0.7;
-}
-
-.shape--dots {
-  --size: 7rem;
-  background-image: radial-gradient(color-mix(in srgb, var(--color-verified) 45%, transparent) 2px, transparent 2.5px);
-  background-size: 14px 14px;
-  border-radius: 50%;
-}
-
-/* Slow drift and turn. Uses the individual `rotate` property so the parallax
-   below (on `translate`) can run at the same time. */
-@keyframes shape-float {
+@keyframes dots-breathe {
   from {
-    rotate: 0deg;
+    scale: 1;
   }
   to {
-    rotate: 45deg;
-  }
-}
-
-.shape--square {
-  animation-name: shape-float-square;
-}
-
-@keyframes shape-float-square {
-  from {
-    rotate: 18deg;
-  }
-  to {
-    rotate: 72deg;
-  }
-}
-
-/* Keep the busy shapes out from behind the copy on narrow screens. */
-@media (max-width: 1099px) {
-  .shape--ring,
-  .shape--dots {
-    opacity: 0.5;
+    scale: 1.35;
   }
 }
 
@@ -2530,23 +2464,19 @@ mark.tbd {
 /* --- Scroll-driven: parallax and reveals ----------------------------------- */
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
-    /* Each shape travels --depth over the first screen of scroll, so deeper
-       shapes lag behind the content. */
-    .shape {
+    /* The dot field lags behind the page as the hero scrolls away. */
+    .hero-dots {
       animation:
-        shape-float 40s ease-in-out infinite alternate,
+        dots-turn 240s linear infinite,
+        dots-breathe 40s ease-in-out infinite alternate,
         parallax linear both;
-      animation-range: normal, 0 100vh;
-      animation-timeline: auto, scroll(root);
-    }
-
-    .shape--square {
-      animation-name: shape-float-square, parallax;
+      animation-range: normal, normal, 0 100vh;
+      animation-timeline: auto, auto, scroll(root);
     }
 
     @keyframes parallax {
       to {
-        translate: 0 var(--depth, -100px);
+        translate: 0 -160px;
       }
     }
 
@@ -2595,8 +2525,7 @@ mark.tbd {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero::before,
-  .shape,
+  .hero-dots,
   .proof::before,
   .checkout-body::before {
     animation: none;
