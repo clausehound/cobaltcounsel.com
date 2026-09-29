@@ -1,0 +1,65 @@
+{
+  "$description": "cobaltcounsel.com base palette as of 2026-09-29, exported from src/css/main.css (consolidation branch). Design Tokens (W3C DTCG) format. 'uses' counts var() references in main.css. One amber accent on a warm, plum-tinted neutral ramp.",
+  "brand": {
+    "$type": "color",
+    "amber": {
+      "$value": "#FFA400",
+      "$description": "--color-primary. The only accent: buttons, link underlines, highlighter swash, list bullets, stat numbers, logo bars. Also hard-coded as the manifest theme_color, the Calendly primary_color and the logo SVG fill. 23 uses + logo + Calendly + manifest."
+    },
+    "peach": {
+      "$value": "#FAAA8D",
+      "$description": "--color-tertiary. Declared but unused (0 uses). Carried over from the Gatsby theme."
+    }
+  },
+  "neutral": {
+    "$type": "color",
+    "ink": {
+      "$value": "#201C22",
+      "$description": "--color-black. Dark bands (booking section, proof strip), text on amber buttons. Also the Calendly background_color. 10 uses."
+    },
+    "heading": {
+      "$value": "#392D40",
+      "$description": "--color-heading. Plum-tinted near-black for headings and emphasis. 20 uses."
+    },
+    "text": {
+      "$value": "#333333CC",
+      "$description": "Body text: hsl(0 0% 0% / 0.8) on <body>, a neutral grey that doesn't match the plum-tinted ramp. Posts use #3A343D instead (below). Not a token today."
+    },
+    "text-post": {
+      "$value": "#3A343D",
+      "$description": "Post body text (.post-body). Hard-coded; closer to the ramp than the <body> colour."
+    },
+    "gray": {
+      "$value": "#5A535E",
+      "$description": "--color-gray. Secondary text, nav links, paragraph copy in sections. 21 uses."
+    },
+    "light-gray": {
+      "$value": "#8A828F",
+      "$description": "--color-light-gray. Meta text: dates, captions, eyebrows. 10 uses."
+    },
+    "hairline": {
+      "$value": "#E3DDD6",
+      "$description": "Warm borders and dividers (post cards, post footer, tables). Hard-coded, 3 uses; #ECE6E0 (service card border) is a near-duplicate."
+    },
+    "surface": {
+      "$value": "#F9F6F3",
+      "$description": "--color-secondary. Warm off-white: hero, tinted bands, tags, 'Top' button. 11 uses."
+    },
+    "white": {
+      "$value": "#FFFFFF",
+      "$description": "--color-white. Cards and text on dark bands. 9 uses; also the Calendly text_color."
+    }
+  },
+  "strays": {
+    "$description": "Hard-coded colours outside the palette. A new palette should absorb these rather than carry them forward.",
+    "$type": "color",
+    "logo-dark": { "$value": "#333333", "$description": "Logo SVG dark fill (Logo.svg, logoWithName.svg). Doesn't match ink or heading." },
+    "carousel-dot": { "$value": "#BBBBBB", "$description": ".carousel-dot (Diligence Monster)." },
+    "carousel-dot-active": { "$value": "#717171", "$description": ".carousel-dot.is-active, .feature-link:hover." },
+    "carousel-button-active": { "$value": "#A97CA7CC", "$description": ".carousel-next:active: a one-off mauve." },
+    "dropdown-bg": { "$value": "#F9F9F9", "$description": "Nav dropdown menu background (cool grey, not the warm surface)." },
+    "dropdown-hover": { "$value": "#F1F1F1", "$description": "Nav dropdown item hover." },
+    "header-curve": { "$value": "#000000", "$description": ".header-curve-line stroke under page headers." },
+    "button-glow": { "$value": "#F2BB6366", "$description": "Button hover shadow, rgb(242 187 99 / 0.4): an amber tint." }
+  }
+}
