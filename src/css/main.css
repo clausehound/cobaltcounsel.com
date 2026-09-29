@@ -2554,30 +2554,50 @@ mark.tbd {
   }
 }
 
-/* --- Dark bands: faint diagonal lattice ------------------------------------ */
+/* --- Dark bands: a soft glow that shifts with scroll ----------------------- */
+/* The glow's position is two registered custom properties, so it can be
+   animated. Each band names its own view timeline, and its ::before moves
+   the light from bottom-left to top-right as the band crosses the screen
+   (see the scroll-driven block below). Without scroll timelines the glow
+   simply sits at its starting point. */
+@property --glow-x {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 12%;
+}
+
+@property --glow-y {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+
 .proof,
 .checkout-body {
   isolation: isolate;
   overflow: hidden;
   position: relative;
+  view-timeline-name: --band;
 }
 
 .proof::before,
 .checkout-body::before {
-  animation: lattice-drift 120s linear infinite;
-  background-image:
-    repeating-linear-gradient(45deg, rgb(176 211 209 / 0.07) 0 1px, transparent 1px 36px),
-    repeating-linear-gradient(-45deg, rgb(176 211 209 / 0.07) 0 1px, transparent 1px 36px);
+  background:
+    radial-gradient(
+      ellipse 75% 120% at var(--glow-x) var(--glow-y),
+      color-mix(in srgb, var(--color-heading) 70%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 80% at calc(100% - var(--glow-x)) calc(100% - var(--glow-y)),
+      color-mix(in srgb, var(--color-tertiary) 10%, transparent),
+      transparent 70%
+    ),
+    linear-gradient(170deg, var(--color-black) 35%, #0e1a2d);
   content: "";
   inset: 0;
   position: absolute;
   z-index: -1;
-}
-
-@keyframes lattice-drift {
-  to {
-    background-position: 360px 0, -360px 0;
-  }
 }
 
 /* --- Scroll-driven: parallax and reveals ----------------------------------- */
@@ -2596,6 +2616,24 @@ mark.tbd {
     @keyframes parallax {
       to {
         translate: 0 -160px;
+      }
+    }
+
+    .proof::before,
+    .checkout-body::before {
+      animation: light-shift linear both;
+      animation-range: cover;
+      animation-timeline: --band;
+    }
+
+    @keyframes light-shift {
+      from {
+        --glow-x: 5%;
+        --glow-y: 115%;
+      }
+      to {
+        --glow-x: 95%;
+        --glow-y: -15%;
       }
     }
 
@@ -2645,9 +2683,7 @@ mark.tbd {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-dots,
-  .proof::before,
-  .checkout-body::before {
+  .hero-dots {
     animation: none;
   }
 }
