@@ -1,9 +1,22 @@
-{% comment %}One post in a list. Expects `post` (an item of collections.posts).{% endcomment %}
+{% comment %}
+  One post in a list. Expects `post` (an item of collections.posts).
+  With `hideStaleDates: true` (the homepage), a post more than 180 days old
+  shows no date, so a quiet stretch doesn't make the site look abandoned.
+  "Now" is build time: a date that goes stale between deploys stays up until
+  the next build.
+{% endcomment %}
+{% assign showDate = true %}
+{% if hideStaleDates %}
+  {% assign nowSeconds = "now" | date: "%s" | plus: 0 %}
+  {% assign postSeconds = post.date | date: "%s" | plus: 0 %}
+  {% assign ageSeconds = nowSeconds | minus: postSeconds %}
+  {% if ageSeconds > 15552000 %}{% assign showDate = false %}{% endif %}
+{% endif %}
 {% assign author = authors[post.data.author] %}
 {% comment %}Unmapped authors are bare emails on old posts; show no byline rather than an address.{% endcomment %}
 {% if author.name %}{% assign byline = author.name %}{% elsif post.data.author contains "@" %}{% assign byline = "" %}{% else %}{% assign byline = post.data.author %}{% endif %}
 <a class="post-card" href="{{ post.url }}">
-  <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+  {% if showDate %}<time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>{% endif %}
   <h3>{{ post.data.title }}</h3>
   {% if post.data.description %}<p>{{ post.data.description | replace: "*", "" | truncatewords: 32 }}</p>{% endif %}
   {% if byline != "" %}<span class="post-card-author">{{ byline }}</span>{% endif %}

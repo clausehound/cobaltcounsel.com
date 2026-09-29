@@ -1877,6 +1877,7 @@ mark.tbd {
 
 .shift h2,
 .services h2,
+.integrations h2,
 .how h2,
 .platform h2,
 .insights-teaser h2 {
@@ -2251,6 +2252,279 @@ mark.tbd {
   border-top: 1px solid var(--color-heading);
   margin: 0;
   padding-top: 1rem;
+}
+
+/* --- Integrations: mock screenshots + list --------------------------------- */
+.integrations .section-intro p {
+  color: var(--color-gray);
+  margin: 0 auto;
+  max-width: 44rem;
+}
+
+/* Two tilted "screenshots" that overlap slightly on wide screens and
+   straighten on hover. */
+.mock-stage {
+  display: grid;
+  gap: 2.5rem;
+  margin: var(--spacingSection) auto;
+  max-width: 64rem;
+  perspective: 1600px;
+}
+
+@media (min-width: 900px) {
+  .mock-stage {
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* min-width: 0 lets the cards shrink below their one-line URLs on phones
+   (a grid item otherwise refuses to be narrower than its content). */
+.mock {
+  margin: 0;
+  min-width: 0;
+  transition: rotate 400ms ease, translate 400ms ease;
+}
+
+@media (min-width: 900px) {
+  .mock--left {
+    rotate: -2.5deg;
+    z-index: 1;
+  }
+
+  .mock--right {
+    rotate: 2deg;
+    translate: 0 2.5rem;
+  }
+
+  .mock:hover {
+    rotate: 0deg;
+    z-index: 2;
+  }
+}
+
+.mock figcaption {
+  color: var(--color-light-gray);
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.mock-window {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 12px;
+  box-shadow:
+    0 2px 6px rgb(20 34 58 / 0.06),
+    0 30px 60px rgb(20 34 58 / 0.18);
+  color: var(--color-black);
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+
+.mock-window--dark {
+  background: #0f1b2e;
+  border-color: #22324c;
+  color: #dce8e7;
+}
+
+.mock-bar {
+  align-items: center;
+  background: var(--color-secondary);
+  border-bottom: 1px solid var(--color-hairline);
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.6rem 0.9rem;
+}
+
+.mock-window--dark .mock-bar {
+  background: #14223a;
+  border-color: #22324c;
+}
+
+.mock-bar span {
+  background: var(--color-hairline);
+  border-radius: 50%;
+  height: 0.6rem;
+  width: 0.6rem;
+}
+
+.mock-window--dark .mock-bar span {
+  background: #2c3d58;
+}
+
+.mock-bar em {
+  color: var(--color-light-gray);
+  font-size: 0.7rem;
+  font-style: normal;
+  margin-left: 0.5rem;
+}
+
+.mock-window--dark .mock-bar em {
+  color: #8fa3b8;
+}
+
+.mock-body {
+  padding: 1.25rem 1.4rem 1.4rem;
+}
+
+.mock-body h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.mock-body label {
+  color: var(--color-gray);
+  display: block;
+  font-size: 0.7rem;
+  margin: 0.8rem 0 0.35rem;
+}
+
+.mock-window--dark label {
+  color: #8fa3b8;
+}
+
+.mock-field {
+  border: 1px solid var(--color-hairline);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.55rem 0.7rem;
+}
+
+.mock-window--dark .mock-field {
+  background: #14223a;
+  border-color: #2c3d58;
+}
+
+/* Mono values stay on one line and ellipsise, like a real input field;
+   the Copy label never wraps. */
+.mock-field--mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+}
+
+.mock-field--mono span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mock-field b {
+  flex: none;
+  color: var(--color-tertiary);
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding-left: 0.5rem;
+}
+
+.mock-note {
+  background: color-mix(in srgb, var(--color-verified) 10%, transparent);
+  border-radius: 6px;
+  color: var(--color-gray);
+  font-size: 0.7rem;
+  margin-top: 0.9rem;
+  padding: 0.5rem 0.7rem;
+}
+
+.mock-scopes {
+  list-style: none;
+  margin: 0;
+}
+
+.mock-scopes li {
+  color: #8fa3b8;
+  margin: 0 0 0.4rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.mock-scopes li::before {
+  border: 1.5px solid #3b4d69;
+  border-radius: 4px;
+  content: "";
+  height: 0.9rem;
+  left: 0;
+  position: absolute;
+  top: 0.15rem;
+  width: 0.9rem;
+}
+
+.mock-scopes li.on {
+  color: #dce8e7;
+}
+
+.mock-scopes li.on::before {
+  background: var(--color-tertiary);
+  border-color: var(--color-tertiary);
+}
+
+.mock-scopes li.on::after {
+  color: var(--color-black);
+  content: "✓";
+  font-size: 0.65rem;
+  font-weight: 700;
+  left: 0.2rem;
+  position: absolute;
+  top: 0.1rem;
+}
+
+.mock-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  margin-top: 1.2rem;
+}
+
+.mock-btn {
+  border: 1px solid var(--color-hairline);
+  border-radius: 6px;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+}
+
+.mock-window--dark .mock-btn {
+  border-color: #3b4d69;
+}
+
+.mock-btn--primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-black);
+}
+
+.mock-window--dark .mock-btn--primary {
+  background: var(--color-tertiary);
+  border-color: var(--color-tertiary);
+}
+
+.integration-list {
+  display: grid;
+  gap: 1rem var(--spacingGap);
+  list-style: none;
+  margin: 0;
+}
+
+@media (min-width: 800px) {
+  .integration-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.integration-list li {
+  border-top: 1px solid var(--color-hairline);
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin: 0;
+  padding-top: 0.9rem;
+}
+
+.integration-list strong {
+  color: var(--color-heading);
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
 /* --- Quotes ---------------------------------------------------------------- */

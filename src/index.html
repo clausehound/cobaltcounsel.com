@@ -240,6 +240,80 @@ permalink: /
   </ol>
 </section>
 
+<section class="content integrations" id="integrations">
+  <div class="section-intro">
+    <h6 class="subheading">Integrations</h6>
+    <h2>Works where your work already is.</h2>
+    <p>
+      AI made integration the easy part. Clausehound speaks MCP, the open standard AI assistants use
+      to connect to tools, so your assistant can query versioned law and your own precedent
+      directly, and our deliverables land in the tools you already use.
+    </p>
+  </div>
+
+  {% comment %}
+    Two simplified "screenshots", built in HTML/CSS rather than images: crisp
+    at any size, on-palette, and tiny. Illustrative only. The endpoint and the
+    tool names are real (clausehound repo, docs/retention/mcp/tool-catalog.md);
+    the dialogs are simplified, not copies of either product's actual UI.
+  {% endcomment %}
+  <div class="mock-stage">
+    <figure class="mock mock--left">
+      <div class="mock-window" aria-hidden="true">
+        <div class="mock-bar"><span></span><span></span><span></span><em>Claude · Settings · Connectors</em></div>
+        <div class="mock-body">
+          <h4>Add custom connector</h4>
+          <label>Name</label>
+          <div class="mock-field">Clausehound</div>
+          <label>Remote MCP server URL</label>
+          <div class="mock-field mock-field--mono"><span>https://reg.clausehound.com/mcp</span></div>
+          <div class="mock-note">Tools: find_statutes, compare_statute_versions, search_statute_text, fill_schedule</div>
+          <div class="mock-actions">
+            <span class="mock-btn">Cancel</span>
+            <span class="mock-btn mock-btn--primary">Add</span>
+          </div>
+        </div>
+      </div>
+      <figcaption>Add Clausehound to Claude as a connector.</figcaption>
+    </figure>
+
+    <figure class="mock mock--right">
+      <div class="mock-window mock-window--dark" aria-hidden="true">
+        <div class="mock-bar"><span></span><span></span><span></span><em>Clausehound · Agent access</em></div>
+        <div class="mock-body">
+          <h4>Connect your agent</h4>
+          <label>MCP endpoint</label>
+          <div class="mock-field mock-field--mono"><span>https://reg.clausehound.com/mcp</span> <b>Copy</b></div>
+          <label>Access token</label>
+          <div class="mock-field mock-field--mono"><span>ch_live_••••••••••••••••7f3a</span></div>
+          <label>Access</label>
+          <ul class="mock-scopes">
+            <li class="on">Read statutes and every version</li>
+            <li class="on">Search your precedent</li>
+            <li>Fill schedules and spreadsheets</li>
+          </ul>
+          <div class="mock-actions">
+            <span class="mock-btn">Revoke</span>
+            <span class="mock-btn mock-btn--primary">Generate token</span>
+          </div>
+        </div>
+      </div>
+      <figcaption>Or point any agent at Clausehound from its settings.</figcaption>
+    </figure>
+  </div>
+
+  {% comment %}Integration points. Worded as what you can do, not as vendor
+  partnerships; confirm each before shipping.{% endcomment %}
+  <ul class="integration-list">
+    <li><strong>Claude and MCP agents</strong> Connect Clausehound as an MCP server to Claude or any MCP-compatible assistant or agent.</li>
+    <li><strong>Excel and Google Sheets</strong> Answers, abstracts and retention schedules filled straight into your spreadsheets.</li>
+    <li><strong>SharePoint, OneDrive and Google Drive</strong> Point your agent at your document libraries; Clausehound supplies the law and the precedent.</li>
+    <li><strong>Word</strong> Suggested language from your own precedent, ready to drop into a draft.</li>
+    <li><strong>Point-in-time law</strong> Every version of every statute we track, comparable between any two dates.</li>
+    <li><strong>API and exports</strong> GraphQL API, plus CSV, JSON and Excel exports of any analysis.</li>
+  </ul>
+</section>
+
 <section class="content tint quotes">
   <figure>
     <blockquote>
@@ -268,7 +342,7 @@ permalink: /
   </div>
   <div class="post-grid">
     {% for post in collections.posts limit: 3 %}
-      {% include "post-card.html" %}
+      {% include "post-card.html", hideStaleDates: true %}
     {% endfor %}
   </div>
   <a class="button" href="/insights/">All insights</a>
