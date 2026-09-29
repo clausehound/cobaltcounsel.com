@@ -2385,3 +2385,220 @@ mark.tbd {
     margin-right: 0;
   }
 }
+
+/* ==========================================================================
+   Motion: geometric backgrounds, parallax, scroll reveals
+   All CSS. Parallax and reveals use scroll-driven animations
+   (animation-timeline), inside @supports, so browsers without them get the
+   same shapes, static. Everything here stops under prefers-reduced-motion.
+   ========================================================================== */
+
+/* --- Hero: dot grid + floating shapes -------------------------------------- */
+.hero {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+/* A fine dot grid, faded out toward the edges, drifting diagonally. */
+.hero::before {
+  animation: grid-drift 90s linear infinite;
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--color-heading) 22%, transparent) 1px,
+    transparent 1.6px
+  );
+  background-size: 28px 28px;
+  content: "";
+  inset: 0;
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 70% 40%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 80% at 70% 40%, #000 20%, transparent 75%);
+  position: absolute;
+  z-index: -1;
+}
+
+@keyframes grid-drift {
+  to {
+    background-position: 280px 280px;
+  }
+}
+
+.hero-shapes {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+.shape {
+  --size: 9rem;
+  animation: shape-float 40s ease-in-out infinite alternate;
+  display: block;
+  height: var(--size);
+  position: absolute;
+  width: var(--size);
+}
+
+.shape--small {
+  --size: 4rem;
+  animation-duration: 28s;
+}
+
+.shape--ring {
+  border: 1.5px solid color-mix(in srgb, var(--color-heading) 22%, transparent);
+  border-radius: 50%;
+}
+
+.shape--square {
+  background: color-mix(in srgb, var(--color-tertiary) 45%, transparent);
+  border-radius: 18%;
+  rotate: 18deg;
+}
+
+.shape--cross {
+  --size: 2.5rem;
+  background:
+    linear-gradient(var(--color-primary), var(--color-primary)) center / 100% 3px no-repeat,
+    linear-gradient(var(--color-primary), var(--color-primary)) center / 3px 100% no-repeat;
+  opacity: 0.7;
+}
+
+.shape--dots {
+  --size: 7rem;
+  background-image: radial-gradient(color-mix(in srgb, var(--color-verified) 45%, transparent) 2px, transparent 2.5px);
+  background-size: 14px 14px;
+  border-radius: 50%;
+}
+
+/* Slow drift and turn. Uses the individual `rotate` property so the parallax
+   below (on `translate`) can run at the same time. */
+@keyframes shape-float {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 45deg;
+  }
+}
+
+.shape--square {
+  animation-name: shape-float-square;
+}
+
+@keyframes shape-float-square {
+  from {
+    rotate: 18deg;
+  }
+  to {
+    rotate: 72deg;
+  }
+}
+
+/* Keep the busy shapes out from behind the copy on narrow screens. */
+@media (max-width: 1099px) {
+  .shape--ring,
+  .shape--dots {
+    opacity: 0.5;
+  }
+}
+
+/* --- Dark bands: faint diagonal lattice ------------------------------------ */
+.proof,
+.checkout-body {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+
+.proof::before,
+.checkout-body::before {
+  animation: lattice-drift 120s linear infinite;
+  background-image:
+    repeating-linear-gradient(45deg, rgb(176 211 209 / 0.07) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(-45deg, rgb(176 211 209 / 0.07) 0 1px, transparent 1px 36px);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+@keyframes lattice-drift {
+  to {
+    background-position: 360px 0, -360px 0;
+  }
+}
+
+/* --- Scroll-driven: parallax and reveals ----------------------------------- */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Each shape travels --depth over the first screen of scroll, so deeper
+       shapes lag behind the content. */
+    .shape {
+      animation:
+        shape-float 40s ease-in-out infinite alternate,
+        parallax linear both;
+      animation-range: normal, 0 100vh;
+      animation-timeline: auto, scroll(root);
+    }
+
+    .shape--square {
+      animation-name: shape-float-square, parallax;
+    }
+
+    @keyframes parallax {
+      to {
+        translate: 0 var(--depth, -100px);
+      }
+    }
+
+    /* Hero copy and sample card drift up at different rates as the hero
+       scrolls away. */
+    .hero-copy,
+    .hero-sample {
+      animation: hero-out linear both;
+      animation-range: 0 80vh;
+      animation-timeline: scroll(root);
+    }
+
+    .hero-sample {
+      --hero-shift: -40px;
+    }
+
+    /* A light fade only: the CTAs are still on screen here and mustn't
+       look disabled. */
+    @keyframes hero-out {
+      to {
+        opacity: 0.85;
+        translate: 0 var(--hero-shift, -20px);
+      }
+    }
+
+    /* Cards and steps rise into place as they enter the viewport. */
+    .service-card,
+    .post-card,
+    .how-steps li,
+    .pillars li,
+    .shift-split > div,
+    .quotes figure,
+    .pricing-card {
+      animation: reveal ease-out both;
+      animation-range: entry 0% entry 60%;
+      animation-timeline: view();
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        translate: 0 32px;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .shape,
+  .proof::before,
+  .checkout-body::before {
+    animation: none;
+  }
+}
