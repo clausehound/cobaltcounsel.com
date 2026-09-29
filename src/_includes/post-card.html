@@ -1,0 +1,10 @@
+{% comment %}One post in a list. Expects `post` (an item of collections.posts).{% endcomment %}
+{% assign author = authors[post.data.author] %}
+{% comment %}Unmapped authors are bare emails on old posts; show no byline rather than an address.{% endcomment %}
+{% if author.name %}{% assign byline = author.name %}{% elsif post.data.author contains "@" %}{% assign byline = "" %}{% else %}{% assign byline = post.data.author %}{% endif %}
+<a class="post-card" href="{{ post.url }}">
+  <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+  <h3>{{ post.data.title }}</h3>
+  {% if post.data.description %}<p>{{ post.data.description | replace: "*", "" | truncatewords: 32 }}</p>{% endif %}
+  {% if byline != "" %}<span class="post-card-author">{{ byline }}</span>{% endif %}
+</a>

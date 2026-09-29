@@ -1,0 +1,40 @@
+---
+layout: base.html
+---
+{% comment %}
+  One Insights post (the merged Clausehound and DealPrep blogs). `author` is
+  an email key into _data/authors.json for most posts, or a plain name on the
+  few from the DealPrep blog.
+{% endcomment %}
+{% assign person = authors[author] %}
+{% if person.name %}{% assign byline = person.name %}{% elsif author contains "@" %}{% assign byline = "" %}{% else %}{% assign byline = author %}{% endif %}
+<article class="post">
+  <header class="post-header">
+    <a class="subheading post-back" href="/insights/">Insights</a>
+    <h1>{{ title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      {% if byline != "" %}· {{ byline }}{% endif %}
+    </p>
+  </header>
+  <div class="post-body">
+    {{ content }}
+  </div>
+  <footer class="post-footer">
+    <ul class="tags">
+      {% for tag in tags %}{% unless hiddenTags contains tag %}<li>{{ tag }}</li>{% endunless %}{% endfor %}
+    </ul>
+    {% if person.bio %}
+    <div class="post-author">
+      {% if person.image %}<img src="{{ person.image }}" alt="" width="96" height="96" loading="lazy">{% endif %}
+      <p><strong>{{ person.name }}</strong><br>{{ person.bio }}</p>
+    </div>
+    {% endif %}
+    <p class="post-disclaimer">
+      This article is provided for informational purposes only and does not create a
+      lawyer-client relationship with the reader. It is not legal advice and should not be
+      regarded as such. Any reliance on the information is solely at the reader’s own risk.
+    </p>
+  </footer>
+</article>
+{% include "sections/checkout.html", eyebrow: "Book a call", heading: "Have a matter like this?", body: "We'll scope it with you and give you a number before any work starts." %}

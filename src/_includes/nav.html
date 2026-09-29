@@ -1,5 +1,5 @@
 <nav class="nav">
-  <a class="logo" href="/"><img src="/assets/Logo.svg" alt="Cobalt AI logo" width="49" height="57"></a>
+  <a class="logo" href="/"><img src="/assets/Logo.svg" alt="Cobalt" width="49" height="57"></a>
   {% comment %}
     The Cobalt Lawyers pages (wills, dispute, family-law) show the logo alone —
     this is the old Layout `showFullNav: false`. Set `fullNav: false` in a
@@ -9,16 +9,19 @@
   <ul class="nav-links">
     <li>
       <details class="dropdown">
-        <summary>Tools</summary>
+        <summary>Services</summary>
         <div class="dropdown-menu">
-          <a href="/DealPrep/" target="_blank">Dealprep</a>
-          <a href="/policysaurus/">Policysaurus</a>
-          <a href="/diligence-monster/">Diligence Monster</a>
+          {% for service in services %}
+          <a href="{{ service.url }}">{{ service.area }}</a>
+          {% endfor %}
         </div>
       </details>
     </li>
+    <li><a href="/#how">How we work</a></li>
+    <li><a href="/#platform">Platform</a></li>
     <li><a href="/team/">Team</a></li>
-    <li><a href="{{ site.blogUrl }}" target="_blank">Blog</a></li>
+    <li><a href="/insights/">Insights</a></li>
   </ul>
+  <a class="button nav-cta" href="/#checkout">Book a call</a>
   {% endif %}
 </nav>

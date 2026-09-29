@@ -1,0 +1,28 @@
+---
+layout: base.html
+title: Insights
+description: Articles from the Cobalt team on contract law, deals, policy and legal technology.
+pagination:
+  data: collections.posts
+  size: 24
+  alias: posts
+permalink: "/insights/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber | plus: 1 }}/{% endif %}"
+---
+
+<section class="content insights">
+  <div class="section-intro">
+    <h6 class="subheading">Insights</h6>
+    <h1>From the team.</h1>
+    <p>{{ collections.posts | size }} articles on contract law, deals, policy and legal technology, including the full Clausehound and DealPrep blog archives.</p>
+  </div>
+  <div class="post-grid">
+    {% for post in posts %}
+      {% include "post-card.html" %}
+    {% endfor %}
+  </div>
+  <nav class="pager" aria-label="Insights pages">
+    {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Newer</a>{% endif %}
+    <span>Page {{ pagination.pageNumber | plus: 1 }} of {{ pagination.pages | size }}</span>
+    {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Older</a>{% endif %}
+  </nav>
+</section>
