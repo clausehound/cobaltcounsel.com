@@ -1859,30 +1859,6 @@ mark.tbd {
   font-size: 0.85rem;
 }
 
-/* Links on the ink band (the patent citation): readable, underlined. */
-.proof a {
-  color: inherit;
-  padding: 0;
-  text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--color-primary) 70%, transparent);
-  text-underline-offset: 3px;
-}
-
-.proof a::after {
-  content: none;
-}
-
-.platform .section-intro a {
-  color: var(--color-heading);
-  padding: 0;
-  text-decoration: underline;
-  text-decoration-color: var(--color-primary);
-}
-
-.platform .section-intro a::after {
-  content: none;
-}
-
 .proof mark.tbd {
   color: rgb(255 255 255 / 0.75);
 }
