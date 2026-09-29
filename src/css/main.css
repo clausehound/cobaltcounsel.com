@@ -2559,16 +2559,18 @@ mark.tbd {
    animated. Each band names its own view timeline, and its ::before moves
    the light from bottom-left to top-right as the band crosses the screen
    (see the scroll-driven block below). Without scroll timelines the glow
-   simply sits at its starting point. */
+   simply sits at its starting point, unless src/ts/scroll-effects.ts is
+   driving it: the properties inherit, so the script sets them on the band
+   and its ::before picks them up. */
 @property --glow-x {
   syntax: "<percentage>";
-  inherits: false;
+  inherits: true;
   initial-value: 12%;
 }
 
 @property --glow-y {
   syntax: "<percentage>";
-  inherits: false;
+  inherits: true;
   initial-value: 100%;
 }
 
@@ -2659,7 +2661,8 @@ mark.tbd {
       }
     }
 
-    /* Cards and steps rise into place as they enter the viewport. */
+    /* Cards and steps rise into place as they enter the viewport.
+       Keep this list in step with REVEAL_SELECTOR in scroll-effects.ts. */
     .service-card,
     .post-card,
     .how-steps li,
@@ -2691,4 +2694,22 @@ mark.tbd {
 /* Keep identifiers like patent numbers on one line. */
 .nowrap {
   white-space: nowrap;
+}
+
+/* Reveal fallback for browsers without scroll timelines. scroll-effects.ts
+   adds .reveal-fallback to <html> (only when it will also add .is-revealed),
+   so without JS nothing is ever hidden. Same list as the view() reveals. */
+.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff) {
+  opacity: 0;
+  transition:
+    opacity 600ms ease-out,
+    translate 600ms ease-out,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+  translate: 0 32px;
+}
+
+.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff).is-revealed {
+  opacity: 1;
+  translate: 0 0;
 }

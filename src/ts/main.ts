@@ -3,7 +3,9 @@
 import { initDropdowns } from "./dropdown";
 import { initCarousels } from "./carousel";
 import { initCalendly } from "./calendly";
+import { initScrollEffects } from "./scroll-effects";
 
 initDropdowns();
 initCarousels();
 initCalendly();
+initScrollEffects();
