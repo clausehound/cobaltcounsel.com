@@ -18,6 +18,8 @@ const REVEAL_SELECTOR = [
   ".quotes figure",
   ".pricing-card",
   ".law-diff",
+  ".leader",
+  ".team-group",
 ].join(", ");
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));

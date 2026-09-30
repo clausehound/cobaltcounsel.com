@@ -2944,7 +2944,9 @@ mark.tbd {
     .shift-split > div,
     .quotes figure,
     .pricing-card,
-    .law-diff {
+    .law-diff,
+    .leader,
+    .team-group {
       animation: reveal ease-out both;
       animation-range: entry 0% entry 60%;
       animation-timeline: view();
@@ -2955,6 +2957,13 @@ mark.tbd {
         opacity: 0;
         translate: 0 32px;
       }
+    }
+
+    /* Tall cards (team bios) finish their fade within a fixed distance,
+       rather than 60% of their own height, so nobody reads faded text. */
+    .leader,
+    .team-group {
+      animation-range: entry 0% entry 160px;
     }
   }
 }
@@ -2973,7 +2982,7 @@ mark.tbd {
 /* Reveal fallback for browsers without scroll timelines. scroll-effects.ts
    adds .reveal-fallback to <html> (only when it will also add .is-revealed),
    so without JS nothing is ever hidden. Same list as the view() reveals. */
-.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff) {
+.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff, .leader, .team-group) {
   opacity: 0;
   transition:
     opacity 600ms ease-out,
@@ -2983,7 +2992,7 @@ mark.tbd {
   translate: 0 32px;
 }
 
-.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff).is-revealed {
+.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff, .leader, .team-group).is-revealed {
   opacity: 1;
   translate: 0 0;
 }
@@ -2991,4 +3000,153 @@ mark.tbd {
 /* Space between consecutive team profiles (Rajah, then Josh). */
 .profile + .profile {
   margin-top: 5rem;
+}
+
+/* ==========================================================================
+   Team page, in the lander's style
+   ========================================================================== */
+
+/* A single-column hero for inner pages: same tint and dot field as the
+   homepage, without the sample card. */
+.hero--page {
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1100px) {
+  .hero--page {
+    grid-template-columns: 1fr;
+    padding-top: 9rem;
+  }
+}
+
+.hero--page .hero-copy {
+  max-width: 48rem;
+}
+
+.leadership,
+.team-section {
+  padding-top: var(--spacingSection);
+}
+
+.leadership h2,
+.team-section h2 {
+  color: var(--color-heading);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.leaders {
+  display: grid;
+  gap: var(--spacingGap);
+}
+
+@media (min-width: 1100px) {
+  .leaders {
+    align-items: start;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.leader {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+  border-top: 4px solid var(--color-primary);
+  padding: 1.75rem;
+}
+
+.leader-head {
+  align-items: center;
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.leader-photo {
+  border: 3px solid var(--color-tertiary);
+  border-radius: 50%;
+  flex: none;
+  height: 5.5rem;
+  margin: 0;
+  object-fit: cover;
+  width: 5.5rem;
+}
+
+.leader h3 {
+  color: var(--color-heading);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+/* The eyebrow style on a <p> (h6 carries the small size elsewhere). */
+.leader-head .subheading {
+  font-size: 0.7rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.leader > p {
+  color: var(--color-gray);
+}
+
+.leader > p:last-child {
+  margin-bottom: 0;
+}
+
+.team-groups {
+  display: grid;
+  gap: var(--spacingGap);
+}
+
+@media (min-width: 800px) {
+  .team-groups {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.team-group {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+}
+
+.team-group .team-list {
+  margin: 1rem 0 0;
+}
+
+.team-group .team-list li {
+  border-top: 1px solid var(--color-hairline);
+  margin: 0;
+  padding: 0.85rem 0;
+}
+
+.team-group .team-list li:last-child {
+  padding-bottom: 0;
+}
+
+.team-group h4 {
+  color: var(--color-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.team-group .team-list p {
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Phones: photo above the name, so long titles get the full width. */
+@media (max-width: 639px) {
+  .leader {
+    padding: 1.25rem;
+  }
+
+  .leader-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
 }
