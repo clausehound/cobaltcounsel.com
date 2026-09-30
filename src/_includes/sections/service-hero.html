@@ -1,0 +1,25 @@
+{% comment %}
+  Header for the service pages, built like the homepage hero: dot field,
+  eyebrow, headline, lede and actions on the left, the page's own art on the
+  right.
+  Takes: eyebrow, title, lede, art, artAlt, artWidth, artHeight.
+  Optional: logo (an image shown above the headline, e.g. Cobalt Lawyers),
+  secondaryHref + secondaryLabel (a second, text-style action), and
+  artCard: true to set the art on a white card (for screenshots).
+{% endcomment %}
+<header class="hero service-hero">
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="hero-copy">
+    {% if logo %}<img class="service-hero-logo" src="{{ logo }}" alt="Cobalt Lawyers" width="500" height="68">{% endif %}
+    <h6 class="subheading">{{ eyebrow }}</h6>
+    <h1>{{ title }}</h1>
+    {% if lede %}<p class="hero-lede">{{ lede }}</p>{% endif %}
+    <div class="hero-actions">
+      <a class="button" href="#checkout">Book a call</a>
+      {% if secondaryHref %}<a class="hero-secondary" href="{{ secondaryHref }}">{{ secondaryLabel }}</a>{% endif %}
+    </div>
+  </div>
+  <div class="service-hero-art{% if artCard %} service-hero-art--card{% endif %}">
+    <img src="{{ art }}" alt="{{ artAlt }}" width="{{ artWidth }}" height="{{ artHeight }}">
+  </div>
+</header>

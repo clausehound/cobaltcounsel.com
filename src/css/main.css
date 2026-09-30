@@ -2854,7 +2854,8 @@ mark.tbd {
 }
 
 .proof,
-.checkout-body {
+.checkout-body,
+.cta-band {
   isolation: isolate;
   overflow: hidden;
   position: relative;
@@ -2862,7 +2863,8 @@ mark.tbd {
 }
 
 .proof::before,
-.checkout-body::before {
+.checkout-body::before,
+.cta-band::before {
   background:
     radial-gradient(
       ellipse 75% 120% at var(--glow-x) var(--glow-y),
@@ -2901,7 +2903,8 @@ mark.tbd {
     }
 
     .proof::before,
-    .checkout-body::before {
+    .checkout-body::before,
+    .cta-band::before {
       animation: light-shift linear both;
       animation-range: cover;
       animation-timeline: --band;
@@ -2951,7 +2954,10 @@ mark.tbd {
     .pricing-card,
     .law-diff,
     .leader,
-    .team-group {
+    .team-group,
+    .feature-card,
+    .highlight-card,
+    .collections-card {
       animation: reveal ease-out both;
       animation-range: entry 0% entry 60%;
       animation-timeline: view();
@@ -2967,7 +2973,9 @@ mark.tbd {
     /* Tall cards (team bios) finish their fade within a fixed distance,
        rather than 60% of their own height, so nobody reads faded text. */
     .leader,
-    .team-group {
+    .team-group,
+    .highlight-card,
+    .collections-card {
       animation-range: entry 0% entry 160px;
     }
   }
@@ -2988,7 +2996,7 @@ mark.tbd {
 /* Reveal fallback for browsers without scroll timelines. scroll-effects.ts
    adds .reveal-fallback to <html> (only when it will also add .is-revealed),
    so without JS nothing is ever hidden. Same list as the view() reveals. */
-.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff, .leader, .team-group) {
+.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff, .leader, .team-group, .feature-card, .highlight-card, .collections-card) {
   opacity: 0;
   transition:
     opacity 600ms ease-out,
@@ -2998,7 +3006,7 @@ mark.tbd {
   translate: 0 32px;
 }
 
-.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff, .leader, .team-group).is-revealed {
+.reveal-fallback :is(.service-card, .post-card, .how-steps li, .pillars li, .shift-split > div, .quotes figure, .pricing-card, .law-diff, .leader, .team-group, .feature-card, .highlight-card, .collections-card).is-revealed {
   opacity: 1;
   translate: 0 0;
 }
@@ -3360,4 +3368,264 @@ main .content h3.intro-block {
 /* Diligence Monster carousel: hairline, not a black rule. */
 .carousel {
   border-top-color: var(--color-hairline);
+}
+
+/* ==========================================================================
+   Service pages (Diligence Monster, Policysaurus, Cobalt Lawyers), rebuilt
+   on the homepage's components
+   ========================================================================== */
+
+/* --- Header: homepage hero with the page's own art ---------------------- */
+.service-hero-logo {
+  display: block;
+  height: auto;
+  margin-bottom: 1.25rem;
+  width: min(16rem, 70%);
+}
+
+.service-hero-art {
+  justify-self: center;
+  margin: 0;
+}
+
+.service-hero-art img {
+  display: block;
+  filter: drop-shadow(0 24px 40px rgb(20 34 58 / 0.12));
+  margin: 0 auto;
+  max-height: 26rem;
+  width: auto;
+}
+
+.service-hero-art--card {
+  background: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgb(20 34 58 / 0.12);
+  padding: 1.25rem;
+}
+
+.service-hero-art--card img {
+  filter: none;
+}
+
+/* --- Split: copy on one side, a card or art on the other ----------------- */
+.split {
+  align-items: center;
+  display: grid;
+  gap: var(--spacingGap);
+  padding-top: var(--spacingSection);
+}
+
+@media (min-width: 1100px) {
+  .split {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+.split h2 {
+  color: var(--color-heading);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.split p {
+  color: var(--color-gray);
+}
+
+.split-art {
+  margin: 0;
+}
+
+.split-art img {
+  display: block;
+  margin: 0 auto;
+  max-height: 24rem;
+  width: auto;
+}
+
+/* --- Feature cards (Diligence Monster features, Policysaurus tools) ------ */
+.feature-section,
+.demo,
+.case-studies,
+.tech-advantage {
+  padding-top: var(--spacingSection);
+}
+
+.feature-grid {
+  display: grid;
+  gap: var(--spacingGap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+
+.feature-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+  border-top: 4px solid var(--color-primary);
+  padding: 1.5rem;
+}
+
+.feature-card img {
+  display: block;
+  height: 4.5rem;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  object-position: left center;
+  width: auto;
+}
+
+.feature-card h3 {
+  color: var(--color-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* --- Dark call-to-action band (shares the dark bands' scroll glow) ------- */
+.cta-band {
+  align-items: center;
+  color: var(--color-white);
+  display: grid;
+  gap: 1.5rem var(--spacingGap);
+  margin-top: var(--spacingSection);
+  padding: 3rem var(--spacingContent);
+}
+
+@media (min-width: 1100px) {
+  .cta-band {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.cta-band strong {
+  color: var(--color-primary);
+  display: block;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.cta-band p {
+  color: rgb(255 255 255 / 0.8);
+  margin: 0;
+  max-width: 40rem;
+}
+
+/* --- Demo carousel on a card ---------------------------------------------- */
+.demo-carousel {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgb(20 34 58 / 0.1);
+  padding: 1.25rem;
+}
+
+.infographic img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* --- Policysaurus --------------------------------------------------------- */
+.collections-card,
+.highlight-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgb(20 34 58 / 0.08);
+  padding: 1.75rem;
+}
+
+.collections-card p {
+  font-size: 0.9rem;
+}
+
+.collections-card .tags {
+  margin: 0;
+}
+
+.collections-card .tags li {
+  background: color-mix(in srgb, var(--color-tertiary) 35%, transparent);
+  color: var(--color-black);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.7rem;
+}
+
+/* Text-only numbered steps (Policysaurus product description). */
+.how-steps--text {
+  margin-bottom: 0;
+}
+
+.how-steps--text p {
+  color: var(--color-gray);
+  font-size: 0.95rem;
+}
+
+.service-grid--three {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+.tech-advantage .section-intro p {
+  color: var(--color-gray);
+  margin: 0 auto;
+  max-width: 44rem;
+}
+
+/* --- Cobalt Lawyers -------------------------------------------------------- */
+.legal-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.legal-switch a {
+  border: 1px solid var(--color-hairline);
+  border-radius: 50rem;
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  padding: 0.35rem 0.9rem;
+}
+
+.legal-switch a::after {
+  content: none;
+}
+
+.legal-switch a[aria-current="page"] {
+  background: var(--color-heading);
+  border-color: var(--color-heading);
+  color: var(--color-white);
+}
+
+.highlight-card {
+  text-align: center;
+}
+
+.highlight-card img {
+  display: block;
+  height: 10rem;
+  margin: 0 auto 1rem;
+  width: auto;
+}
+
+.highlight-card strong {
+  color: var(--color-heading);
+  display: block;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-card p {
+  margin: 0;
+}
+
+.legal-body {
+  padding-bottom: var(--spacingSection);
 }

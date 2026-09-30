@@ -1,83 +1,80 @@
 ---
 layout: base.html
 title: Diligence Monster by Cobalt AI
+description: Diligence Monster is AI for legal due diligence, with verification and validation tools priced for mid-market deals run by small deal teams.
 permalink: /diligence-monster/
 ---
 
-<header class="page-header page-header--monster">
-  <div class="page-header-image">
-    <img src="/assets/Ranked.svg" alt="" width="1280" height="1024">
-  </div>
-  <div class="page-header-content">
-    <div class="monster-title">
-      <h1>Diligence Monster</h1>
-      <img src="/assets/DiligenceMonster.png" alt="" width="466" height="414">
-    </div>
-    <div class="monster-headline">
-      <h2>Supporting your next business acquisitions</h2>
-      <h2>For deal teams who need incredibly precise AI</h2>
-    </div>
-  </div>
-</header>
+{% include "sections/service-hero.html",
+  eyebrow: "Due diligence",
+  title: "Diligence Monster",
+  lede: "Supporting your next business acquisitions. For deal teams who need incredibly precise AI.",
+  art: "/assets/DiligenceMonster.png", artAlt: "The Diligence Monster", artWidth: 466, artHeight: 414,
+  secondaryHref: "#demo", secondaryLabel: "Watch the demo" %}
 
-<section class="content content--split band diligence-intro">
+<section class="content split">
   <div>
-    <img src="/assets/Tooling.svg" alt="Tooling" width="2048" height="2048">
-  </div>
-  <div class="content-block">
-    <h2>In M&amp;A due diligence is tough work.</h2>
+    <h6 class="subheading">The problem</h6>
+    <h2>In M&amp;A, due diligence is tough work.</h2>
     <p>It’s tedious, time-consuming and must be done carefully.</p>
     <p>
-      Diligence Monster is a AI for Legal Due Diligence, with verification and validation tools
-      priced for mid-market deals run by solo/small deal teams.
+      Diligence Monster is AI for legal due diligence, with verification and validation tools
+      priced for mid-market deals run by solo and small deal teams.
     </p>
   </div>
+  <figure class="split-art">
+    <img src="/assets/Tooling.svg" alt="" width="2048" height="2048">
+  </figure>
 </section>
 
-<section class="content">
-  <div class="intro-centered intro-centered--wide">
-    <h2>Simplify your due diligence review work</h2>
+<section class="content feature-section">
+  <div class="section-intro">
+    <h6 class="subheading">What you get</h6>
+    <h2>Simplify your due diligence review work.</h2>
   </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-title"><span>Flight Pans</span></div>
-      <div class="step-icon"><img src="/assets/flow.svg" alt="" width="960" height="960"></div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <img src="/assets/flow.svg" alt="" width="960" height="960">
+      <h3>Flight Plans</h3>
       <p>Historical deal knowledge collected and presented for future deal reference</p>
     </div>
-    <div class="step">
-      <div class="step-title"><span>An Airbus</span></div>
-      <div class="step-icon"><img src="/assets/twoPager.svg" alt="" width="960" height="960"></div>
+    <div class="feature-card">
+      <img src="/assets/twoPager.svg" alt="" width="960" height="960">
+      <h3>An Airbus</h3>
       <p>To load 100s of documents in a single view</p>
     </div>
-    <div class="step">
-      <div class="step-title"><span>Aicraft Carriers</span></div>
-      <div class="step-icon"><img src="/assets/datasetLinked.svg" alt="" width="960" height="960"></div>
+    <div class="feature-card">
+      <img src="/assets/datasetLinked.svg" alt="" width="960" height="960">
+      <h3>Aircraft Carriers</h3>
       <p>To share research findings in a single link</p>
     </div>
-  </div>
-  <div class="steps--pair">
-    <div class="step">
-      <div class="step-title"><span>An Air Force</span></div>
-      <div class="step-icon"><img src="/assets/searchCheck.svg" alt="" width="960" height="960"></div>
+    <div class="feature-card">
+      <img src="/assets/searchCheck.svg" alt="" width="960" height="960">
+      <h3>An Air Force</h3>
       <p>To give teams research context and verification sourcing</p>
     </div>
-    <div class="step">
-      <div class="step-title"><span>A Copilot</span></div>
-      <div class="step-icon"><img src="/assets/group.svg" alt="" width="960" height="960"></div>
+    <div class="feature-card">
+      <img src="/assets/group.svg" alt="" width="960" height="960">
+      <h3>A Copilot</h3>
       <p>To self-navigate large research datasets using prompts</p>
     </div>
   </div>
-  <div class="conclusion">
-    <h2>
-      To navigate through document-filled wind tunnels pressure-tested on 10,000+ matters
-    </h2>
-  </div>
-  <div class="cta-center">
-    <a class="button" href="/transactions/">Case Studies and Representative Transactions</a>
-  </div>
 </section>
 
-<section class="content carousel" id="frameVideo">
+<section class="cta-band">
+  <div>
+    <strong>10,000+ matters</strong>
+    <p>To navigate through document-filled wind tunnels, pressure-tested on 10,000+ matters.</p>
+  </div>
+  <a class="button" href="/transactions/">Case studies and representative transactions</a>
+</section>
+
+<section class="content demo" id="demo">
+  <div class="section-intro">
+    <h6 class="subheading">See it in action</h6>
+    <h2>Recorded demos.</h2>
+  </div>
+  <div class="carousel demo-carousel" id="frameVideo">
   {% comment %}
     A CSS scroll-snap strip. The dots and the FEATURES links are plain anchors
     to a slide id, so they work with JS off; src/ts/carousel.ts adds the
@@ -159,10 +156,11 @@ permalink: /diligence-monster/
       <a class="feature-link" href="#slide-9">UNIFY - Save your queries for future analysis, quickly create filtered or chunked datasets, and send them to your team with a single link</a>
     </div>
   </details>
+</div>
 </section>
 
 <section class="content infographic">
-  <img src="/assets/infoGraphic.svg" alt="InfoGraphic" width="960" height="540">
+  <img src="/assets/infoGraphic.svg" alt="How Diligence Monster works" width="960" height="540">
 </section>
 
 {% include "sections/checkout.html" %}

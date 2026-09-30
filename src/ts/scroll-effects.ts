@@ -21,6 +21,9 @@ const REVEAL_SELECTOR = [
   ".law-diff",
   ".leader",
   ".team-group",
+  ".feature-card",
+  ".highlight-card",
+  ".collections-card",
 ].join(", ");
 
 const clamp01 = (n: number) => Math.min(1, Math.max(0, n));
@@ -29,7 +32,7 @@ export function initScrollEffects(): void {
   if (CSS.supports("animation-timeline: scroll()")) return;
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const bands = Array.from(document.querySelectorAll<HTMLElement>(".proof, .checkout-body"));
+  const bands = Array.from(document.querySelectorAll<HTMLElement>(".proof, .checkout-body, .cta-band"));
   const dots = document.querySelector<HTMLElement>(".hero-dots");
   const lobby = document.querySelector<HTMLElement>(".team-section");
 

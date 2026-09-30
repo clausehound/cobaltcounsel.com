@@ -1,0 +1,6 @@
+{% comment %}Links between the three Cobalt Lawyers pages. Takes: current (a permalink).{% endcomment %}
+<nav class="legal-switch" aria-label="Cobalt Lawyers services">
+  {% for item in legalServices %}
+  <a href="{{ item.url }}"{% if item.url == current %} aria-current="page"{% endif %}>{{ item.name }}</a>
+  {% endfor %}
+</nav>

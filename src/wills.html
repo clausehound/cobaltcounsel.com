@@ -4,30 +4,26 @@ title: Wills and Estate Planning by Cobalt Lawyers
 permalink: /wills/
 ---
 
-{% include "sections/product-header.html", tagline: "Wills and Estate Planning, Simplified" %}
+{% include "sections/service-hero.html",
+  logo: "/assets/CobaltLawyersLogo.png",
+  eyebrow: "Legal services",
+  title: "Wills and estate planning, simplified.",
+  lede: "If you are drafting a simple will or are in need of a power of attorney document, we can assist.",
+  art: "/assets/RuleLaws.png", artAlt: "", artWidth: 335, artHeight: 416 %}
 
-<section class="content">
-  <div class="content-block">
-    <h3 class="intro-block">
-      If you are drafting a simple will or are in need of a power of attorney document, we can
-      assist.
-    </h3>
-    <h3 class="intro-block">
-      Understanding what the law says on the topic can be simplified with our AI research approach.
-      Answers are then refined by our lawyers who will walk you through your various options.
-    </h3>
-    <h3 class="intro-block">
-      Where your matter is a little more complicated and you are in need of wills and estates
-      research, we may be able to assist you with results within an hour.
-    </h3>
-    <div class="assist-block">
-      <h3 class="intro-block">
-        Our wills team members have reviewed more than 2000 wills and have experience drafting
-        wills, estates, codicils and trust agreements.
-      </h3>
-      <img class="assist-image" src="/assets/TacitKnowledge.png" alt="Tacit Knowledge" width="338" height="396">
-    </div>
+<section class="content split legal-body">
+  <div>
+    {% include "sections/legal-switch.html", current: "/wills/" %}
+    <h6 class="subheading">How we help</h6>
+    <h2>AI research, refined by lawyers.</h2>
+    <p>Understanding what the law says on the topic can be simplified with our AI research approach. Answers are then refined by our lawyers who will walk you through your various options.</p>
+    <p>Where your matter is a little more complicated and you are in need of wills and estates research, we may be able to assist you with results within an hour.</p>
+  </div>
+  <div class="highlight-card">
+    <img src="/assets/TacitKnowledge.png" alt="" width="338" height="396">
+    <strong>2,000+</strong>
+    <p>wills reviewed by our wills team, with experience drafting wills, estates, codicils and trust agreements.</p>
   </div>
 </section>
 
-{% include "sections/checkout.html", eyebrow: "Book a Call", heading: "Book a call to discuss", body: "Our experienced team is happy to work with you." %}
+{% include "sections/checkout.html", eyebrow: "Book a call", heading: "Book a call to discuss.", body: "Our experienced team is happy to work with you." %}
