@@ -3629,3 +3629,24 @@ main .content h3.intro-block {
 .legal-body {
   padding-bottom: var(--spacingSection);
 }
+
+/* --- Nav: current page ----------------------------------------------------- */
+/* The underline that otherwise appears on hover stays drawn, in sapphire. */
+.nav-links a[aria-current="page"],
+.dropdown summary.is-current {
+  color: var(--color-heading);
+  font-weight: 700;
+}
+
+.nav-links > li > a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.dropdown summary.is-current {
+  box-shadow: inset 0 -2px 0 var(--color-primary);
+}
+
+.dropdown-menu a[aria-current="page"] {
+  background-color: var(--color-secondary);
+  box-shadow: inset 3px 0 0 var(--color-primary);
+}

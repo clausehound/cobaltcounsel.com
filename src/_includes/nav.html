@@ -1,27 +1,29 @@
+{% comment %}
+  Current-page highlight is decided at build time: a link gets
+  aria-current="page" when page.url starts with its path (so a post counts
+  as Insights, a case study as Policysaurus), and Services is marked when
+  any service matches.
+{% endcomment %}
+{% assign inService = false %}
+{% for service in services %}{% for path in service.paths %}{% if page.url contains path %}{% assign inService = true %}{% endif %}{% endfor %}{% endfor %}
 <nav class="nav">
   <a class="logo" href="/"><img src="/assets/Logo.svg" alt="Cobalt" width="49" height="57"></a>
-  {% comment %}
-    The Cobalt Lawyers pages (wills, dispute, family-law) show the logo alone —
-    this is the old Layout `showFullNav: false`. Set `fullNav: false` in a
-    page's frontmatter to get that; every other page gets the links.
-  {% endcomment %}
-  {% if fullNav != false %}
   <ul class="nav-links">
     <li>
       <details class="dropdown">
-        <summary>Services</summary>
+        <summary{% if inService %} class="is-current"{% endif %}>Services</summary>
         <div class="dropdown-menu">
           {% for service in services %}
-          <a href="{{ service.url }}">{{ service.area }}</a>
+          {% assign here = false %}{% for path in service.paths %}{% if page.url contains path %}{% assign here = true %}{% endif %}{% endfor %}
+          <a href="{{ service.url }}"{% if here %} aria-current="page"{% endif %}>{{ service.area }}</a>
           {% endfor %}
         </div>
       </details>
     </li>
     <li><a href="/#how">How we work</a></li>
     <li><a href="/#platform">Platform</a></li>
-    <li><a href="/team/">Team</a></li>
-    <li><a href="/insights/">Insights</a></li>
+    <li><a href="/team/"{% if page.url == "/team/" %} aria-current="page"{% endif %}>Team</a></li>
+    <li><a href="/insights/"{% if page.url contains "/insights/" %} aria-current="page"{% endif %}>Insights</a></li>
   </ul>
   <a class="button nav-cta" href="/#checkout">Book a call</a>
-  {% endif %}
 </nav>
