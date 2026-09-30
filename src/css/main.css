@@ -2987,3 +2987,8 @@ mark.tbd {
   opacity: 1;
   translate: 0 0;
 }
+
+/* Space between consecutive team profiles (Rajah, then Josh). */
+.profile + .profile {
+  margin-top: 5rem;
+}
