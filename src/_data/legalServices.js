@@ -1,6 +1,7 @@
 // The Cobalt Lawyers pages, for the switcher on each (sections/legal-switch.html).
+// M&A and transactional work is the practice; /wills/ and /family-law/ still
+// build (old links) but aren't offered here.
 module.exports = [
-  { name: "Wills and estates", url: "/wills/" },
+  { name: "M&A and transactions", url: "/transactions/" },
   { name: "Commercial disputes", url: "/dispute/" },
-  { name: "Family law", url: "/family-law/" },
 ];

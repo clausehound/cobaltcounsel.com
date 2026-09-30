@@ -30,11 +30,11 @@ module.exports = [
     tags: ["Concordance", "Gap analysis", "Compare tool"],
   },
   {
-    area: "Legal services",
+    area: "M&A and transactions",
     name: "Cobalt Lawyers",
-    url: "/wills/",
-    paths: ["/wills/", "/dispute/", "/family-law/"],
-    body: "Wills and estates, disputes and family law: AI-assisted research, refined by our lawyers, who walk you through your options.",
-    tags: ["Wills & estates", "Disputes", "Family law"],
+    url: "/transactions/",
+    paths: ["/transactions/", "/dispute/", "/wills/", "/family-law/"],
+    body: "Acquisitions, divestitures, financings and commercial agreements, run by our lawyers with the diligence done on our own platform.",
+    tags: ["M&A", "Financings", "Commercial agreements"],
   },
 ];
