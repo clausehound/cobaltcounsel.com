@@ -694,24 +694,6 @@ a:hover::after {
   line-height: 1.2;
 }
 
-.header-curve {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-bottom: 2rem;
-  /* pulls the seam closed under the header's background */
-  margin-top: -2px;
-}
-
-.header-curve-fill {
-  fill: var(--color-secondary);
-}
-
-.header-curve-line {
-  fill: none;
-  stroke: var(--color-black);
-}
-
 /* --------------------------------------------------------------------------
    Three-up section grid — shared by sectionSetup, sectionTestimonial and
    teamSetup, which all used a byte-identical Setup/Step/Seperator trio.
@@ -1067,10 +1049,6 @@ a:hover::after {
 /* the white-ground header variant used by the Policysaurus case studies */
 .page-header--white {
   background-color: var(--color-white);
-}
-
-.header-curve--white .header-curve-fill {
-  fill: var(--color-white);
 }
 
 /* --------------------------------------------------------------------------
@@ -2798,10 +2776,14 @@ mark.tbd {
    four minutes and zooms in and out over 40 seconds; `rotate` and `scale`
    are separate properties so both run at once, leaving `translate` free
    for the scroll parallax below. */
-.hero-dots {
+/* Also the backdrop of the older inner-page headers (.page-header), as a
+   pseudo-element: same dots and motion, no parallax. */
+.hero-dots,
+.page-header::before {
   animation:
     dots-turn 240s linear infinite,
     dots-breathe 40s ease-in-out infinite alternate;
+  content: "";
   background-image: radial-gradient(
     color-mix(in srgb, var(--color-verified) 30%, transparent) 2px,
     transparent 2.6px
@@ -2992,7 +2974,8 @@ mark.tbd {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-dots {
+  .hero-dots,
+  .page-header::before {
     animation: none;
   }
 }
@@ -3235,4 +3218,146 @@ body {
 /* The <picture> around the booking image takes no part in layout. */
 .checkout > picture {
   display: contents;
+}
+
+/* ==========================================================================
+   Inner pages in the new theme (services, legal services, testimonials,
+   transactions, Policysaurus case studies). Content unchanged; this restyles
+   the older building blocks to match the homepage.
+   ========================================================================== */
+
+/* --- Headers: tint, dot field, bold sapphire headline; art kept ---------- */
+.page-header {
+  align-items: center;
+  gap: var(--spacingGap);
+  isolation: isolate;
+  min-height: 0;
+  overflow: hidden;
+  padding: 8rem var(--spacingContent) var(--spacingSection);
+}
+
+@media (min-width: 1100px) {
+  .page-header {
+    padding-top: 9rem;
+  }
+}
+
+.page-header h1 {
+  color: var(--color-heading);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h3 {
+  color: var(--color-gray);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.page-header img {
+  position: relative;
+}
+
+/* --- Bands: straight, full-width tint instead of skewed slabs ------------ */
+.band::before,
+.band::after {
+  content: none;
+}
+
+.band--tint {
+  background: var(--color-secondary);
+  border-top: 0;
+  box-shadow: 0 0 0 100vmax var(--color-secondary);
+  clip-path: inset(0 -100vmax);
+  padding-top: var(--spacingSection);
+  padding-bottom: var(--spacingSection);
+}
+
+/* --- Type: section headings in the homepage's bold sapphire -------------- */
+main .content h1,
+main .content h2 {
+  color: var(--color-heading);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+main .content h3 {
+  color: var(--color-heading);
+  line-height: 1.3;
+}
+
+/* The Cobalt Lawyers pages set their body copy as h3s; read as a lede. */
+main .content h3.intro-block {
+  color: var(--color-gray);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* --- Testimonials: quotes like the homepage's ----------------------------- */
+.quote-list .quote {
+  border-left: 3px solid var(--color-primary);
+  color: var(--color-heading);
+  font-size: 1.05rem;
+  font-style: normal;
+  padding-left: 1.25rem;
+}
+
+.quote-list .quote-source {
+  color: var(--color-light-gray);
+  font-size: 0.85rem;
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+}
+
+/* --- Transactions: a grid of cards --------------------------------------- */
+.content-block:has(> .transaction) {
+  display: grid;
+  gap: 1rem var(--spacingGap);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+}
+
+.transaction {
+  background: var(--color-white);
+  border: 1px solid var(--color-hairline);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 8px;
+  color: var(--color-gray);
+  margin: 0;
+  padding: 1rem 1.25rem;
+}
+
+/* --- Leftover old details, softened ---------------------------------------- */
+/* Testimonials' credential blocks: the old highlighter bar on an empty
+   element becomes a thin Orange Pop rule. */
+.step-rule {
+  height: auto;
+  min-height: 3px;
+}
+
+.step-rule::after {
+  bottom: 0;
+  height: 3px;
+  left: 0;
+  opacity: 1;
+  width: 100%;
+}
+
+/* Policysaurus research collections: hairlines and a rounded card. */
+.collections-list {
+  border: 1px solid var(--color-hairline);
+  border-radius: 8px;
+}
+
+.collections-list p {
+  border-bottom-color: var(--color-hairline);
+  color: var(--color-gray);
+}
+
+/* Diligence Monster carousel: hairline, not a black rule. */
+.carousel {
+  border-top-color: var(--color-hairline);
 }
