@@ -3,14 +3,15 @@
   eyebrow, headline, lede and actions on the left, the page's own art on the
   right.
   Takes: eyebrow, title, lede, art, artAlt, artWidth, artHeight.
-  Optional: logo (an image shown above the headline, e.g. Cobalt Lawyers),
+  Optional: logo + logoAlt (+ logoWidth, logoHeight) for an image above the
+  headline (Cobalt Lawyers, DealPrep),
   secondaryHref + secondaryLabel (a second, text-style action), and
   artCard: true to set the art on a white card (for screenshots).
 {% endcomment %}
 <header class="hero service-hero">
   <div class="hero-dots" aria-hidden="true"></div>
   <div class="hero-copy">
-    {% if logo %}<img class="service-hero-logo" src="{{ logo }}" alt="Cobalt Lawyers" width="500" height="68">{% endif %}
+    {% if logo %}<img class="service-hero-logo" src="{{ logo }}" alt="{{ logoAlt }}" width="{{ logoWidth | default: 500 }}" height="{{ logoHeight | default: 68 }}">{% endif %}
     <h6 class="subheading">{{ eyebrow }}</h6>
     <h1>{{ title }}</h1>
     {% if lede %}<p class="hero-lede">{{ lede }}</p>{% endif %}
