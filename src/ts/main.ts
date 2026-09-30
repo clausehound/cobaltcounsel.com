@@ -4,8 +4,10 @@ import { initDropdowns } from "./dropdown";
 import { initCarousels } from "./carousel";
 import { initCalendly } from "./calendly";
 import { initScrollEffects } from "./scroll-effects";
+import { initHexFills } from "./hex-fills";
 
 initDropdowns();
 initCarousels();
 initCalendly();
 initScrollEffects();
+initHexFills();
