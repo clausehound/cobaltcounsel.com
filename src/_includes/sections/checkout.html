@@ -1,5 +1,14 @@
 <section class="checkout" id="checkout">
-  <img class="checkout-image" src="/assets/lobbySketch.png" alt="checkout lobby" width="1920" height="1080" loading="lazy">
+  {% comment %}
+    The lobby sketch. Pass `image: false` to leave it out (the team page uses
+    the same sketch as its team-section backdrop). WebP first: 82KB vs 1MB.
+  {% endcomment %}
+  {% unless image == false %}
+  <picture>
+    <source srcset="/lobbySketch.webp" type="image/webp">
+    <img class="checkout-image" src="/assets/lobbySketch.png" alt="checkout lobby" width="1920" height="1080" loading="lazy">
+  </picture>
+  {% endunless %}
   <div class="checkout-body">
     {% comment %}
       Copy defaults to the main-site wording; the Cobalt Lawyers pages override

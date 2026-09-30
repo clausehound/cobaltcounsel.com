@@ -3150,3 +3150,66 @@ mark.tbd {
     gap: 0.9rem;
   }
 }
+
+/* --- Team section: lobby sketch backdrop ----------------------------------- */
+/* The sketch runs edge to edge behind "Who you'll work with", under a wash of
+   the page tint (heavier at the top, behind the heading) so the cards and
+   copy stay the focus. Its vertical position is a registered property,
+   panned by the section's own view timeline (and by scroll-effects.ts where
+   scroll timelines aren't supported), so it drifts gently as you scroll. */
+@property --lobby-y {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
+/* The backdrop is a full-bleed pseudo-element; clip, rather than hide,
+   sideways overflow so 100vw can't add a horizontal scrollbar. */
+body {
+  overflow-x: clip;
+}
+
+.team-section {
+  isolation: isolate;
+  view-timeline-name: --lobby;
+}
+
+.team-section::before {
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-secondary) 94%, transparent) 0%,
+      color-mix(in srgb, var(--color-secondary) 78%, transparent) 35%,
+      color-mix(in srgb, var(--color-secondary) 55%, transparent) 100%
+    ),
+    image-set(url("/lobbySketch.webp") type("image/webp"), url("/assets/lobbySketch.png") type("image/png"))
+      center var(--lobby-y) / cover no-repeat;
+  content: "";
+  inset: 0 calc(50% - 50vw);
+  position: absolute;
+  z-index: -1;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .team-section::before {
+      animation: lobby-pan linear both;
+      animation-range: cover;
+      animation-timeline: --lobby;
+    }
+
+    @keyframes lobby-pan {
+      from {
+        --lobby-y: 30%;
+      }
+      to {
+        --lobby-y: 70%;
+      }
+    }
+  }
+}
+
+/* The <picture> around the booking image takes no part in layout. */
+.checkout > picture {
+  display: contents;
+}

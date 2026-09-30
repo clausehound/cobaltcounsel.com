@@ -3,10 +3,11 @@
 // this itself and this file does nothing. It also does nothing under
 // prefers-reduced-motion, and without JS the page is simply static.
 //
-// Mirrors three effects from the "Motion" section of main.css:
+// Mirrors the scroll effects from the "Motion" section of main.css:
 //   - the dark bands' glow travels bottom-left to top-right across the band
 //   - the hero dot field lags behind the page (parallax)
 //   - cards and steps rise into place as they enter the viewport
+//   - the team page's lobby sketch pans as its section scrolls by
 
 // Keep in step with the reveal selector list in main.css.
 const REVEAL_SELECTOR = [
@@ -30,6 +31,7 @@ export function initScrollEffects(): void {
 
   const bands = Array.from(document.querySelectorAll<HTMLElement>(".proof, .checkout-body"));
   const dots = document.querySelector<HTMLElement>(".hero-dots");
+  const lobby = document.querySelector<HTMLElement>(".team-section");
 
   const update = () => {
     const vh = window.innerHeight;
@@ -40,6 +42,11 @@ export function initScrollEffects(): void {
       const progress = clamp01((vh - top) / (vh + height));
       band.style.setProperty("--glow-x", `${5 + 90 * progress}%`);
       band.style.setProperty("--glow-y", `${115 - 130 * progress}%`);
+    }
+    if (lobby) {
+      // The team page's lobby sketch pans 30% -> 70% across the same range.
+      const { top, height } = lobby.getBoundingClientRect();
+      lobby.style.setProperty("--lobby-y", `${30 + 40 * clamp01((vh - top) / (vh + height))}%`);
     }
     if (dots) dots.style.translate = `0 ${-160 * clamp01(window.scrollY / vh)}px`;
   };
