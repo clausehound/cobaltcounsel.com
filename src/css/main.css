@@ -3757,3 +3757,30 @@ main .content h3.intro-block {
   margin: 0 auto;
   max-width: 46rem;
 }
+
+/* --- How we work: staffing split in place of fee figures ------------------- */
+.staffing-bar {
+  border-radius: 50rem;
+  display: flex;
+  height: 0.9rem;
+  margin: 0 0 1.25rem;
+  overflow: hidden;
+}
+
+.staffing-bar-junior {
+  background: var(--color-primary);
+  flex: 0 0 80%;
+}
+
+.staffing-bar-senior {
+  background: var(--color-heading);
+  flex: 1;
+}
+
+.pricing-card dl div:nth-child(2) dt {
+  color: var(--color-heading);
+}
+
+.pricing-card dl div:first-child dt {
+  color: #b87500;
+}
